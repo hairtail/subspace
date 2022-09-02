@@ -1,11 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-node/src/chain_spec.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>chain_spec.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../subspace_node/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../subspace_node/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../subspace_node/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-node/src/chain_spec.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>chain_spec.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../subspace_node/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../subspace_node/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../subspace_node/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -418,6 +411,22 @@
 <span id="411">411</span>
 <span id="412">412</span>
 <span id="413">413</span>
+<span id="414">414</span>
+<span id="415">415</span>
+<span id="416">416</span>
+<span id="417">417</span>
+<span id="418">418</span>
+<span id="419">419</span>
+<span id="420">420</span>
+<span id="421">421</span>
+<span id="422">422</span>
+<span id="423">423</span>
+<span id="424">424</span>
+<span id="425">425</span>
+<span id="426">426</span>
+<span id="427">427</span>
+<span id="428">428</span>
+<span id="429">429</span>
 </pre><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.</span>
 <span class="comment">// SPDX-License-Identifier: GPL-3.0-or-later</span>
 
@@ -444,17 +453,17 @@
 <span class="kw">use</span> <span class="ident">sc_service::ChainType</span>;
 <span class="kw">use</span> <span class="ident">sc_subspace_chain_specs</span>::{<span class="ident">ChainSpecExtensions</span>, <span class="ident">ConsensusChainSpec</span>};
 <span class="kw">use</span> <span class="ident">sc_telemetry::TelemetryEndpoints</span>;
-<span class="kw">use</span> <span class="ident">sp_core::crypto::Ss58Codec</span>;
+<span class="kw">use</span> <span class="ident">sp_consensus_subspace::FarmerPublicKey</span>;
+<span class="kw">use</span> <span class="ident">sp_core::crypto</span>::{<span class="ident">Ss58Codec</span>, <span class="ident">UncheckedFrom</span>};
 <span class="kw">use</span> <span class="ident">sp_executor::ExecutorId</span>;
 <span class="kw">use</span> <span class="ident">subspace_runtime</span>::{
-    <span class="ident">BalancesConfig</span>, <span class="ident">ExecutorConfig</span>, <span class="ident">GenesisConfig</span>, <span class="ident">RuntimeConfigsConfig</span>, <span class="ident">SubspaceConfig</span>,
-    <span class="ident">SudoConfig</span>, <span class="ident">SystemConfig</span>, <span class="ident">VestingConfig</span>, <span class="ident">MILLISECS_PER_BLOCK</span>, <span class="ident">WASM_BINARY</span>,
+    <span class="ident">AllowAuthoringBy</span>, <span class="ident">BalancesConfig</span>, <span class="ident">ExecutorConfig</span>, <span class="ident">GenesisConfig</span>, <span class="ident">RuntimeConfigsConfig</span>,
+    <span class="ident">SubspaceConfig</span>, <span class="ident">SudoConfig</span>, <span class="ident">SystemConfig</span>, <span class="ident">VestingConfig</span>, <span class="ident">MILLISECS_PER_BLOCK</span>, <span class="ident">WASM_BINARY</span>,
 };
 <span class="kw">use</span> <span class="ident">subspace_runtime_primitives</span>::{<span class="ident">AccountId</span>, <span class="ident">Balance</span>, <span class="ident">BlockNumber</span>, <span class="ident">SSC</span>};
 
 <span class="kw">const</span> <span class="ident">POLKADOT_TELEMETRY_URL</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;wss://telemetry.polkadot.io/submit/&quot;</span>;
 <span class="kw">const</span> <span class="ident">SUBSPACE_TELEMETRY_URL</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;wss://telemetry.subspace.network/submit/&quot;</span>;
-<span class="kw">const</span> <span class="ident">GEMINI_1_CHAIN_SPEC</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="macro">include_bytes!</span>(<span class="string">&quot;../res/chain-spec-raw-gemini-1.json&quot;</span>);
 <span class="kw">const</span> <span class="ident">X_NET_1_CHAIN_SPEC</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="macro">include_bytes!</span>(<span class="string">&quot;../res/chain-spec-raw-x-net-1.json&quot;</span>);
 
 <span class="doccomment">/// List of accounts which should receive token grants, amounts are specified in SSC.</span>
@@ -488,23 +497,23 @@
 <span class="kw">struct</span> <span class="ident">GenesisParams</span> {
     <span class="ident">enable_rewards</span>: <span class="ident">bool</span>,
     <span class="ident">enable_storage_access</span>: <span class="ident">bool</span>,
-    <span class="ident">allow_authoring_by_anyone</span>: <span class="ident">bool</span>,
+    <span class="ident">allow_authoring_by</span>: <span class="ident">AllowAuthoringBy</span>,
     <span class="ident">enable_executor</span>: <span class="ident">bool</span>,
+    <span class="ident">max_plot_size</span>: <span class="ident">u64</span>,
 }
 
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">gemini_config</span>() -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">ConsensusChainSpec</span><span class="op">&lt;</span><span class="ident">GenesisConfig</span>, <span class="ident">ExecutionGenesisConfig</span><span class="op">&gt;</span>, <span class="ident">String</span><span class="op">&gt;</span>
-{
-    <span class="ident">ConsensusChainSpec::from_json_bytes</span>(<span class="ident">GEMINI_1_CHAIN_SPEC</span>)
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">gemini_2a</span>() -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">ConsensusChainSpec</span><span class="op">&lt;</span><span class="ident">GenesisConfig</span>, <span class="ident">ExecutionGenesisConfig</span><span class="op">&gt;</span>, <span class="ident">String</span><span class="op">&gt;</span> {
+    <span class="macro">unimplemented!</span>()
 }
 
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">gemini_config_compiled</span>(
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">gemini_2a_compiled</span>(
 ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">ConsensusChainSpec</span><span class="op">&lt;</span><span class="ident">GenesisConfig</span>, <span class="ident">ExecutionGenesisConfig</span><span class="op">&gt;</span>, <span class="ident">String</span><span class="op">&gt;</span> {
     <span class="prelude-val">Ok</span>(<span class="ident">ConsensusChainSpec::from_genesis</span>(
         <span class="comment">// Name</span>
-        <span class="string">&quot;Subspace Gemini 1&quot;</span>,
+        <span class="string">&quot;Subspace Gemini 2a&quot;</span>,
         <span class="comment">// ID</span>
-        <span class="string">&quot;subspace_gemini_1b&quot;</span>,
-        <span class="ident">ChainType::Custom</span>(<span class="string">&quot;Subspace Gemini 1&quot;</span>.<span class="ident">to_string</span>()),
+        <span class="string">&quot;subspace_gemini_2a&quot;</span>,
+        <span class="ident">ChainType::Custom</span>(<span class="string">&quot;Subspace Gemini 2a&quot;</span>.<span class="ident">to_string</span>()),
         <span class="op">|</span><span class="op">|</span> {
             <span class="kw">let</span> <span class="ident">sudo_account</span> <span class="op">=</span>
                 <span class="ident">AccountId::from_ss58check</span>(<span class="string">&quot;5CXTmJEusve5ixyJufqHThmy4qUrrm6FyLCR7QfE4bbyMTNC&quot;</span>)
@@ -561,8 +570,16 @@
                 <span class="ident">GenesisParams</span> {
                     <span class="ident">enable_rewards</span>: <span class="bool-val">false</span>,
                     <span class="ident">enable_storage_access</span>: <span class="bool-val">false</span>,
-                    <span class="ident">allow_authoring_by_anyone</span>: <span class="bool-val">false</span>,
+                    <span class="ident">allow_authoring_by</span>: <span class="ident">AllowAuthoringBy::RootFarmer</span>(
+                        <span class="ident">FarmerPublicKey::unchecked_from</span>([
+                            <span class="number">0x50</span>, <span class="number">0x69</span>, <span class="number">0x60</span>, <span class="number">0xf3</span>, <span class="number">0x50</span>, <span class="number">0x33</span>, <span class="number">0xee</span>, <span class="number">0xc1</span>, <span class="number">0x12</span>, <span class="number">0xb5</span>, <span class="number">0xbc</span>, <span class="number">0xb4</span>,
+                            <span class="number">0xe5</span>, <span class="number">0x91</span>, <span class="number">0xfb</span>, <span class="number">0xbb</span>, <span class="number">0xf5</span>, <span class="number">0x88</span>, <span class="number">0xac</span>, <span class="number">0x45</span>, <span class="number">0x26</span>, <span class="number">0x90</span>, <span class="number">0xd4</span>, <span class="number">0x70</span>,
+                            <span class="number">0x32</span>, <span class="number">0x6c</span>, <span class="number">0x3f</span>, <span class="number">0x7b</span>, <span class="number">0x4e</span>, <span class="number">0xd9</span>, <span class="number">0x41</span>, <span class="number">0x17</span>,
+                        ]),
+                    ),
                     <span class="ident">enable_executor</span>: <span class="bool-val">false</span>,
+                    <span class="comment">// 10GiB</span>
+                    <span class="ident">max_plot_size</span>: <span class="number">10</span> <span class="op">*</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span>,
                 },
             )
         },
@@ -577,13 +594,13 @@
             .<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">error</span><span class="op">|</span> <span class="ident">error</span>.<span class="ident">to_string</span>())<span class="question-mark">?</span>,
         ),
         <span class="comment">// Protocol ID</span>
-        <span class="prelude-val">Some</span>(<span class="string">&quot;subspace-gemini-1b&quot;</span>),
+        <span class="prelude-val">Some</span>(<span class="string">&quot;subspace-gemini-2a&quot;</span>),
         <span class="prelude-val">None</span>,
         <span class="comment">// Properties</span>
         <span class="prelude-val">Some</span>(<span class="ident">chain_spec_properties</span>()),
         <span class="comment">// Extensions</span>
         <span class="ident">ChainSpecExtensions</span> {
-            <span class="ident">execution_chain_spec</span>: <span class="ident">secondary_chain::chain_spec::gemini_config</span>(),
+            <span class="ident">execution_chain_spec</span>: <span class="ident">secondary_chain::chain_spec::development_config</span>(),
         },
     ))
 }
@@ -656,8 +673,10 @@
                 <span class="ident">GenesisParams</span> {
                     <span class="ident">enable_rewards</span>: <span class="bool-val">false</span>,
                     <span class="ident">enable_storage_access</span>: <span class="bool-val">false</span>,
-                    <span class="ident">allow_authoring_by_anyone</span>: <span class="bool-val">false</span>,
+                    <span class="ident">allow_authoring_by</span>: <span class="ident">AllowAuthoringBy::FirstFarmer</span>,
                     <span class="ident">enable_executor</span>: <span class="bool-val">true</span>,
+                    <span class="comment">// 100GiB</span>
+                    <span class="ident">max_plot_size</span>: <span class="number">100</span> <span class="op">*</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span>,
                 },
             )
         },
@@ -712,8 +731,10 @@
                 <span class="ident">GenesisParams</span> {
                     <span class="ident">enable_rewards</span>: <span class="bool-val">false</span>,
                     <span class="ident">enable_storage_access</span>: <span class="bool-val">false</span>,
-                    <span class="ident">allow_authoring_by_anyone</span>: <span class="bool-val">true</span>,
+                    <span class="ident">allow_authoring_by</span>: <span class="ident">AllowAuthoringBy::Anyone</span>,
                     <span class="ident">enable_executor</span>: <span class="bool-val">true</span>,
+                    <span class="comment">// 100GiB</span>
+                    <span class="ident">max_plot_size</span>: <span class="number">100</span> <span class="op">*</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span>,
                 },
             )
         },
@@ -770,8 +791,10 @@
                 <span class="ident">GenesisParams</span> {
                     <span class="ident">enable_rewards</span>: <span class="bool-val">false</span>,
                     <span class="ident">enable_storage_access</span>: <span class="bool-val">false</span>,
-                    <span class="ident">allow_authoring_by_anyone</span>: <span class="bool-val">true</span>,
+                    <span class="ident">allow_authoring_by</span>: <span class="ident">AllowAuthoringBy::Anyone</span>,
                     <span class="ident">enable_executor</span>: <span class="bool-val">true</span>,
+                    <span class="comment">// 100GiB</span>
+                    <span class="ident">max_plot_size</span>: <span class="number">100</span> <span class="op">*</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span>,
                 },
             )
         },
@@ -804,8 +827,9 @@
     <span class="kw">let</span> <span class="ident">GenesisParams</span> {
         <span class="ident">enable_rewards</span>,
         <span class="ident">enable_storage_access</span>,
-        <span class="ident">allow_authoring_by_anyone</span>,
+        <span class="ident">allow_authoring_by</span>,
         <span class="ident">enable_executor</span>,
+        <span class="ident">max_plot_size</span>,
     } <span class="op">=</span> <span class="ident">genesis_params</span>;
 
     <span class="ident">GenesisConfig</span> {
@@ -822,7 +846,8 @@
         <span class="ident">subspace</span>: <span class="ident">SubspaceConfig</span> {
             <span class="ident">enable_rewards</span>,
             <span class="ident">enable_storage_access</span>,
-            <span class="ident">allow_authoring_by_anyone</span>,
+            <span class="ident">allow_authoring_by</span>,
+            <span class="ident">max_plot_size</span>,
         },
         <span class="ident">vesting</span>: <span class="ident">VestingConfig</span> { <span class="ident">vesting</span> },
         <span class="ident">executor</span>: <span class="ident">ExecutorConfig</span> {
@@ -832,5 +857,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="subspace_node" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.63.0-nightly (42e1761c7 2022-05-15)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="subspace_node" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (20ffea693 2022-08-11)" ></div></body></html>
