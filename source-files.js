@@ -13,6 +13,7 @@ var sourcesIndex = JSON.parse('{\
 "pallet_executor":["",[],["lib.rs"]],\
 "pallet_feeds":["",[],["feed_processor.rs","lib.rs"]],\
 "pallet_grandpa_finality_verifier":["",[],["chain.rs","grandpa.rs","lib.rs"]],\
+"pallet_messenger":["",[],["lib.rs"]],\
 "pallet_object_store":["",[],["lib.rs"]],\
 "pallet_offences_subspace":["",[],["lib.rs"]],\
 "pallet_rewards":["",[],["default_weights.rs","lib.rs"]],\
@@ -23,14 +24,15 @@ var sourcesIndex = JSON.parse('{\
 "sc_consensus_subspace":["",[],["archiver.rs","aux_schema.rs","lib.rs","notification.rs","slot_worker.rs"]],\
 "sc_consensus_subspace_rpc":["",[],["lib.rs"]],\
 "sc_network_test":["",[],["lib.rs"]],\
+"sc_piece_cache":["",[],["lib.rs"]],\
 "sc_subspace_chain_specs":["",[],["lib.rs","utils.rs"]],\
 "sp_consensus_subspace":["",[],["digests.rs","inherents.rs","lib.rs","offence.rs"]],\
 "sp_executor":["",[],["lib.rs"]],\
 "sp_lightclient":["",[],["lib.rs"]],\
 "sp_objects":["",[],["lib.rs"]],\
-"subspace_archiving":["",[["archiver",[],["record_shards.rs"]]],["archiver.rs","lib.rs","merkle_tree.rs","reconstructor.rs","utils.rs"]],\
-"subspace_core_primitives":["",[],["crypto.rs","lib.rs","objects.rs"]],\
-"subspace_farmer":["",[["commitments",[],["databases.rs","metadata.rs"]],["plot",[],["piece_index_hash_to_offset_db.rs","piece_offset_to_index_db.rs","worker.rs"]],["rpc_client",[],["bench_rpc_client.rs","node_rpc_client.rs"]],["single_plot_farm",[],["dsn_archiving.rs"]]],["archiving.rs","commitments.rs","dsn.rs","farming.rs","file_ext.rs","identity.rs","legacy_multi_plots_farm.rs","lib.rs","object_mappings.rs","plot.rs","rpc_client.rs","single_disk_farm.rs","single_plot_farm.rs","utils.rs","ws_rpc_server.rs"]],\
+"subspace_archiving":["",[["archiver",[],["record_shards.rs"]]],["archiver.rs","lib.rs","reconstructor.rs","utils.rs"]],\
+"subspace_core_primitives":["",[["crypto",[["kzg",[],["serde.rs"]]],["kzg.rs"]]],["crypto.rs","lib.rs","objects.rs"]],\
+"subspace_farmer":["",[["commitments",[],["databases.rs","metadata.rs"]],["plot",[],["piece_index_hash_to_offset_db.rs","piece_offset_to_index_db.rs","worker.rs"]],["rpc_client",[],["bench_rpc_client.rs","node_rpc_client.rs"]]],["archiving.rs","commitments.rs","dsn.rs","farming.rs","file_ext.rs","identity.rs","lib.rs","object_mappings.rs","plot.rs","rpc_client.rs","single_disk_farm.rs","single_plot_farm.rs","utils.rs","ws_rpc_server.rs"]],\
 "subspace_fraud_proof":["",[],["lib.rs"]],\
 "subspace_networking":["",[["behavior",[],["custom_record_store.rs","persistent_parameters.rs"]],["request_handlers",[],["generic_request_handler.rs","object_mappings.rs","peer_info.rs","pieces_by_range.rs"]]],["behavior.rs","create.rs","lib.rs","multimess.rs","node.rs","node_runner.rs","request_handlers.rs","request_responses.rs","shared.rs","utils.rs"]],\
 "subspace_node":["",[["secondary_chain",[],["chain_spec.rs","cli.rs"]]],["chain_spec.rs","chain_spec_utils.rs","import_blocks_from_dsn.rs","lib.rs","secondary_chain.rs"]],\
