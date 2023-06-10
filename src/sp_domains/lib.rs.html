@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/sp-domains/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-52c5db6f6f352e54.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-4743e13df3dfe8c4.css"><link rel="stylesheet" disabled href="../../static.files/dark-0e1b889528bd466b.css"><link rel="stylesheet" disabled href="../../static.files/ayu-65289d5d067c7c66.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-d2686a620d99aad7.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../sp_domains/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/sp-domains/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="sp_domains" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0-nightly (ce5919fce 2023-05-15)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-6f6ffb5395b17c6e.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../sp_domains/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -455,7 +455,127 @@
 <a href="#455" id="455">455</a>
 <a href="#456" id="456">456</a>
 <a href="#457" id="457">457</a>
-</pre><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.
+<a href="#458" id="458">458</a>
+<a href="#459" id="459">459</a>
+<a href="#460" id="460">460</a>
+<a href="#461" id="461">461</a>
+<a href="#462" id="462">462</a>
+<a href="#463" id="463">463</a>
+<a href="#464" id="464">464</a>
+<a href="#465" id="465">465</a>
+<a href="#466" id="466">466</a>
+<a href="#467" id="467">467</a>
+<a href="#468" id="468">468</a>
+<a href="#469" id="469">469</a>
+<a href="#470" id="470">470</a>
+<a href="#471" id="471">471</a>
+<a href="#472" id="472">472</a>
+<a href="#473" id="473">473</a>
+<a href="#474" id="474">474</a>
+<a href="#475" id="475">475</a>
+<a href="#476" id="476">476</a>
+<a href="#477" id="477">477</a>
+<a href="#478" id="478">478</a>
+<a href="#479" id="479">479</a>
+<a href="#480" id="480">480</a>
+<a href="#481" id="481">481</a>
+<a href="#482" id="482">482</a>
+<a href="#483" id="483">483</a>
+<a href="#484" id="484">484</a>
+<a href="#485" id="485">485</a>
+<a href="#486" id="486">486</a>
+<a href="#487" id="487">487</a>
+<a href="#488" id="488">488</a>
+<a href="#489" id="489">489</a>
+<a href="#490" id="490">490</a>
+<a href="#491" id="491">491</a>
+<a href="#492" id="492">492</a>
+<a href="#493" id="493">493</a>
+<a href="#494" id="494">494</a>
+<a href="#495" id="495">495</a>
+<a href="#496" id="496">496</a>
+<a href="#497" id="497">497</a>
+<a href="#498" id="498">498</a>
+<a href="#499" id="499">499</a>
+<a href="#500" id="500">500</a>
+<a href="#501" id="501">501</a>
+<a href="#502" id="502">502</a>
+<a href="#503" id="503">503</a>
+<a href="#504" id="504">504</a>
+<a href="#505" id="505">505</a>
+<a href="#506" id="506">506</a>
+<a href="#507" id="507">507</a>
+<a href="#508" id="508">508</a>
+<a href="#509" id="509">509</a>
+<a href="#510" id="510">510</a>
+<a href="#511" id="511">511</a>
+<a href="#512" id="512">512</a>
+<a href="#513" id="513">513</a>
+<a href="#514" id="514">514</a>
+<a href="#515" id="515">515</a>
+<a href="#516" id="516">516</a>
+<a href="#517" id="517">517</a>
+<a href="#518" id="518">518</a>
+<a href="#519" id="519">519</a>
+<a href="#520" id="520">520</a>
+<a href="#521" id="521">521</a>
+<a href="#522" id="522">522</a>
+<a href="#523" id="523">523</a>
+<a href="#524" id="524">524</a>
+<a href="#525" id="525">525</a>
+<a href="#526" id="526">526</a>
+<a href="#527" id="527">527</a>
+<a href="#528" id="528">528</a>
+<a href="#529" id="529">529</a>
+<a href="#530" id="530">530</a>
+<a href="#531" id="531">531</a>
+<a href="#532" id="532">532</a>
+<a href="#533" id="533">533</a>
+<a href="#534" id="534">534</a>
+<a href="#535" id="535">535</a>
+<a href="#536" id="536">536</a>
+<a href="#537" id="537">537</a>
+<a href="#538" id="538">538</a>
+<a href="#539" id="539">539</a>
+<a href="#540" id="540">540</a>
+<a href="#541" id="541">541</a>
+<a href="#542" id="542">542</a>
+<a href="#543" id="543">543</a>
+<a href="#544" id="544">544</a>
+<a href="#545" id="545">545</a>
+<a href="#546" id="546">546</a>
+<a href="#547" id="547">547</a>
+<a href="#548" id="548">548</a>
+<a href="#549" id="549">549</a>
+<a href="#550" id="550">550</a>
+<a href="#551" id="551">551</a>
+<a href="#552" id="552">552</a>
+<a href="#553" id="553">553</a>
+<a href="#554" id="554">554</a>
+<a href="#555" id="555">555</a>
+<a href="#556" id="556">556</a>
+<a href="#557" id="557">557</a>
+<a href="#558" id="558">558</a>
+<a href="#559" id="559">559</a>
+<a href="#560" id="560">560</a>
+<a href="#561" id="561">561</a>
+<a href="#562" id="562">562</a>
+<a href="#563" id="563">563</a>
+<a href="#564" id="564">564</a>
+<a href="#565" id="565">565</a>
+<a href="#566" id="566">566</a>
+<a href="#567" id="567">567</a>
+<a href="#568" id="568">568</a>
+<a href="#569" id="569">569</a>
+<a href="#570" id="570">570</a>
+<a href="#571" id="571">571</a>
+<a href="#572" id="572">572</a>
+<a href="#573" id="573">573</a>
+<a href="#574" id="574">574</a>
+<a href="#575" id="575">575</a>
+<a href="#576" id="576">576</a>
+<a href="#577" id="577">577</a>
+</pre></div><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.
 // SPDX-License-Identifier: Apache-2.0
 
 // Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -479,19 +599,20 @@
 <span class="kw">pub mod </span>merkle_tree;
 <span class="kw">pub mod </span>transaction;
 
-<span class="kw">use </span><span class="kw">crate</span>::fraud_proof::FraudProof;
+<span class="kw">use </span>bundle_election::VrfProofError;
 <span class="kw">use </span>merkle_tree::Witness;
 <span class="kw">use </span>parity_scale_codec::{Decode, Encode};
 <span class="kw">use </span>scale_info::TypeInfo;
 <span class="kw">use </span>schnorrkel::vrf::{VRF_OUTPUT_LENGTH, VRF_PROOF_LENGTH};
 <span class="kw">use </span>sp_core::crypto::KeyTypeId;
 <span class="kw">use </span>sp_core::H256;
-<span class="kw">use </span>sp_runtime::traits::{BlakeTwo256, Block <span class="kw">as </span>BlockT, Hash <span class="kw">as </span>HashT, NumberFor};
-<span class="kw">use </span>sp_runtime::OpaqueExtrinsic;
+<span class="kw">use </span>sp_runtime::traits::{BlakeTwo256, Block <span class="kw">as </span>BlockT, Hash <span class="kw">as </span>HashT, NumberFor, Zero};
+<span class="kw">use </span>sp_runtime::{OpaqueExtrinsic, RuntimeAppPublic};
 <span class="kw">use </span>sp_std::borrow::Cow;
 <span class="kw">use </span>sp_std::vec::Vec;
 <span class="kw">use </span>sp_trie::StorageProof;
 <span class="kw">use </span>subspace_core_primitives::{Blake2b256Hash, BlockNumber, Randomness};
+<span class="kw">use </span>subspace_runtime_primitives::Moment;
 
 <span class="doccomment">/// Key type for Executor.
 </span><span class="kw">const </span>KEY_TYPE: KeyTypeId = KeyTypeId(<span class="kw-2">*</span><span class="string">b&quot;exec&quot;</span>);
@@ -534,13 +655,15 @@
 </span><span class="kw">pub struct </span>DomainId(u32);
 
 <span class="kw">impl </span>From&lt;u32&gt; <span class="kw">for </span>DomainId {
-    <span class="kw">fn </span>from(x: u32) -&gt; <span class="self">Self </span>{
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>from(x: u32) -&gt; <span class="self">Self </span>{
         <span class="self">Self</span>(x)
     }
 }
 
 <span class="kw">impl </span>From&lt;DomainId&gt; <span class="kw">for </span>u32 {
-    <span class="kw">fn </span>from(domain_id: DomainId) -&gt; <span class="self">Self </span>{
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>from(domain_id: DomainId) -&gt; <span class="self">Self </span>{
         domain_id.<span class="number">0
     </span>}
 }
@@ -569,6 +692,10 @@
     <span class="kw">pub const </span>CORE_DOMAIN_ID_START: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="number">1</span>);
 
     <span class="kw">pub const </span>CORE_PAYMENTS: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="number">1</span>);
+
+    <span class="kw">pub const </span>CORE_ETH_RELAY: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="number">2</span>);
+
+    <span class="kw">pub const </span>CORE_EVM: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="number">3</span>);
 
     <span class="doccomment">/// Creates a [`DomainId`].
     </span><span class="kw">pub const fn </span>new(id: u32) -&gt; <span class="self">Self </span>{
@@ -625,9 +752,13 @@
     </span><span class="kw">pub </span>min_operator_stake: Balance,
 }
 
-<span class="doccomment">/// Header of bundle.
+<span class="doccomment">/// Preliminary header of bundle.
+///
+/// [`PreliminaryBundleHeader`] contains everything of [`BundleHeader`] except for the signature,
+/// domain operator needs to sign the hash of [`PreliminaryBundleHeader`] and uses the signature to
+/// assemble the final [`BundleHeader`].
 </span><span class="attr">#[derive(Debug, Decode, Encode, TypeInfo, PartialEq, Eq, Clone)]
-</span><span class="kw">pub struct </span>BundleHeader&lt;Number, Hash&gt; {
+</span><span class="kw">pub struct </span>PreliminaryBundleHeader&lt;Number, Hash, DomainHash&gt; {
     <span class="doccomment">/// The block number of primary block at which the bundle was created.
     </span><span class="kw">pub </span>primary_number: Number,
     <span class="doccomment">/// The hash of primary block at which the bundle was created.
@@ -636,12 +767,87 @@
     </span><span class="kw">pub </span>slot_number: u64,
     <span class="doccomment">/// The merkle root of the extrinsics.
     </span><span class="kw">pub </span>extrinsics_root: H256,
+    <span class="doccomment">/// Solution of the bundle election.
+    </span><span class="kw">pub </span>bundle_solution: BundleSolution&lt;DomainHash&gt;,
 }
 
-<span class="kw">impl</span>&lt;Number: Encode, Hash: Encode&gt; BundleHeader&lt;Number, Hash&gt; {
+<span class="kw">impl</span>&lt;Number: Encode, Hash: Encode, DomainHash: Encode&gt;
+    PreliminaryBundleHeader&lt;Number, Hash, DomainHash&gt;
+{
+    <span class="doccomment">/// Returns the hash of this preliminary header.
+    </span><span class="kw">pub fn </span>hash(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; H256 {
+        BlakeTwo256::hash_of(<span class="self">self</span>)
+    }
+}
+
+<span class="kw">impl</span>&lt;Number, Hash, DomainHash&gt; PreliminaryBundleHeader&lt;Number, Hash, DomainHash&gt; {
+    <span class="doccomment">/// Converts [`PreliminaryBundleHeader`] into [`BundleHeader`].
+    </span><span class="kw">pub fn </span>into_bundle_header(
+        <span class="self">self</span>,
+        signature: ExecutorSignature,
+    ) -&gt; BundleHeader&lt;Number, Hash, DomainHash&gt; {
+        BundleHeader {
+            primary_number: <span class="self">self</span>.primary_number,
+            primary_hash: <span class="self">self</span>.primary_hash,
+            slot_number: <span class="self">self</span>.slot_number,
+            extrinsics_root: <span class="self">self</span>.extrinsics_root,
+            bundle_solution: <span class="self">self</span>.bundle_solution,
+            signature,
+        }
+    }
+}
+
+<span class="attr">#[derive(Encode)]
+</span><span class="kw">struct </span>PreliminaryBundleHeaderRef&lt;<span class="lifetime">&#39;a</span>, Number, Hash, DomainHash&gt; {
+    primary_number: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>Number,
+    primary_hash: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>Hash,
+    slot_number: u64,
+    extrinsics_root: H256,
+    bundle_solution: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>BundleSolution&lt;DomainHash&gt;,
+}
+
+<span class="doccomment">/// Header of bundle.
+</span><span class="attr">#[derive(Debug, Decode, Encode, TypeInfo, PartialEq, Eq, Clone)]
+</span><span class="kw">pub struct </span>BundleHeader&lt;Number, Hash, DomainHash&gt; {
+    <span class="doccomment">/// The block number of primary block at which the bundle was created.
+    </span><span class="kw">pub </span>primary_number: Number,
+    <span class="doccomment">/// The hash of primary block at which the bundle was created.
+    </span><span class="kw">pub </span>primary_hash: Hash,
+    <span class="doccomment">/// The slot number.
+    </span><span class="kw">pub </span>slot_number: u64,
+    <span class="doccomment">/// The merkle root of the extrinsics.
+    </span><span class="kw">pub </span>extrinsics_root: H256,
+    <span class="doccomment">/// Solution of the bundle election.
+    </span><span class="kw">pub </span>bundle_solution: BundleSolution&lt;DomainHash&gt;,
+    <span class="doccomment">/// Signature of the bundle.
+    </span><span class="kw">pub </span>signature: ExecutorSignature,
+}
+
+<span class="kw">impl</span>&lt;Number: Encode, Hash: Encode, DomainHash: Encode&gt; BundleHeader&lt;Number, Hash, DomainHash&gt; {
+    <span class="doccomment">/// Returns the hash of the corresponding preliminary header.
+    </span><span class="kw">pub fn </span>pre_hash(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; H256 {
+        <span class="kw">let </span>preliminary_bundle_header_ref = PreliminaryBundleHeaderRef {
+            primary_number: <span class="kw-2">&amp;</span><span class="self">self</span>.primary_number,
+            primary_hash: <span class="kw-2">&amp;</span><span class="self">self</span>.primary_hash,
+            slot_number: <span class="self">self</span>.slot_number,
+            extrinsics_root: <span class="self">self</span>.extrinsics_root,
+            bundle_solution: <span class="kw-2">&amp;</span><span class="self">self</span>.bundle_solution,
+        };
+
+        BlakeTwo256::hash_of(<span class="kw-2">&amp;</span>preliminary_bundle_header_ref)
+    }
+
     <span class="doccomment">/// Returns the hash of this header.
     </span><span class="kw">pub fn </span>hash(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; H256 {
         BlakeTwo256::hash_of(<span class="self">self</span>)
+    }
+
+    <span class="doccomment">/// Returns whether the signature is valid.
+    </span><span class="kw">pub fn </span>verify_signature(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="self">self</span>.bundle_solution
+            .proof_of_election()
+            .executor_public_key
+            .verify(<span class="kw-2">&amp;</span><span class="self">self</span>.pre_hash(), <span class="kw-2">&amp;</span><span class="self">self</span>.signature)
     }
 }
 
@@ -657,18 +863,29 @@
     </span><span class="kw">pub </span>executor_public_key: ExecutorPublicKey,
     <span class="doccomment">/// Global challenge.
     </span><span class="kw">pub </span>global_challenge: Blake2b256Hash,
-    <span class="doccomment">/// State root corresponding to the storage proof above.
-    </span><span class="kw">pub </span>state_root: DomainHash,
-    <span class="doccomment">/// Storage proof for the bundle election state.
+    <span class="doccomment">/// Storage proof containing the partial state for verifying the bundle election.
     </span><span class="kw">pub </span>storage_proof: StorageProof,
+    <span class="doccomment">/// State root corresponding to the storage proof above.
+    </span><span class="kw">pub </span>system_state_root: DomainHash,
     <span class="doccomment">/// Number of the system domain block at which the proof of election was created.
-    </span><span class="kw">pub </span>block_number: BlockNumber,
+    </span><span class="kw">pub </span>system_block_number: BlockNumber,
     <span class="doccomment">/// Block hash corresponding to the `block_number` above.
-    </span><span class="kw">pub </span>block_hash: DomainHash,
+    </span><span class="kw">pub </span>system_block_hash: DomainHash,
+}
+
+<span class="kw">impl</span>&lt;DomainHash&gt; ProofOfElection&lt;DomainHash&gt; {
+    <span class="kw">pub fn </span>verify_vrf_proof(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;(), VrfProofError&gt; {
+        bundle_election::verify_vrf_proof(
+            <span class="kw-2">&amp;</span><span class="self">self</span>.executor_public_key,
+            <span class="kw-2">&amp;</span><span class="self">self</span>.vrf_output,
+            <span class="kw-2">&amp;</span><span class="self">self</span>.vrf_proof,
+            <span class="kw-2">&amp;</span><span class="self">self</span>.global_challenge,
+        )
+    }
 }
 
 <span class="kw">impl</span>&lt;DomainHash: Default&gt; ProofOfElection&lt;DomainHash&gt; {
-    <span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;std&quot;</span>, feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
     </span><span class="kw">pub fn </span>dummy(domain_id: DomainId, executor_public_key: ExecutorPublicKey) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             domain_id,
@@ -676,10 +893,10 @@
             vrf_proof: [<span class="number">0u8</span>; VRF_PROOF_LENGTH],
             executor_public_key,
             global_challenge: Blake2b256Hash::default(),
-            state_root: Default::default(),
             storage_proof: StorageProof::empty(),
-            block_number: Default::default(),
-            block_hash: Default::default(),
+            system_state_root: Default::default(),
+            system_block_number: Default::default(),
+            system_block_hash: Default::default(),
         }
     }
 }
@@ -720,13 +937,49 @@
             } =&gt; proof_of_election,
         }
     }
+
+    <span class="doccomment">/// Returns the hash of the block on top of which the solution was created.
+    </span><span class="kw">pub fn </span>creation_block_hash(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>DomainHash {
+        <span class="kw">match </span><span class="self">self </span>{
+            <span class="self">Self</span>::System {
+                proof_of_election, ..
+            } =&gt; <span class="kw-2">&amp;</span>proof_of_election.system_block_hash,
+            <span class="self">Self</span>::Core {
+                core_block_hash, ..
+            } =&gt; core_block_hash,
+        }
+    }
+}
+
+<span class="kw">impl</span>&lt;DomainHash: Default&gt; BundleSolution&lt;DomainHash&gt; {
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;std&quot;</span>, feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
+    </span><span class="kw">pub fn </span>dummy(domain_id: DomainId, executor_public_key: ExecutorPublicKey) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>proof_of_election = ProofOfElection::dummy(domain_id, executor_public_key);
+
+        <span class="kw">if </span>domain_id.is_system() {
+            <span class="self">Self</span>::System {
+                authority_stake_weight: Default::default(),
+                authority_witness: Default::default(),
+                proof_of_election,
+            }
+        } <span class="kw">else if </span>domain_id.is_core() {
+            <span class="self">Self</span>::Core {
+                proof_of_election,
+                core_block_number: Default::default(),
+                core_block_hash: Default::default(),
+                core_state_root: Default::default(),
+            }
+        } <span class="kw">else </span>{
+            <span class="macro">panic!</span>(<span class="string">&quot;Open domain unsupported&quot;</span>);
+        }
+    }
 }
 
 <span class="doccomment">/// Domain bundle.
 </span><span class="attr">#[derive(Debug, Decode, Encode, TypeInfo, PartialEq, Eq, Clone)]
 </span><span class="kw">pub struct </span>Bundle&lt;Extrinsic, Number, Hash, DomainHash&gt; {
     <span class="doccomment">/// The bundle header.
-    </span><span class="kw">pub </span>header: BundleHeader&lt;Number, Hash&gt;,
+    </span><span class="kw">pub </span>header: BundleHeader&lt;Number, Hash, DomainHash&gt;,
     <span class="doccomment">/// Expected receipts by the primay chain when the bundle was created.
     ///
     /// NOTE: It&#39;s fine to `Vec` instead of `BoundedVec` as each bundle is
@@ -743,6 +996,23 @@
     <span class="doccomment">/// Returns the hash of this bundle.
     </span><span class="kw">pub fn </span>hash(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; H256 {
         BlakeTwo256::hash_of(<span class="self">self</span>)
+    }
+
+    <span class="doccomment">/// Returns the domain_id of this bundle.
+    </span><span class="kw">pub fn </span>domain_id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; DomainId {
+        <span class="self">self</span>.header.bundle_solution.proof_of_election().domain_id
+    }
+
+    <span class="doccomment">/// Consumes [`Bundle`] to extract the inner executor public key.
+    </span><span class="kw">pub fn </span>into_executor_public_key(<span class="self">self</span>) -&gt; ExecutorPublicKey {
+        <span class="kw">match </span><span class="self">self</span>.header.bundle_solution {
+            BundleSolution::System {
+                proof_of_election, ..
+            }
+            | BundleSolution::Core {
+                proof_of_election, ..
+            } =&gt; proof_of_election.executor_public_key,
+        }
     }
 }
 
@@ -772,62 +1042,6 @@
     }
 }
 
-<span class="doccomment">/// Signed version of [`Bundle`].
-</span><span class="attr">#[derive(Debug, Decode, Encode, TypeInfo, PartialEq, Eq, Clone)]
-</span><span class="kw">pub struct </span>SignedBundle&lt;Extrinsic, Number, Hash, DomainHash&gt; {
-    <span class="doccomment">/// The bundle header.
-    </span><span class="kw">pub </span>bundle: Bundle&lt;Extrinsic, Number, Hash, DomainHash&gt;,
-    <span class="doccomment">/// Solution of the bundle election.
-    </span><span class="kw">pub </span>bundle_solution: BundleSolution&lt;DomainHash&gt;,
-    <span class="doccomment">/// Signature of the bundle.
-    </span><span class="kw">pub </span>signature: ExecutorSignature,
-}
-
-<span class="doccomment">/// [`SignedBundle`] with opaque extrinsic.
-</span><span class="kw">pub type </span>SignedOpaqueBundle&lt;Number, Hash, DomainHash&gt; =
-    SignedBundle&lt;OpaqueExtrinsic, Number, Hash, DomainHash&gt;;
-
-<span class="kw">impl</span>&lt;Extrinsic: Encode, Number: Encode, Hash: Encode, DomainHash: Encode&gt;
-    SignedBundle&lt;Extrinsic, Number, Hash, DomainHash&gt;
-{
-    <span class="doccomment">/// Returns the hash of signed bundle.
-    </span><span class="kw">pub fn </span>hash(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; H256 {
-        BlakeTwo256::hash_of(<span class="self">self</span>)
-    }
-
-    <span class="doccomment">/// Returns the domain_id of this bundle.
-    </span><span class="kw">pub fn </span>domain_id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; DomainId {
-        <span class="self">self</span>.bundle_solution.proof_of_election().domain_id
-    }
-}
-
-<span class="kw">impl</span>&lt;Extrinsic: Encode, Number, Hash, DomainHash&gt;
-    SignedBundle&lt;Extrinsic, Number, Hash, DomainHash&gt;
-{
-    <span class="doccomment">/// Convert a signed bundle with generic extrinsic to a signed bundle with opaque extrinsic.
-    </span><span class="kw">pub fn </span>into_signed_opaque_bundle(<span class="self">self</span>) -&gt; SignedOpaqueBundle&lt;Number, Hash, DomainHash&gt; {
-        SignedOpaqueBundle {
-            bundle: <span class="self">self</span>.bundle.into_opaque_bundle(),
-            bundle_solution: <span class="self">self</span>.bundle_solution,
-            signature: <span class="self">self</span>.signature,
-        }
-    }
-}
-
-<span class="kw">impl</span>&lt;Extrinsic, Number, Hash, DomainHash&gt; SignedBundle&lt;Extrinsic, Number, Hash, DomainHash&gt; {
-    <span class="doccomment">/// Consumes [`SignedBundle`] to extract the inner executor public key.
-    </span><span class="kw">pub fn </span>into_executor_public_key(<span class="self">self</span>) -&gt; ExecutorPublicKey {
-        <span class="kw">match </span><span class="self">self</span>.bundle_solution {
-            BundleSolution::System {
-                proof_of_election, ..
-            }
-            | BundleSolution::Core {
-                proof_of_election, ..
-            } =&gt; proof_of_election.executor_public_key,
-        }
-    }
-}
-
 <span class="doccomment">/// Receipt of a domain block execution.
 </span><span class="attr">#[derive(Debug, Decode, Encode, TypeInfo, PartialEq, Eq, Clone)]
 </span><span class="kw">pub struct </span>ExecutionReceipt&lt;Number, Hash, DomainHash&gt; {
@@ -850,27 +1064,74 @@
     }
 }
 
+<span class="kw">impl</span>&lt;Number: Zero, Hash, DomainHash: Default&gt; ExecutionReceipt&lt;Number, Hash, DomainHash&gt; {
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;std&quot;</span>, feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
+    </span><span class="kw">pub fn </span>dummy(
+        primary_number: Number,
+        primary_hash: Hash,
+    ) -&gt; ExecutionReceipt&lt;Number, Hash, DomainHash&gt; {
+        <span class="kw">let </span>trace = <span class="kw">if </span>primary_number.is_zero() {
+            Vec::new()
+        } <span class="kw">else </span>{
+            <span class="macro">sp_std::vec!</span>[Default::default(), Default::default()]
+        };
+        ExecutionReceipt {
+            primary_number,
+            primary_hash,
+            domain_hash: Default::default(),
+            trace,
+            trace_root: Default::default(),
+        }
+    }
+}
+
 <span class="doccomment">/// List of [`OpaqueBundle`].
 </span><span class="kw">pub type </span>OpaqueBundles&lt;Block, DomainHash&gt; =
     Vec&lt;OpaqueBundle&lt;NumberFor&lt;Block&gt;, &lt;Block <span class="kw">as </span>BlockT&gt;::Hash, DomainHash&gt;&gt;;
 
-<span class="doccomment">/// List of [`SignedOpaqueBundle`].
-</span><span class="kw">pub type </span>SignedOpaqueBundles&lt;Block, DomainHash&gt; =
-    Vec&lt;SignedOpaqueBundle&lt;NumberFor&lt;Block&gt;, &lt;Block <span class="kw">as </span>BlockT&gt;::Hash, DomainHash&gt;&gt;;
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;std&quot;</span>, feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
+</span><span class="kw">pub fn </span>create_dummy_bundle_with_receipts_generic&lt;BlockNumber, Hash, DomainHash&gt;(
+    domain_id: DomainId,
+    primary_number: BlockNumber,
+    primary_hash: Hash,
+    receipts: Vec&lt;ExecutionReceipt&lt;BlockNumber, Hash, DomainHash&gt;&gt;,
+) -&gt; OpaqueBundle&lt;BlockNumber, Hash, DomainHash&gt;
+<span class="kw">where
+    </span>BlockNumber: Encode + Default,
+    Hash: Encode + Default,
+    DomainHash: Encode + Default,
+{
+    <span class="kw">use </span>sp_core::crypto::UncheckedFrom;
+
+    <span class="kw">let </span>header = BundleHeader {
+        primary_number,
+        primary_hash,
+        slot_number: <span class="number">0u64</span>,
+        extrinsics_root: Default::default(),
+        bundle_solution: BundleSolution::dummy(
+            domain_id,
+            ExecutorPublicKey::unchecked_from([<span class="number">0u8</span>; <span class="number">32</span>]),
+        ),
+        signature: ExecutorSignature::unchecked_from([<span class="number">0u8</span>; <span class="number">64</span>]),
+    };
+
+    OpaqueBundle {
+        header,
+        receipts,
+        extrinsics: Vec::new(),
+    }
+}
 
 <span class="macro">sp_api::decl_runtime_apis! </span>{
     <span class="doccomment">/// API necessary for executor pallet.
     </span><span class="kw">pub trait </span>ExecutorApi&lt;DomainHash: Encode + Decode&gt; {
         <span class="doccomment">/// Submits the transaction bundle via an unsigned extrinsic.
-        </span><span class="kw">fn </span>submit_bundle_unsigned(opaque_bundle: SignedOpaqueBundle&lt;NumberFor&lt;Block&gt;, Block::Hash, DomainHash&gt;);
-
-        <span class="doccomment">/// Submits the fraud proof via an unsigned extrinsic.
-        </span><span class="kw">fn </span>submit_fraud_proof_unsigned(fraud_proof: FraudProof&lt;NumberFor&lt;Block&gt;, Block::Hash&gt;);
+        </span><span class="kw">fn </span>submit_bundle_unsigned(opaque_bundle: OpaqueBundle&lt;NumberFor&lt;Block&gt;, Block::Hash, DomainHash&gt;);
 
         <span class="doccomment">/// Extract the system bundles from the given extrinsics.
         </span><span class="kw">fn </span>extract_system_bundles(
             extrinsics: Vec&lt;Block::Extrinsic&gt;,
-        ) -&gt; (OpaqueBundles&lt;Block, DomainHash&gt;, SignedOpaqueBundles&lt;Block, DomainHash&gt;);
+        ) -&gt; (OpaqueBundles&lt;Block, DomainHash&gt;, OpaqueBundles&lt;Block, DomainHash&gt;);
 
         <span class="doccomment">/// Extract the core bundles from the given extrinsics.
         </span><span class="kw">fn </span>extract_core_bundles(
@@ -878,20 +1139,8 @@
             domain_id: DomainId,
         ) -&gt; OpaqueBundles&lt;Block, DomainHash&gt;;
 
-        <span class="doccomment">/// Extract the hashes of bundles stored in the block
-        </span><span class="kw">fn </span>extract_stored_bundle_hashes() -&gt; Vec&lt;H256&gt;;
-
-        <span class="doccomment">/// Extract the receipts from the given extrinsics.
-        </span><span class="kw">fn </span>extract_receipts(
-            extrinsics: Vec&lt;Block::Extrinsic&gt;,
-            domain_id: DomainId,
-        ) -&gt; Vec&lt;ExecutionReceipt&lt;NumberFor&lt;Block&gt;, Block::Hash, DomainHash&gt;&gt;;
-
-        <span class="doccomment">/// Extract the fraud proofs from the given extrinsics.
-        </span><span class="kw">fn </span>extract_fraud_proofs(
-            extrinsics: Vec&lt;Block::Extrinsic&gt;,
-            domain_id: DomainId,
-        ) -&gt; Vec&lt;FraudProof&lt;NumberFor&lt;Block&gt;, Block::Hash&gt;&gt;;
+        <span class="doccomment">/// Returns the hash of successfully submitted bundles.
+        </span><span class="kw">fn </span>successful_bundle_hashes() -&gt; Vec&lt;H256&gt;;
 
         <span class="doccomment">/// Generates a randomness seed for extrinsics shuffling.
         </span><span class="kw">fn </span>extrinsics_shuffling_seed(header: Block::Header) -&gt; Randomness;
@@ -899,18 +1148,8 @@
         <span class="doccomment">/// WASM bundle for system domain runtime.
         </span><span class="kw">fn </span>system_domain_wasm_bundle() -&gt; Cow&lt;<span class="lifetime">&#39;static</span>, [u8]&gt;;
 
-        <span class="doccomment">/// Returns the best execution chain number.
-        </span><span class="kw">fn </span>head_receipt_number() -&gt; NumberFor&lt;Block&gt;;
-
-        <span class="doccomment">/// Returns the block number of oldest execution receipt.
-        </span><span class="kw">fn </span>oldest_receipt_number() -&gt; NumberFor&lt;Block&gt;;
-
-        <span class="doccomment">/// Returns the maximum receipt drift.
-        </span><span class="kw">fn </span>maximum_receipt_drift() -&gt; NumberFor&lt;Block&gt;;
-
-        <span class="comment">// Returns the state root of the system domain at specific number and hash.
-        </span><span class="kw">fn </span>system_domain_state_root_at(number: NumberFor&lt;Block&gt;, domain_hash: DomainHash) -&gt; <span class="prelude-ty">Option</span>&lt;Block::Hash&gt;;
+        <span class="comment">// Returns the current timestamp at given height
+        </span><span class="kw">fn </span>timestamp() -&gt; Moment;
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="sp_domains" data-themes="" data-resource-suffix="" data-rustdoc-version="1.68.0-nightly (afaf3e07a 2023-01-14)" data-search-js="search-181581080540673f.js" data-settings-js="settings-a2afdefbb7c817f1.js" data-settings-css="settings-84508a86fe805444.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

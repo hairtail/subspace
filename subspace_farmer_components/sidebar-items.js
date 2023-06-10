@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["farming",""],["file_ext","File extension trait"],["piece_caching",""],["plotting",""],["segment_reconstruction",""]],"struct":[["FarmerProtocolInfo","Information about the protocol necessary for farmer operation"],["SectorMetadata","Metadata of the plotted sector"]]};
+window.SIDEBAR_ITEMS = {"mod":["auditing","file_ext","piece_caching","plotting","proving","reading","sector"],"struct":["FarmerProtocolInfo"]};

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-fraud-proof/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-52c5db6f6f352e54.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-4743e13df3dfe8c4.css"><link rel="stylesheet" disabled href="../../static.files/dark-0e1b889528bd466b.css"><link rel="stylesheet" disabled href="../../static.files/ayu-65289d5d067c7c66.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-d2686a620d99aad7.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../subspace_fraud_proof/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-fraud-proof/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_fraud_proof" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0-nightly (ce5919fce 2023-05-15)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-6f6ffb5395b17c6e.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../subspace_fraud_proof/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -117,53 +117,68 @@
 <a href="#117" id="117">117</a>
 <a href="#118" id="118">118</a>
 <a href="#119" id="119">119</a>
-</pre><pre class="rust"><code><span class="doccomment">//! Subspace fraud proof
-//!
-//! This crates provides the feature of generating and verifying the execution proof used in
-//! the Subspace fraud proof mechanism. The execution is more fine-grained than the entire
-//! block execution, block execution hooks (`initialize_block` and `finalize_block`) and any
-//! specific extrinsic execution are supported.
+<a href="#120" id="120">120</a>
+<a href="#121" id="121">121</a>
+<a href="#122" id="122">122</a>
+<a href="#123" id="123">123</a>
+<a href="#124" id="124">124</a>
+<a href="#125" id="125">125</a>
+<a href="#126" id="126">126</a>
+<a href="#127" id="127">127</a>
+<a href="#128" id="128">128</a>
+<a href="#129" id="129">129</a>
+<a href="#130" id="130">130</a>
+<a href="#131" id="131">131</a>
+<a href="#132" id="132">132</a>
+<a href="#133" id="133">133</a>
+<a href="#134" id="134">134</a>
+<a href="#135" id="135">135</a>
+</pre></div><pre class="rust"><code><span class="doccomment">//! Subspace fraud proof
 
 </span><span class="attr">#![warn(missing_docs)]
 
-</span><span class="kw">mod </span>invalid_state_transition_proof;
+</span><span class="kw">pub mod </span>domain_extrinsics_builder;
+<span class="kw">mod </span>domain_runtime_code;
+<span class="kw">pub mod </span>invalid_state_transition_proof;
+<span class="kw">pub mod </span>invalid_transaction_proof;
 <span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>tests;
+<span class="kw">pub mod </span>verifier_api;
 
-<span class="kw">use </span>codec::{Decode, Encode};
-<span class="kw">use </span>invalid_state_transition_proof::InvalidStateTransitionProofVerifier;
-<span class="kw">pub use </span>invalid_state_transition_proof::{
-    ExecutionProver, PreStateRootVerifier, VerifyPreStateRoot,
-};
-<span class="kw">use </span>sp_api::ProvideRuntimeApi;
-<span class="kw">use </span>sp_core::traits::{CodeExecutor, SpawnNamed};
+<span class="kw">use </span>futures::channel::oneshot;
+<span class="kw">use </span>futures::FutureExt;
+<span class="kw">use </span>invalid_state_transition_proof::VerifyInvalidStateTransitionProof;
+<span class="kw">use </span>invalid_transaction_proof::VerifyInvalidTransactionProof;
+<span class="kw">use </span>sp_core::traits::SpawnNamed;
 <span class="kw">use </span>sp_domains::fraud_proof::{FraudProof, VerificationError};
-<span class="kw">use </span>sp_domains::ExecutorApi;
 <span class="kw">use </span>sp_runtime::traits::{Block <span class="kw">as </span>BlockT, NumberFor};
 <span class="kw">use </span>std::marker::PhantomData;
 <span class="kw">use </span>std::sync::Arc;
 
 <span class="doccomment">/// Verify fraud proof.
-</span><span class="kw">pub trait </span>VerifyFraudProof&lt;FPBlock: BlockT&gt; {
+///
+/// Verifier is either the primary chain client or the system domain client.
+</span><span class="kw">pub trait </span>VerifyFraudProof&lt;VerifierBlock: BlockT&gt; {
     <span class="doccomment">/// Verifies fraud proof.
     </span><span class="kw">fn </span>verify_fraud_proof(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        proof: <span class="kw-2">&amp;</span>FraudProof&lt;NumberFor&lt;FPBlock&gt;, FPBlock::Hash&gt;,
+        proof: <span class="kw-2">&amp;</span>FraudProof&lt;NumberFor&lt;VerifierBlock&gt;, VerifierBlock::Hash&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(), VerificationError&gt;;
 }
 
 <span class="doccomment">/// Fraud proof verifier.
-</span><span class="kw">pub struct </span>ProofVerifier&lt;FPBlock, PBlock, C, Exec, Spawn, Hash, PreStateRootVerifier&gt; {
-    invalid_state_transition_proof_verifier:
-        InvalidStateTransitionProofVerifier&lt;PBlock, C, Exec, Spawn, Hash, PreStateRootVerifier&gt;,
-    _phantom: PhantomData&lt;FPBlock&gt;,
+</span><span class="kw">pub struct </span>ProofVerifier&lt;VerifierBlock, ITPVerifier, ISTPVerifier&gt; {
+    invalid_transaction_proof_verifier: Arc&lt;ITPVerifier&gt;,
+    invalid_state_transition_proof_verifier: Arc&lt;ISTPVerifier&gt;,
+    _phantom: PhantomData&lt;VerifierBlock&gt;,
 }
 
-<span class="kw">impl</span>&lt;FPBlock, PBlock, C, Exec: Clone, Spawn: Clone, Hash, PreStateRootVerifier: Clone&gt; Clone
-    <span class="kw">for </span>ProofVerifier&lt;FPBlock, PBlock, C, Exec, Spawn, Hash, PreStateRootVerifier&gt;
+<span class="kw">impl</span>&lt;VerifierBlock, ITPVerifier, ISTPVerifier&gt; Clone
+    <span class="kw">for </span>ProofVerifier&lt;VerifierBlock, ITPVerifier, ISTPVerifier&gt;
 {
     <span class="kw">fn </span>clone(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
+            invalid_transaction_proof_verifier: <span class="self">self</span>.invalid_transaction_proof_verifier.clone(),
             invalid_state_transition_proof_verifier: <span class="self">self
                 </span>.invalid_state_transition_proof_verifier
                 .clone(),
@@ -172,32 +187,20 @@
     }
 }
 
-<span class="kw">impl</span>&lt;FPBlock, PBlock, C, Exec, Spawn, Hash, PreStateRootVerifier&gt;
-    ProofVerifier&lt;FPBlock, PBlock, C, Exec, Spawn, Hash, PreStateRootVerifier&gt;
+<span class="kw">impl</span>&lt;VerifierBlock, ITPVerifier, ISTPVerifier&gt;
+    ProofVerifier&lt;VerifierBlock, ITPVerifier, ISTPVerifier&gt;
 <span class="kw">where
-    </span>FPBlock: BlockT,
-    PBlock: BlockT,
-    C: ProvideRuntimeApi&lt;PBlock&gt; + Send + Sync,
-    C::Api: ExecutorApi&lt;PBlock, Hash&gt;,
-    Exec: CodeExecutor + Clone + <span class="lifetime">&#39;static</span>,
-    Spawn: SpawnNamed + Clone + Send + <span class="lifetime">&#39;static</span>,
-    Hash: Encode + Decode,
-    PreStateRootVerifier: VerifyPreStateRoot,
+    </span>VerifierBlock: BlockT,
+    ITPVerifier: VerifyInvalidTransactionProof,
+    ISTPVerifier: VerifyInvalidStateTransitionProof,
 {
     <span class="doccomment">/// Constructs a new instance of [`ProofVerifier`].
     </span><span class="kw">pub fn </span>new(
-        client: Arc&lt;C&gt;,
-        executor: Exec,
-        spawn_handle: Spawn,
-        pre_state_root_verifier: PreStateRootVerifier,
+        invalid_transaction_proof_verifier: Arc&lt;ITPVerifier&gt;,
+        invalid_state_transition_proof_verifier: Arc&lt;ISTPVerifier&gt;,
     ) -&gt; <span class="self">Self </span>{
-        <span class="kw">let </span>invalid_state_transition_proof_verifier = InvalidStateTransitionProofVerifier::new(
-            client,
-            executor,
-            spawn_handle,
-            pre_state_root_verifier,
-        );
         <span class="self">Self </span>{
+            invalid_transaction_proof_verifier,
             invalid_state_transition_proof_verifier,
             _phantom: Default::default(),
         }
@@ -206,35 +209,63 @@
     <span class="doccomment">/// Verifies the fraud proof.
     </span><span class="kw">pub fn </span>verify(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        fraud_proof: <span class="kw-2">&amp;</span>FraudProof&lt;NumberFor&lt;FPBlock&gt;, FPBlock::Hash&gt;,
+        fraud_proof: <span class="kw-2">&amp;</span>FraudProof&lt;NumberFor&lt;VerifierBlock&gt;, VerifierBlock::Hash&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(), VerificationError&gt; {
         <span class="kw">match </span>fraud_proof {
-            FraudProof::InvalidStateTransition(proof) =&gt; {
-                <span class="self">self</span>.invalid_state_transition_proof_verifier.verify(proof)
-            }
+            FraudProof::InvalidStateTransition(proof) =&gt; <span class="self">self
+                </span>.invalid_state_transition_proof_verifier
+                .verify_invalid_state_transition_proof(proof),
+            FraudProof::InvalidTransaction(proof) =&gt; <span class="self">self
+                </span>.invalid_transaction_proof_verifier
+                .verify_invalid_transaction_proof(proof),
             proof =&gt; <span class="macro">unimplemented!</span>(<span class="string">&quot;Can not verify {proof:?}&quot;</span>),
         }
     }
 }
 
-<span class="kw">impl</span>&lt;FPBlock, PBlock, C, Exec, Spawn, Hash, PreStateRootVerifier&gt; VerifyFraudProof&lt;FPBlock&gt;
-    <span class="kw">for </span>ProofVerifier&lt;FPBlock, PBlock, C, Exec, Spawn, Hash, PreStateRootVerifier&gt;
+<span class="kw">impl</span>&lt;VerifierBlock, ITPVerifier, ISTPVerifier&gt; VerifyFraudProof&lt;VerifierBlock&gt;
+    <span class="kw">for </span>ProofVerifier&lt;VerifierBlock, ITPVerifier, ISTPVerifier&gt;
 <span class="kw">where
-    </span>FPBlock: BlockT,
-    PBlock: BlockT,
-    C: ProvideRuntimeApi&lt;PBlock&gt; + Send + Sync,
-    C::Api: ExecutorApi&lt;PBlock, Hash&gt;,
-    Exec: CodeExecutor + Clone + <span class="lifetime">&#39;static</span>,
-    Spawn: SpawnNamed + Clone + Send + <span class="lifetime">&#39;static</span>,
-    Hash: Encode + Decode + Send + Sync,
-    PreStateRootVerifier: VerifyPreStateRoot,
+    </span>VerifierBlock: BlockT,
+    ITPVerifier: VerifyInvalidTransactionProof,
+    ISTPVerifier: VerifyInvalidStateTransitionProof,
 {
     <span class="kw">fn </span>verify_fraud_proof(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        proof: <span class="kw-2">&amp;</span>FraudProof&lt;NumberFor&lt;FPBlock&gt;, FPBlock::Hash&gt;,
+        proof: <span class="kw-2">&amp;</span>FraudProof&lt;NumberFor&lt;VerifierBlock&gt;, VerifierBlock::Hash&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(), VerificationError&gt; {
         <span class="self">self</span>.verify(proof)
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_fraud_proof" data-themes="" data-resource-suffix="" data-rustdoc-version="1.68.0-nightly (afaf3e07a 2023-01-14)" data-search-js="search-181581080540673f.js" data-settings-js="settings-a2afdefbb7c817f1.js" data-settings-css="settings-84508a86fe805444.css" ></div></body></html>
+
+<span class="doccomment">/// Verifies the fraud proof extracted from extrinsic in the transaction pool.
+</span><span class="kw">pub async fn </span>validate_fraud_proof_in_tx_pool&lt;Block, Verifier&gt;(
+    spawner: <span class="kw-2">&amp;</span><span class="kw">dyn </span>SpawnNamed,
+    fraud_proof_verifier: Verifier,
+    fraud_proof: FraudProof&lt;NumberFor&lt;Block&gt;, Block::Hash&gt;,
+) -&gt; <span class="prelude-ty">Result</span>&lt;(), VerificationError&gt;
+<span class="kw">where
+    </span>Block: BlockT,
+    Verifier: VerifyFraudProof&lt;Block&gt; + Send + <span class="lifetime">&#39;static</span>,
+{
+    <span class="kw">let </span>(verified_result_sender, verified_result_receiver) = oneshot::channel();
+
+    <span class="comment">// Verify the fraud proof in another blocking task as it might be pretty heavy.
+    </span>spawner.spawn_blocking(
+        <span class="string">&quot;txpool-fraud-proof-verification&quot;</span>,
+        <span class="prelude-val">None</span>,
+        <span class="kw">async move </span>{
+            <span class="kw">let </span>verified_result = fraud_proof_verifier.verify_fraud_proof(<span class="kw-2">&amp;</span>fraud_proof);
+            verified_result_sender
+                .send(verified_result)
+                .expect(<span class="string">&quot;Failed to send the verified fraud proof result&quot;</span>);
+        }
+        .boxed(),
+    );
+
+    <span class="kw">match </span>verified_result_receiver.<span class="kw">await </span>{
+        <span class="prelude-val">Ok</span>(verified_result) =&gt; verified_result,
+        <span class="prelude-val">Err</span>(err) =&gt; <span class="prelude-val">Err</span>(VerificationError::Oneshot(err.to_string())),
+    }
+}
+</code></pre></div></section></main></body></html>

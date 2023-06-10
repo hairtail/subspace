@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/pallets/domain-registry/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-52c5db6f6f352e54.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-4743e13df3dfe8c4.css"><link rel="stylesheet" disabled href="../../static.files/dark-0e1b889528bd466b.css"><link rel="stylesheet" disabled href="../../static.files/ayu-65289d5d067c7c66.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-d2686a620d99aad7.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../pallet_domain_registry/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/pallets/domain-registry/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="pallet_domain_registry" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0-nightly (ce5919fce 2023-05-15)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-6f6ffb5395b17c6e.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../pallet_domain_registry/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1032,54 +1032,7 @@
 <a href="#1032" id="1032">1032</a>
 <a href="#1033" id="1033">1033</a>
 <a href="#1034" id="1034">1034</a>
-<a href="#1035" id="1035">1035</a>
-<a href="#1036" id="1036">1036</a>
-<a href="#1037" id="1037">1037</a>
-<a href="#1038" id="1038">1038</a>
-<a href="#1039" id="1039">1039</a>
-<a href="#1040" id="1040">1040</a>
-<a href="#1041" id="1041">1041</a>
-<a href="#1042" id="1042">1042</a>
-<a href="#1043" id="1043">1043</a>
-<a href="#1044" id="1044">1044</a>
-<a href="#1045" id="1045">1045</a>
-<a href="#1046" id="1046">1046</a>
-<a href="#1047" id="1047">1047</a>
-<a href="#1048" id="1048">1048</a>
-<a href="#1049" id="1049">1049</a>
-<a href="#1050" id="1050">1050</a>
-<a href="#1051" id="1051">1051</a>
-<a href="#1052" id="1052">1052</a>
-<a href="#1053" id="1053">1053</a>
-<a href="#1054" id="1054">1054</a>
-<a href="#1055" id="1055">1055</a>
-<a href="#1056" id="1056">1056</a>
-<a href="#1057" id="1057">1057</a>
-<a href="#1058" id="1058">1058</a>
-<a href="#1059" id="1059">1059</a>
-<a href="#1060" id="1060">1060</a>
-<a href="#1061" id="1061">1061</a>
-<a href="#1062" id="1062">1062</a>
-<a href="#1063" id="1063">1063</a>
-<a href="#1064" id="1064">1064</a>
-<a href="#1065" id="1065">1065</a>
-<a href="#1066" id="1066">1066</a>
-<a href="#1067" id="1067">1067</a>
-<a href="#1068" id="1068">1068</a>
-<a href="#1069" id="1069">1069</a>
-<a href="#1070" id="1070">1070</a>
-<a href="#1071" id="1071">1071</a>
-<a href="#1072" id="1072">1072</a>
-<a href="#1073" id="1073">1073</a>
-<a href="#1074" id="1074">1074</a>
-<a href="#1075" id="1075">1075</a>
-<a href="#1076" id="1076">1076</a>
-<a href="#1077" id="1077">1077</a>
-<a href="#1078" id="1078">1078</a>
-<a href="#1079" id="1079">1079</a>
-<a href="#1080" id="1080">1080</a>
-<a href="#1081" id="1081">1081</a>
-</pre><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.
+</pre></div><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.
 // SPDX-License-Identifier: Apache-2.0
 
 // Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -1101,17 +1054,23 @@
 #[cfg(test)]
 </span><span class="kw">mod </span>tests;
 
-<span class="kw">use </span>codec::{Decode, Encode};
+<span class="attr">#[cfg(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>)]
+</span><span class="kw">mod </span>benchmarking;
+
+<span class="kw">pub mod </span>weights;
+
+<span class="kw">use </span>codec::Decode;
 <span class="kw">use </span>frame_support::traits::{Currency, Get, LockIdentifier, LockableCurrency, WithdrawReasons};
 <span class="kw">use </span>frame_support::weights::Weight;
 <span class="kw">use </span>frame_system::offchain::SubmitTransaction;
 <span class="kw">pub use </span>pallet::<span class="kw-2">*</span>;
+<span class="kw">use </span>sp_core::H256;
 <span class="kw">use </span>sp_domains::bundle_election::{
     verify_bundle_solution_threshold, ReadBundleElectionParamsError,
 };
-<span class="kw">use </span>sp_domains::fraud_proof::{BundleEquivocationProof, FraudProof, InvalidTransactionProof};
+<span class="kw">use </span>sp_domains::fraud_proof::FraudProof;
 <span class="kw">use </span>sp_domains::{
-    BundleSolution, DomainId, ExecutorPublicKey, ProofOfElection, SignedOpaqueBundle, StakeWeight,
+    BundleSolution, DomainId, ExecutorPublicKey, OpaqueBundle, ProofOfElection, StakeWeight,
 };
 <span class="kw">use </span>sp_executor_registry::{ExecutorRegistry, OnNewEpoch};
 <span class="kw">use </span>sp_runtime::traits::{BlakeTwo256, One, Zero};
@@ -1131,17 +1090,19 @@
 <span class="attr">#[frame_support::pallet]
 </span><span class="kw">mod </span>pallet {
     <span class="kw">use super</span>::{BalanceOf, DomainConfig};
+    <span class="kw">use </span><span class="kw">crate</span>::weights::WeightInfo;
     <span class="kw">use </span>codec::Codec;
     <span class="kw">use </span>frame_support::pallet_prelude::{StorageMap, <span class="kw-2">*</span>};
     <span class="kw">use </span>frame_support::traits::LockableCurrency;
     <span class="kw">use </span>frame_support::PalletError;
     <span class="kw">use </span>frame_system::pallet_prelude::<span class="kw-2">*</span>;
-    <span class="kw">use </span>pallet_receipts::{Error <span class="kw">as </span>PalletReceiptError, FraudProofError};
+    <span class="kw">use </span>pallet_settlement::{Error <span class="kw">as </span>PalletSettlementError, FraudProofError};
+    <span class="kw">use </span>sp_core::H256;
     <span class="kw">use </span>sp_domain_digests::AsPredigest;
     <span class="kw">use </span>sp_domains::bundle_election::ReadBundleElectionParamsError;
-    <span class="kw">use </span>sp_domains::fraud_proof::{BundleEquivocationProof, FraudProof, InvalidTransactionProof};
+    <span class="kw">use </span>sp_domains::fraud_proof::FraudProof;
     <span class="kw">use </span>sp_domains::transaction::InvalidTransactionCode;
-    <span class="kw">use </span>sp_domains::{DomainId, SignedOpaqueBundle};
+    <span class="kw">use </span>sp_domains::{DomainId, OpaqueBundle};
     <span class="kw">use </span>sp_executor_registry::ExecutorRegistry;
     <span class="kw">use </span>sp_runtime::traits::{AtLeast32BitUnsigned, MaybeSerializeDeserialize};
     <span class="kw">use </span>sp_runtime::{FixedPointOperand, Percent};
@@ -1149,7 +1110,7 @@
     <span class="kw">use </span>sp_std::vec::Vec;
 
     <span class="attr">#[pallet::config]
-    </span><span class="kw">pub trait </span>Config: frame_system::Config + pallet_receipts::Config {
+    </span><span class="kw">pub trait </span>Config: frame_system::Config + pallet_settlement::Config {
         <span class="kw">type </span>RuntimeEvent: From&lt;Event&lt;<span class="self">Self</span>&gt;&gt; + IsType&lt;&lt;<span class="self">Self </span><span class="kw">as </span>frame_system::Config&gt;::RuntimeEvent&gt;;
 
         <span class="kw">type </span>Currency: LockableCurrency&lt;<span class="self">Self</span>::AccountId, Moment = <span class="self">Self</span>::BlockNumber&gt;;
@@ -1187,12 +1148,18 @@
         // the new stake amount still meets the operator stake threshold on all domains he stakes.
         </span><span class="attr">#[pallet::constant]
         </span><span class="kw">type </span>MinDomainOperatorStake: Get&lt;BalanceOf&lt;<span class="self">Self</span>&gt;&gt;;
+
+        <span class="doccomment">/// Weight information for extrinsics in this pallet.
+        </span><span class="kw">type </span>WeightInfo: WeightInfo;
     }
 
     <span class="attr">#[pallet::pallet]
-    #[pallet::generate_store(<span class="kw">pub </span>(<span class="kw">super</span>) <span class="kw">trait </span>Store)]
     #[pallet::without_storage_info]
     </span><span class="kw">pub struct </span>Pallet&lt;T&gt;(<span class="kw">_</span>);
+
+    <span class="doccomment">/// Core domain bundles submitted successfully in current block.
+    </span><span class="attr">#[pallet::storage]
+    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>SuccessfulBundles&lt;T&gt; = StorageValue&lt;<span class="kw">_</span>, Vec&lt;H256&gt;, ValueQuery&gt;;
 
     <span class="doccomment">/// Domain id for the next core domain.
     </span><span class="attr">#[pallet::storage]
@@ -1252,9 +1219,8 @@
     <span class="attr">#[pallet::call]
     </span><span class="kw">impl</span>&lt;T: Config&gt; Pallet&lt;T&gt; {
         <span class="doccomment">/// Creates a new domain with some deposit locked.
-        </span><span class="comment">// TODO: proper weight
         </span><span class="attr">#[pallet::call_index(<span class="number">0</span>)]
-        #[pallet::weight(<span class="number">10_000</span>)]
+        #[pallet::weight(T::WeightInfo::create_domain())]
         </span><span class="kw">pub fn </span>create_domain(
             origin: OriginFor&lt;T&gt;,
             deposit: BalanceOf&lt;T&gt;,
@@ -1301,9 +1267,8 @@
         }
 
         <span class="doccomment">/// Register a new domain operator.
-        </span><span class="comment">// TODO: proper weight
         </span><span class="attr">#[pallet::call_index(<span class="number">2</span>)]
-        #[pallet::weight(<span class="number">10_000</span>)]
+        #[pallet::weight(T::WeightInfo::register_domain_operator())]
         </span><span class="kw">pub fn </span>register_domain_operator(
             origin: OriginFor&lt;T&gt;,
             domain_id: DomainId,
@@ -1326,9 +1291,8 @@
         /// which is intentional, otherwise, it can be confusing when an operator wants to update
         /// the domain stake but has to call a API named `register_domain_operator` that usually
         /// implies the caller is not yet an operator.
-        </span><span class="comment">// TODO: proper weight
         </span><span class="attr">#[pallet::call_index(<span class="number">3</span>)]
-        #[pallet::weight(<span class="number">10_000</span>)]
+        #[pallet::weight(T::WeightInfo::register_domain_operator())]
         </span><span class="kw">pub fn </span>update_domain_stake(
             origin: OriginFor&lt;T&gt;,
             domain_id: DomainId,
@@ -1346,9 +1310,8 @@
         }
 
         <span class="doccomment">/// Deregister a domain operator.
-        </span><span class="comment">// TODO: proper weight
         </span><span class="attr">#[pallet::call_index(<span class="number">4</span>)]
-        #[pallet::weight(<span class="number">10_000</span>)]
+        #[pallet::weight(T::WeightInfo::deregister_domain_operator())]
         </span><span class="kw">pub fn </span>deregister_domain_operator(
             origin: OriginFor&lt;T&gt;,
             domain_id: DomainId,
@@ -1378,27 +1341,29 @@
 
         <span class="comment">// TODO: Rename this extrinsic since the core bundle is not submit to the transaction pool but crafted and injected
         // on fly when building the system domain block.
-        // TODO: proper weight
         </span><span class="attr">#[pallet::call_index(<span class="number">5</span>)]
-        #[pallet::weight((<span class="number">10_000</span>, Pays::No))]
+        #[pallet::weight(T::WeightInfo::submit_core_bundle(opaque_bundle.receipts.len() <span class="kw">as </span>u32))]
         </span><span class="kw">pub fn </span>submit_core_bundle(
             origin: OriginFor&lt;T&gt;,
-            signed_opaque_bundle: SignedOpaqueBundle&lt;T::BlockNumber, T::Hash, T::DomainHash&gt;,
+            opaque_bundle: OpaqueBundle&lt;T::BlockNumber, T::Hash, T::DomainHash&gt;,
         ) -&gt; DispatchResult {
             ensure_none(origin)<span class="question-mark">?</span>;
 
-            pallet_receipts::Pallet::&lt;T&gt;::track_receipts(
-                signed_opaque_bundle.domain_id(),
-                signed_opaque_bundle.bundle.receipts.as_slice(),
+            pallet_settlement::Pallet::&lt;T&gt;::track_receipts(
+                opaque_bundle.domain_id(),
+                opaque_bundle.receipts.as_slice(),
             )
             .map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
+
+            <span class="kw">let </span>bundle_hash = opaque_bundle.hash();
+
+            SuccessfulBundles::&lt;T&gt;::append(bundle_hash);
 
             <span class="prelude-val">Ok</span>(())
         }
 
-        <span class="comment">// TODO: proper weight
-        </span><span class="attr">#[pallet::call_index(<span class="number">6</span>)]
-        #[pallet::weight((<span class="number">10_000</span>, Pays::No))]
+        <span class="attr">#[pallet::call_index(<span class="number">6</span>)]
+        #[pallet::weight(T::WeightInfo::submit_fraud_proof())]
         </span><span class="kw">pub fn </span>submit_fraud_proof(
             origin: OriginFor&lt;T&gt;,
             fraud_proof: FraudProof&lt;T::BlockNumber, T::Hash&gt;,
@@ -1408,45 +1373,13 @@
             <span class="macro">log::trace!</span>(target: <span class="string">&quot;runtime::domain-registry&quot;</span>, <span class="string">&quot;Processing fraud proof: {fraud_proof:?}&quot;</span>);
 
             <span class="kw">if </span>fraud_proof.domain_id().is_core() {
-                pallet_receipts::Pallet::&lt;T&gt;::process_fraud_proof(fraud_proof)
+                pallet_settlement::Pallet::&lt;T&gt;::process_fraud_proof(fraud_proof)
                     .map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
             }
 
             <span class="comment">// TODO: slash the executor accordingly.
 
             </span><span class="prelude-val">Ok</span>(())
-        }
-
-        <span class="comment">// TODO: proper weight
-        </span><span class="attr">#[pallet::call_index(<span class="number">7</span>)]
-        #[pallet::weight((<span class="number">10_000</span>, Pays::No))]
-        </span><span class="kw">pub fn </span>submit_bundle_equivocation_proof(
-            origin: OriginFor&lt;T&gt;,
-            _bundle_equivocation_proof: BundleEquivocationProof&lt;T::BlockNumber, T::Hash&gt;,
-        ) -&gt; DispatchResult {
-            ensure_none(origin)<span class="question-mark">?</span>;
-
-            <span class="comment">// TODO: slash the executor accordingly.
-
-            </span><span class="self">Self</span>::deposit_event(Event::BundleEquivocationProofProcessed);
-
-            <span class="prelude-val">Ok</span>(())
-        }
-
-        <span class="comment">// TODO: proper weight
-        </span><span class="attr">#[pallet::call_index(<span class="number">8</span>)]
-        #[pallet::weight((<span class="number">10_000</span>, Pays::No))]
-        </span><span class="kw">pub fn </span>submit_invalid_transaction_proof(
-            origin: OriginFor&lt;T&gt;,
-            _invalid_transaction_proof: InvalidTransactionProof,
-        ) -&gt; DispatchResult {
-            ensure_none(origin)<span class="question-mark">?</span>;
-
-            <span class="comment">// TODO: slash the executor accordingly.
-
-            </span><span class="self">Self</span>::deposit_event(Event::InvalidTransactionProofProcessed);
-
-            <span class="prelude-val">Ok</span>(())
         }
     }
 
@@ -1462,7 +1395,7 @@
             <span class="kw">let </span><span class="kw-2">mut </span>consumed_weight = Weight::zero();
             <span class="kw">for </span>domain_id <span class="kw">in </span>Domains::&lt;T&gt;::iter_keys() {
                 <span class="kw">for </span>(primary_number, primary_hash) <span class="kw">in </span><span class="kw-2">&amp;</span>primary_block_info {
-                    pallet_receipts::PrimaryBlockHash::&lt;T&gt;::insert(
+                    pallet_settlement::PrimaryBlockHash::&lt;T&gt;::insert(
                         domain_id,
                         primary_number,
                         primary_hash,
@@ -1470,6 +1403,9 @@
                     consumed_weight += T::DbWeight::get().reads_writes(<span class="number">1</span>, <span class="number">1</span>);
                 }
             }
+
+            SuccessfulBundles::&lt;T&gt;::kill();
+            consumed_weight += T::DbWeight::get().writes(<span class="number">1</span>);
 
             consumed_weight
         }
@@ -1491,7 +1427,8 @@
 
     <span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
     </span><span class="kw">impl</span>&lt;T: Config&gt; Default <span class="kw">for </span>GenesisConfig&lt;T&gt; {
-        <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        <span class="attr">#[inline]
+        </span><span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
             <span class="self">Self </span>{
                 domains: Vec::new(),
             }
@@ -1532,7 +1469,8 @@
     }
 
     <span class="kw">impl</span>&lt;T&gt; From&lt;ReadBundleElectionParamsError&gt; <span class="kw">for </span>Error&lt;T&gt; {
-        <span class="kw">fn </span>from(_error: ReadBundleElectionParamsError) -&gt; <span class="self">Self </span>{
+        <span class="attr">#[inline]
+        </span><span class="kw">fn </span>from(_error: ReadBundleElectionParamsError) -&gt; <span class="self">Self </span>{
             <span class="self">Self</span>::FailedToReadBundleElectionParams
         }
     }
@@ -1549,12 +1487,13 @@
         </span>BeforeDomainCreation,
     }
 
-    <span class="kw">impl</span>&lt;T&gt; From&lt;PalletReceiptError&gt; <span class="kw">for </span>Error&lt;T&gt; {
-        <span class="kw">fn </span>from(error: PalletReceiptError) -&gt; <span class="self">Self </span>{
+    <span class="kw">impl</span>&lt;T&gt; From&lt;PalletSettlementError&gt; <span class="kw">for </span>Error&lt;T&gt; {
+        <span class="attr">#[inline]
+        </span><span class="kw">fn </span>from(error: PalletSettlementError) -&gt; <span class="self">Self </span>{
             <span class="kw">match </span>error {
-                PalletReceiptError::MissingParent =&gt; <span class="self">Self</span>::Receipt(ReceiptError::MissingParent),
-                PalletReceiptError::FraudProof(err) =&gt; <span class="self">Self</span>::FraudProof(err),
-                PalletReceiptError::UnavailablePrimaryBlockHash =&gt; {
+                PalletSettlementError::MissingParent =&gt; <span class="self">Self</span>::Receipt(ReceiptError::MissingParent),
+                PalletSettlementError::FraudProof(err) =&gt; <span class="self">Self</span>::FraudProof(err),
+                PalletSettlementError::UnavailablePrimaryBlockHash =&gt; {
                     <span class="self">Self</span>::UnavailablePrimaryBlockHash
                 }
             }
@@ -1654,10 +1593,6 @@
         },
 
         FraudProofProcessed,
-
-        BundleEquivocationProofProcessed,
-
-        InvalidTransactionProofProcessed,
     }
 
     <span class="doccomment">/// Constructs a `TransactionValidity` with pallet-domain-registry specific defaults.
@@ -1679,14 +1614,24 @@
         <span class="kw">fn </span>pre_dispatch(call: <span class="kw-2">&amp;</span><span class="self">Self</span>::Call) -&gt; <span class="prelude-ty">Result</span>&lt;(), TransactionValidityError&gt; {
             <span class="kw">match </span>call {
                 Call::submit_core_bundle {
-                    signed_opaque_bundle,
-                } =&gt; <span class="self">Self</span>::pre_dispatch_submit_core_bundle(signed_opaque_bundle).map_err(|e| {
+                    opaque_bundle,
+                } =&gt; <span class="self">Self</span>::pre_dispatch_submit_core_bundle(opaque_bundle).map_err(|e| {
                     <span class="macro">log::error!</span>(target: <span class="string">&quot;runtime::domain-registry&quot;</span>, <span class="string">&quot;Bad core bundle, error: {e:?}&quot;</span>);
                     TransactionValidityError::Invalid(InvalidTransactionCode::Bundle.into())
                 }),
-                Call::submit_fraud_proof { .. } =&gt; <span class="prelude-val">Ok</span>(()),
-                Call::submit_bundle_equivocation_proof { .. } =&gt; <span class="prelude-val">Ok</span>(()),
-                Call::submit_invalid_transaction_proof { .. } =&gt; <span class="prelude-val">Ok</span>(()),
+                Call::submit_fraud_proof { fraud_proof } =&gt; {
+                    <span class="kw">if </span>fraud_proof.domain_id().is_system() {
+                        <span class="macro">log::debug!</span>(
+                            target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
+                            <span class="string">&quot;Unexpected system domain fraud proof: {fraud_proof:?}&quot;</span>,
+                        );
+                        <span class="prelude-val">Err</span>(TransactionValidityError::Invalid(
+                            InvalidTransactionCode::FraudProof.into(),
+                        ))
+                    } <span class="kw">else </span>{
+                        <span class="prelude-val">Ok</span>(())
+                    }
+                }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">Err</span>(InvalidTransaction::Call.into()),
             }
         }
@@ -1694,9 +1639,17 @@
         <span class="kw">fn </span>validate_unsigned(_source: TransactionSource, call: <span class="kw-2">&amp;</span><span class="self">Self</span>::Call) -&gt; TransactionValidity {
             <span class="kw">match </span>call {
                 Call::submit_fraud_proof { fraud_proof } =&gt; {
-                    <span class="kw">if let </span><span class="prelude-val">Err</span>(e) = pallet_receipts::Pallet::&lt;T&gt;::validate_fraud_proof(fraud_proof)
+                    <span class="kw">if </span>fraud_proof.domain_id().is_system() {
+                        <span class="macro">log::debug!</span>(
+                            target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
+                            <span class="string">&quot;Unexpected system domain fraud proof: {fraud_proof:?}&quot;</span>,
+                        );
+                        <span class="kw">return </span>InvalidTransactionCode::FraudProof.into();
+                    }
+                    <span class="kw">if let </span><span class="prelude-val">Err</span>(e) =
+                        pallet_settlement::Pallet::&lt;T&gt;::validate_fraud_proof(fraud_proof)
                     {
-                        <span class="macro">log::error!</span>(
+                        <span class="macro">log::debug!</span>(
                             target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
                             <span class="string">&quot;Bad fraud proof: {fraud_proof:?}, error: {e:?}&quot;</span>,
                         );
@@ -1705,42 +1658,6 @@
 
                     <span class="comment">// TODO: proper tag value.
                     </span>unsigned_validity(<span class="string">&quot;SubspaceSubmitFraudProof&quot;</span>, fraud_proof)
-                }
-                Call::submit_bundle_equivocation_proof {
-                    bundle_equivocation_proof,
-                } =&gt; {
-                    <span class="kw">if let </span><span class="prelude-val">Err</span>(e) =
-                        <span class="self">Self</span>::validate_bundle_equivocation_proof(bundle_equivocation_proof)
-                    {
-                        <span class="macro">log::error!</span>(
-                            target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
-                            <span class="string">&quot;Bad bundle equivocation proof: {bundle_equivocation_proof:?}, error: {e:?}&quot;</span>,
-                        );
-                        <span class="kw">return </span>InvalidTransactionCode::BundleEquivicationProof.into();
-                    }
-
-                    unsigned_validity(
-                        <span class="string">&quot;SubspaceSubmitBundleEquivocationProof&quot;</span>,
-                        bundle_equivocation_proof.hash(),
-                    )
-                }
-                Call::submit_invalid_transaction_proof {
-                    invalid_transaction_proof,
-                } =&gt; {
-                    <span class="kw">if let </span><span class="prelude-val">Err</span>(e) =
-                        <span class="self">Self</span>::validate_invalid_transaction_proof(invalid_transaction_proof)
-                    {
-                        <span class="macro">log::error!</span>(
-                            target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
-                            <span class="string">&quot;Bad invalid transaction proof: {invalid_transaction_proof:?}, error: {e:?}&quot;</span>,
-                        );
-                        <span class="kw">return </span>InvalidTransactionCode::TrasactionProof.into();
-                    }
-
-                    unsigned_validity(
-                        <span class="string">&quot;SubspaceSubmitInvalidTransactionProof&quot;</span>,
-                        invalid_transaction_proof,
-                    )
                 }
                 <span class="kw">_ </span>=&gt; InvalidTransaction::Call.into(),
             }
@@ -1797,13 +1714,17 @@
 }
 
 <span class="kw">impl</span>&lt;T: Config&gt; Pallet&lt;T&gt; {
+    <span class="kw">pub fn </span>successful_bundles() -&gt; Vec&lt;H256&gt; {
+        SuccessfulBundles::&lt;T&gt;::get()
+    }
+
     <span class="kw">pub fn </span>head_receipt_number(domain_id: DomainId) -&gt; T::BlockNumber {
-        pallet_receipts::Pallet::&lt;T&gt;::head_receipt_number(domain_id)
+        pallet_settlement::Pallet::&lt;T&gt;::head_receipt_number(domain_id)
     }
 
     <span class="doccomment">/// Returns the block number of the oldest receipt still being tracked in the state.
     </span><span class="kw">pub fn </span>oldest_receipt_number(domain_id: DomainId) -&gt; T::BlockNumber {
-        pallet_receipts::Pallet::&lt;T&gt;::oldest_receipt_number(domain_id)
+        pallet_settlement::Pallet::&lt;T&gt;::oldest_receipt_number(domain_id)
     }
 
     <span class="kw">pub fn </span>domain_authorities(domain_id: DomainId) -&gt; Vec&lt;(ExecutorPublicKey, T::StakeWeight)&gt; {
@@ -1835,36 +1756,36 @@
     }
 
     <span class="kw">fn </span>pre_dispatch_submit_core_bundle(
-        signed_opaque_bundle: <span class="kw-2">&amp;</span>SignedOpaqueBundle&lt;T::BlockNumber, T::Hash, T::DomainHash&gt;,
+        opaque_bundle: <span class="kw-2">&amp;</span>OpaqueBundle&lt;T::BlockNumber, T::Hash, T::DomainHash&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(), Error&lt;T&gt;&gt; {
         <span class="kw">let </span>BundleSolution::Core {
             proof_of_election,
             core_block_number,
             core_block_hash,
             core_state_root
-        } = <span class="kw-2">&amp;</span>signed_opaque_bundle.bundle_solution <span class="kw">else </span>{
+        } = <span class="kw-2">&amp;</span>opaque_bundle.header.bundle_solution <span class="kw">else </span>{
             <span class="kw">return </span><span class="prelude-val">Err</span>(Error::&lt;T&gt;::NotCoreDomainBundle);
         };
 
-        <span class="kw">let </span>domain_id = signed_opaque_bundle.domain_id();
+        <span class="kw">let </span>domain_id = opaque_bundle.domain_id();
 
         <span class="kw">if </span>!domain_id.is_core() {
             <span class="kw">return </span><span class="prelude-val">Err</span>(Error::&lt;T&gt;::NotCoreDomainBundle);
         }
 
-        <span class="kw">let </span>bundle = <span class="kw-2">&amp;</span>signed_opaque_bundle.bundle;
+        <span class="kw">let </span>bundle = opaque_bundle;
 
         <span class="kw">let </span>bundle_created_on_valid_primary_block =
-            pallet_receipts::PrimaryBlockHash::&lt;T&gt;::get(domain_id, bundle.header.primary_number)
+            pallet_settlement::PrimaryBlockHash::&lt;T&gt;::get(domain_id, bundle.header.primary_number)
                 .map(|block_hash| block_hash == bundle.header.primary_hash)
                 .unwrap_or(<span class="bool-val">false</span>);
 
         <span class="kw">if </span>!bundle_created_on_valid_primary_block {
-            <span class="macro">log::error!</span>(
+            <span class="macro">log::debug!</span>(
                 target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
                 <span class="string">&quot;Bundle of {domain_id:?} is probably created on a primary fork #{:?}, expected: {:?}, got: {:?}&quot;</span>,
                 bundle.header.primary_number,
-                pallet_receipts::PrimaryBlockHash::&lt;T&gt;::get(domain_id, bundle.header.primary_number),
+                pallet_settlement::PrimaryBlockHash::&lt;T&gt;::get(domain_id, bundle.header.primary_number),
                 bundle.header.primary_hash,
             );
             <span class="kw">return </span><span class="prelude-val">Err</span>(Error::BundleCreatedOnUnknownBlock);
@@ -1886,7 +1807,7 @@
                 <span class="comment">// Missing receipt.
             </span>} <span class="kw">else </span>{
                 <span class="kw">let </span>missing_receipt_number = new_best_number + One::one();
-                <span class="macro">log::error!</span>(
+                <span class="macro">log::debug!</span>(
                     target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
                     <span class="string">&quot;Receipt for {domain_id:?} #{missing_receipt_number:?} is missing, \
                     head_receipt_number: {head_receipt_number:?}, max_allowed: {max_allowed:?}, received: {:?}&quot;</span>,
@@ -1898,26 +1819,26 @@
             <span class="kw">let </span>primary_number = receipt.primary_number;
 
             <span class="kw">if </span>primary_number &lt;= created_at {
-                <span class="macro">log::error!</span>(
+                <span class="macro">log::debug!</span>(
                     target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
                     <span class="string">&quot;Domain was created at #{created_at:?}, but this receipt points to an earlier block #{:?}&quot;</span>, receipt.primary_number,
                 );
                 <span class="kw">return </span><span class="prelude-val">Err</span>(Error::&lt;T&gt;::Receipt(ReceiptError::BeforeDomainCreation));
             }
 
-            <span class="kw">if </span>!pallet_receipts::Pallet::&lt;T&gt;::point_to_valid_primary_block(domain_id, receipt) {
-                <span class="macro">log::error!</span>(
+            <span class="kw">if </span>!pallet_settlement::Pallet::&lt;T&gt;::point_to_valid_primary_block(domain_id, receipt) {
+                <span class="macro">log::debug!</span>(
                     target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
                     <span class="string">&quot;Receipt of {domain_id:?} #{primary_number:?},{:?} points to an unknown primary block, \
                     expected: #{primary_number:?},{:?}&quot;</span>,
                     receipt.primary_hash,
-                    pallet_receipts::PrimaryBlockHash::&lt;T&gt;::get(domain_id, primary_number),
+                    pallet_settlement::PrimaryBlockHash::&lt;T&gt;::get(domain_id, primary_number),
                 );
                 <span class="kw">return </span><span class="prelude-val">Err</span>(Error::&lt;T&gt;::Receipt(ReceiptError::UnknownBlock));
             }
 
             <span class="kw">if </span>primary_number &gt; max_allowed {
-                <span class="macro">log::error!</span>(
+                <span class="macro">log::debug!</span>(
                     target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
                     <span class="string">&quot;Receipt for #{primary_number:?} is too far in future, max_allowed: {max_allowed:?}&quot;</span>,
                 );
@@ -1930,7 +1851,7 @@
         </span><span class="kw">let </span>ProofOfElection {
             vrf_output,
             storage_proof,
-            state_root,
+            system_state_root,
             executor_public_key,
             global_challenge,
             ..
@@ -1967,25 +1888,25 @@
 
             <span class="kw">let </span>expected_state_root = <span class="kw">match </span>maybe_state_root {
                 <span class="prelude-val">Some</span>(v) =&gt; v,
-                <span class="prelude-val">None </span>=&gt; pallet_receipts::Pallet::&lt;T&gt;::state_root((
+                <span class="prelude-val">None </span>=&gt; pallet_settlement::Pallet::&lt;T&gt;::state_root((
                     domain_id,
                     core_block_number,
                     core_block_hash,
                 ))
                     .ok_or(Error::&lt;T&gt;::StateRootNotFound)
                     .map_err(|err| {
-                        <span class="macro">log::error!</span>(
-                        target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
-                        <span class="string">&quot;State root for {domain_id:?} #{core_block_number:?},{core_block_hash:?} not found, \
-                        current head receipt: {:?}&quot;</span>,
-                        pallet_receipts::Pallet::&lt;T&gt;::receipt_head(domain_id),
-                    );
+                        <span class="macro">log::debug!</span>(
+                            target: <span class="string">&quot;runtime::domain-registry&quot;</span>,
+                            <span class="string">&quot;State root for {domain_id:?} #{core_block_number:?},{core_block_hash:?} not found, \
+                            current head receipt: {:?}&quot;</span>,
+                            pallet_settlement::Pallet::&lt;T&gt;::receipt_head(domain_id),
+                        );
                         err
                     })<span class="question-mark">?</span>,
             };
 
             <span class="kw">if </span>expected_state_root != <span class="kw-2">*</span>core_state_root {
-                <span class="macro">log::error!</span>(
+                <span class="macro">log::debug!</span>(
                     target: <span class="string">&quot;runtime::domains&quot;</span>,
                     <span class="string">&quot;Bad state root for {domain_id:?} #{core_block_number:?},{core_block_hash:?}, \
                     expected: {expected_state_root:?}, got: {core_state_root:?}&quot;</span>,
@@ -1996,13 +1917,12 @@
 
         <span class="kw">let </span>db = storage_proof.clone().into_memory_db::&lt;BlakeTwo256&gt;();
 
-        <span class="kw">let </span>state_root =
-            sp_core::H256::decode(<span class="kw-2">&amp;mut </span>state_root.encode().as_slice()).expect(<span class="string">&quot;StateRootNotH256&quot;</span>);
+        <span class="kw">let </span>system_state_root: sp_core::H256 = (<span class="kw-2">*</span>system_state_root).into();
 
         <span class="kw">let </span>read_value = |storage_key: Vec&lt;u8&gt;| {
             sp_trie::read_trie_value::&lt;sp_trie::LayoutV1&lt;BlakeTwo256&gt;, <span class="kw">_</span>&gt;(
                 <span class="kw-2">&amp;</span>db,
-                <span class="kw-2">&amp;</span>state_root,
+                <span class="kw-2">&amp;</span>system_state_root,
                 <span class="kw-2">&amp;</span>storage_key,
                 <span class="prelude-val">None</span>,
                 <span class="prelude-val">None</span>,
@@ -2083,7 +2003,7 @@
 
         <span class="kw">let </span>current_block_number = frame_system::Pallet::&lt;T&gt;::block_number();
         CreatedAt::&lt;T&gt;::insert(domain_id, current_block_number);
-        pallet_receipts::Pallet::&lt;T&gt;::initialize_head_receipt_number(
+        pallet_settlement::Pallet::&lt;T&gt;::initialize_head_receipt_number(
             domain_id,
             current_block_number,
         );
@@ -2145,20 +2065,5 @@
             <span class="prelude-val">Ok</span>(())
         })
     }
-
-    <span class="comment">// TODO: Verify bundle_equivocation_proof.
-    </span><span class="kw">fn </span>validate_bundle_equivocation_proof(
-        _bundle_equivocation_proof: <span class="kw-2">&amp;</span>BundleEquivocationProof&lt;T::BlockNumber, T::Hash&gt;,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), Error&lt;T&gt;&gt; {
-        <span class="prelude-val">Ok</span>(())
-    }
-
-    <span class="comment">// TODO: Verify invalid_transaction_proof.
-    </span><span class="kw">fn </span>validate_invalid_transaction_proof(
-        _invalid_transaction_proof: <span class="kw-2">&amp;</span>InvalidTransactionProof,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), Error&lt;T&gt;&gt; {
-        <span class="prelude-val">Ok</span>(())
-    }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="pallet_domain_registry" data-themes="" data-resource-suffix="" data-rustdoc-version="1.68.0-nightly (afaf3e07a 2023-01-14)" data-search-js="search-181581080540673f.js" data-settings-js="settings-a2afdefbb7c817f1.js" data-settings-css="settings-84508a86fe805444.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

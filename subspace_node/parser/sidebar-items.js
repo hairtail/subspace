@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":[["parse_relayer_id","Parses relayer id in string format. Used for Cli."]]};

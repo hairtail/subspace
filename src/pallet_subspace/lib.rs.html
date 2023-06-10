@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/pallet-subspace/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-52c5db6f6f352e54.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-4743e13df3dfe8c4.css"><link rel="stylesheet" disabled href="../../static.files/dark-0e1b889528bd466b.css"><link rel="stylesheet" disabled href="../../static.files/ayu-65289d5d067c7c66.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-d2686a620d99aad7.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../pallet_subspace/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/pallet-subspace/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="pallet_subspace" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0-nightly (ce5919fce 2023-05-15)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-6f6ffb5395b17c6e.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../pallet_subspace/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1597,7 +1597,15 @@
 <a href="#1597" id="1597">1597</a>
 <a href="#1598" id="1598">1598</a>
 <a href="#1599" id="1599">1599</a>
-</pre><pre class="rust"><code><span class="attr">#![feature(assert_matches)]
+<a href="#1600" id="1600">1600</a>
+<a href="#1601" id="1601">1601</a>
+<a href="#1602" id="1602">1602</a>
+<a href="#1603" id="1603">1603</a>
+<a href="#1604" id="1604">1604</a>
+<a href="#1605" id="1605">1605</a>
+<a href="#1606" id="1606">1606</a>
+<a href="#1607" id="1607">1607</a>
+</pre></div><pre class="rust"><code><span class="attr">#![feature(assert_matches)]
 </span><span class="comment">// Copyright (C) 2019-2021 Parity Technologies (UK) Ltd.
 // Copyright (C) 2021 Subspace Labs, Inc.
 // SPDX-License-Identifier: Apache-2.0
@@ -1617,26 +1625,33 @@
 #![cfg_attr(not(feature = <span class="string">&quot;std&quot;</span>), no_std)]
 #![warn(unused_must_use, unsafe_code, unused_variables, unused_must_use)]
 
-</span><span class="kw">mod </span>default_weights;
+</span><span class="kw">extern crate </span>alloc;
+
 <span class="kw">pub mod </span>equivocation;
 
-<span class="attr">#[cfg(all(feature = <span class="string">&quot;std&quot;</span>, test))]
+<span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>mock;
-<span class="attr">#[cfg(all(feature = <span class="string">&quot;std&quot;</span>, test))]
+<span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>tests;
 
+<span class="attr">#[cfg(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>)]
+</span><span class="kw">mod </span>benchmarking;
+
+<span class="kw">pub mod </span>weights;
+
+<span class="kw">use </span>alloc::string::String;
 <span class="kw">use </span>codec::{Decode, Encode, MaxEncodedLen};
 <span class="kw">use </span>core::num::NonZeroU64;
 <span class="kw">use </span>equivocation::{HandleEquivocation, SubspaceEquivocationOffence};
 <span class="kw">use </span>frame_support::dispatch::{DispatchResult, DispatchResultWithPostInfo, Pays};
 <span class="kw">use </span>frame_support::traits::{Get, OnTimestampSet};
-<span class="kw">use </span>frame_support::weights::Weight;
 <span class="kw">use </span>frame_system::offchain::{SendTransactionTypes, SubmitTransaction};
 <span class="kw">use </span>log::{debug, error, warn};
 <span class="kw">pub use </span>pallet::<span class="kw-2">*</span>;
 <span class="kw">use </span>scale_info::TypeInfo;
 <span class="kw">use </span>schnorrkel::SignatureError;
 <span class="kw">use </span>sp_consensus_slots::Slot;
+<span class="kw">use </span>sp_consensus_subspace::consensus::verify_solution;
 <span class="kw">use </span>sp_consensus_subspace::digests::CompatibleDigestItem;
 <span class="kw">use </span>sp_consensus_subspace::offence::{OffenceDetails, OffenceError, OnOffenceHandler};
 <span class="kw">use </span>sp_consensus_subspace::{
@@ -1651,23 +1666,16 @@
 <span class="kw">use </span>sp_runtime::DispatchError;
 <span class="kw">use </span>sp_std::collections::btree_map::BTreeMap;
 <span class="kw">use </span>sp_std::prelude::<span class="kw-2">*</span>;
-<span class="kw">use </span>subspace_core_primitives::crypto::kzg;
-<span class="kw">use </span>subspace_core_primitives::crypto::kzg::Kzg;
+<span class="kw">use </span>subspace_core_primitives::crypto::Scalar;
 <span class="kw">use </span>subspace_core_primitives::{
-    PublicKey, Randomness, RewardSignature, RootBlock, SectorId, SectorIndex, SegmentIndex,
-    SolutionRange, PIECES_IN_SEGMENT, PIECE_SIZE, RECORDED_HISTORY_SEGMENT_SIZE, RECORD_SIZE,
+    ArchivedHistorySegment, HistorySize, PublicKey, Randomness, RewardSignature, SectorId,
+    SectorIndex, SegmentHeader, SegmentIndex, SolutionRange,
 };
 <span class="kw">use </span>subspace_solving::REWARD_SIGNING_CONTEXT;
 <span class="kw">use </span>subspace_verification::{
-    check_reward_signature, derive_next_solution_range, derive_randomness, verify_solution,
-    Error <span class="kw">as </span>VerificationError, PieceCheckParams, VerifySolutionParams,
+    check_reward_signature, derive_next_solution_range, derive_randomness, PieceCheckParams,
+    VerifySolutionParams,
 };
-
-<span class="kw">pub trait </span>WeightInfo {
-    <span class="kw">fn </span>report_equivocation() -&gt; Weight;
-    <span class="kw">fn </span>store_root_blocks(root_blocks_count: usize) -&gt; Weight;
-    <span class="kw">fn </span>vote() -&gt; Weight;
-}
 
 <span class="doccomment">/// Trigger global randomness every interval.
 </span><span class="kw">pub trait </span>GlobalRandomnessIntervalTrigger {
@@ -1710,7 +1718,6 @@
 </span><span class="kw">struct </span>VoteVerificationData {
     global_randomness: Randomness,
     solution_range: SolutionRange,
-    pieces_in_segment: u32,
     current_slot: Slot,
     parent_slot: Slot,
 }
@@ -1719,15 +1726,15 @@
 </span><span class="attr">#[derive(
     Debug, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Encode, Decode, MaxEncodedLen, TypeInfo,
 )]
-</span><span class="kw">struct </span>ChunkOffset(u32);
+</span><span class="kw">struct </span>AuditChunkOffset(u8);
 
 <span class="attr">#[frame_support::pallet]
 </span><span class="kw">mod </span>pallet {
     <span class="kw">use super</span>::{
-        ChunkOffset, EraChangeTrigger, GlobalRandomnessIntervalTrigger, VoteVerificationData,
-        WeightInfo,
+        AuditChunkOffset, EraChangeTrigger, GlobalRandomnessIntervalTrigger, VoteVerificationData,
     };
     <span class="kw">use </span><span class="kw">crate</span>::equivocation::HandleEquivocation;
+    <span class="kw">use </span><span class="kw">crate</span>::weights::WeightInfo;
     <span class="kw">use </span>frame_support::pallet_prelude::<span class="kw-2">*</span>;
     <span class="kw">use </span>frame_system::pallet_prelude::<span class="kw-2">*</span>;
     <span class="kw">use </span>sp_consensus_slots::Slot;
@@ -1737,8 +1744,9 @@
     <span class="kw">use </span>sp_runtime::DigestItem;
     <span class="kw">use </span>sp_std::collections::btree_map::BTreeMap;
     <span class="kw">use </span>sp_std::prelude::<span class="kw-2">*</span>;
+    <span class="kw">use </span>subspace_core_primitives::crypto::Scalar;
     <span class="kw">use </span>subspace_core_primitives::{
-        Randomness, RootBlock, SectorIndex, SegmentIndex, SolutionRange,
+        Randomness, SectorIndex, SegmentHeader, SegmentIndex, SolutionRange,
     };
 
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">struct </span>InitialSolutionRanges&lt;T: Config&gt; {
@@ -1772,7 +1780,6 @@
 
     <span class="doccomment">/// The Subspace Pallet
     </span><span class="attr">#[pallet::pallet]
-    #[pallet::generate_store(<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">trait </span>Store)]
     #[pallet::without_storage_info]
     </span><span class="kw">pub struct </span>Pallet&lt;T&gt;(<span class="kw">_</span>);
 
@@ -1822,6 +1829,10 @@
         </span><span class="attr">#[pallet::constant]
         </span><span class="kw">type </span>ExpectedVotesPerBlock: Get&lt;u32&gt;;
 
+        <span class="doccomment">/// How many pieces one sector is supposed to contain (max)
+        </span><span class="attr">#[pallet::constant]
+        </span><span class="kw">type </span>MaxPiecesInSector: Get&lt;u16&gt;;
+
         <span class="kw">type </span>ShouldAdjustSolutionRange: Get&lt;bool&gt;;
 
         <span class="doccomment">/// Subspace requires periodic global randomness update.
@@ -1870,7 +1881,8 @@
 
     <span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
     </span><span class="kw">impl </span>Default <span class="kw">for </span>GenesisConfig {
-        <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        <span class="attr">#[inline]
+        </span><span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
             <span class="self">Self </span>{
                 enable_rewards: <span class="bool-val">true</span>,
                 enable_storage_access: <span class="bool-val">true</span>,
@@ -1905,8 +1917,8 @@
     </span><span class="attr">#[pallet::event]
     #[pallet::generate_deposit(<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn </span>deposit_event)]
     </span><span class="kw">pub enum </span>Event&lt;T: Config&gt; {
-        <span class="doccomment">/// Root block was stored in blockchain history.
-        </span>RootBlockStored { root_block: RootBlock },
+        <span class="doccomment">/// Segment header was stored in blockchain history.
+        </span>SegmentHeaderStored { segment_header: SegmentHeader },
         <span class="doccomment">/// Farmer vote.
         </span>FarmerVote {
             public_key: FarmerPublicKey,
@@ -1918,8 +1930,6 @@
 
     <span class="attr">#[pallet::error]
     </span><span class="kw">pub enum </span>Error&lt;T&gt; {
-        <span class="doccomment">/// An equivocation proof provided as part of an equivocation report is invalid.
-        </span>InvalidEquivocationProof,
         <span class="doccomment">/// A given equivocation report is valid but already previously reported.
         </span>DuplicateOffenceReport,
         <span class="doccomment">/// Solution range adjustment already enabled.
@@ -1972,11 +1982,15 @@
     </span><span class="attr">#[pallet::storage]
     </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>BlockList&lt;T&gt; = StorageMap&lt;<span class="kw">_</span>, Twox64Concat, FarmerPublicKey, ()&gt;;
 
-    <span class="doccomment">/// Mapping from segment index to corresponding merkle tree root of segment records.
+    <span class="doccomment">/// Mapping from segment index to corresponding segment commitment of contained records.
     </span><span class="attr">#[pallet::storage]
-    #[pallet::getter(<span class="kw">fn </span>records_root)]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>RecordsRoot&lt;T&gt; =
-        CountedStorageMap&lt;<span class="kw">_</span>, Twox64Concat, SegmentIndex, subspace_core_primitives::RecordsRoot&gt;;
+    #[pallet::getter(<span class="kw">fn </span>segment_commitment)]
+    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>SegmentCommitment&lt;T&gt; = CountedStorageMap&lt;
+        <span class="kw">_</span>,
+        Twox64Concat,
+        SegmentIndex,
+        subspace_core_primitives::SegmentCommitment,
+    &gt;;
 
     <span class="doccomment">/// Storage of previous vote verification data, updated on each block during finalization.
     </span><span class="attr">#[pallet::storage]
@@ -1985,7 +1999,7 @@
     <span class="doccomment">/// Parent block author information.
     </span><span class="attr">#[pallet::storage]
     </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>ParentBlockAuthorInfo&lt;T&gt; =
-        StorageValue&lt;<span class="kw">_</span>, (FarmerPublicKey, SectorIndex, ChunkOffset, Slot)&gt;;
+        StorageValue&lt;<span class="kw">_</span>, (FarmerPublicKey, SectorIndex, Scalar, AuditChunkOffset, Slot)&gt;;
 
     <span class="doccomment">/// Enable rewards since specified block number.
     </span><span class="attr">#[pallet::storage]
@@ -1998,7 +2012,8 @@
         (
             FarmerPublicKey,
             SectorIndex,
-            ChunkOffset,
+            Scalar,
+            AuditChunkOffset,
             Slot,
             T::AccountId,
         ),
@@ -2009,7 +2024,7 @@
     </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>ParentBlockVoters&lt;T: Config&gt; = StorageValue&lt;
         <span class="kw">_</span>,
         BTreeMap&lt;
-            (FarmerPublicKey, SectorIndex, ChunkOffset, Slot),
+            (FarmerPublicKey, SectorIndex, Scalar, AuditChunkOffset, Slot),
             (T::AccountId, FarmerSignature),
         &gt;,
         ValueQuery,
@@ -2020,7 +2035,7 @@
     </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>CurrentBlockVoters&lt;T: Config&gt; = StorageValue&lt;
         <span class="kw">_</span>,
         BTreeMap&lt;
-            (FarmerPublicKey, SectorIndex, ChunkOffset, Slot),
+            (FarmerPublicKey, SectorIndex, Scalar, AuditChunkOffset, Slot),
             (T::AccountId, FarmerSignature),
         &gt;,
     &gt;;
@@ -2079,22 +2094,22 @@
             <span class="self">Self</span>::do_report_equivocation(<span class="kw-2">*</span>equivocation_proof)
         }
 
-        <span class="doccomment">/// Submit new root block to the blockchain. This is an inherent extrinsic and part of the
-        /// Subspace consensus logic.
+        <span class="doccomment">/// Submit new segment header to the blockchain. This is an inherent extrinsic and part of
+        /// the Subspace consensus logic.
         </span><span class="attr">#[pallet::call_index(<span class="number">1</span>)]
-        #[pallet::weight((&lt;T <span class="kw">as </span>Config&gt;::WeightInfo::store_root_blocks(root_blocks.len()), DispatchClass::Mandatory, Pays::No))]
-        </span><span class="kw">pub fn </span>store_root_blocks(
+        #[pallet::weight((&lt;T <span class="kw">as </span>Config&gt;::WeightInfo::store_segment_headers(segment_headers.len() <span class="kw">as </span>u32), DispatchClass::Mandatory, Pays::No))]
+        </span><span class="kw">pub fn </span>store_segment_headers(
             origin: OriginFor&lt;T&gt;,
-            root_blocks: Vec&lt;RootBlock&gt;,
+            segment_headers: Vec&lt;SegmentHeader&gt;,
         ) -&gt; DispatchResult {
             ensure_none(origin)<span class="question-mark">?</span>;
-            <span class="self">Self</span>::do_store_root_blocks(root_blocks)
+            <span class="self">Self</span>::do_store_segment_headers(segment_headers)
         }
 
         <span class="doccomment">/// Enable solution range adjustment after every era.
         /// Note: No effect on the solution range for the current era
         </span><span class="attr">#[pallet::call_index(<span class="number">2</span>)]
-        #[pallet::weight(T::DbWeight::get().writes(<span class="number">1</span>))]
+        #[pallet::weight(&lt;T <span class="kw">as </span>Config&gt;::WeightInfo::enable_solution_range_adjustment())]
         </span><span class="kw">pub fn </span>enable_solution_range_adjustment(
             origin: OriginFor&lt;T&gt;,
             solution_range_override: <span class="prelude-ty">Option</span>&lt;u64&gt;,
@@ -2132,7 +2147,7 @@
 
         <span class="doccomment">/// Enable rewards for blocks and votes at specified block height.
         </span><span class="attr">#[pallet::call_index(<span class="number">4</span>)]
-        #[pallet::weight(T::DbWeight::get().writes(<span class="number">1</span>))]
+        #[pallet::weight(&lt;T <span class="kw">as </span>Config&gt;::WeightInfo::enable_rewards())]
         </span><span class="kw">pub fn </span>enable_rewards(
             origin: OriginFor&lt;T&gt;,
             height: <span class="prelude-ty">Option</span>&lt;T::BlockNumber&gt;,
@@ -2144,7 +2159,7 @@
 
         <span class="doccomment">/// Enable storage access for all users.
         </span><span class="attr">#[pallet::call_index(<span class="number">5</span>)]
-        #[pallet::weight(T::DbWeight::get().writes(<span class="number">1</span>))]
+        #[pallet::weight(&lt;T <span class="kw">as </span>Config&gt;::WeightInfo::enable_storage_access())]
         </span><span class="kw">pub fn </span>enable_storage_access(origin: OriginFor&lt;T&gt;) -&gt; DispatchResult {
             ensure_root(origin)<span class="question-mark">?</span>;
 
@@ -2155,7 +2170,7 @@
 
         <span class="doccomment">/// Enable storage access for all users.
         </span><span class="attr">#[pallet::call_index(<span class="number">6</span>)]
-        #[pallet::weight(T::DbWeight::get().writes(<span class="number">1</span>))]
+        #[pallet::weight(&lt;T <span class="kw">as </span>Config&gt;::WeightInfo::enable_authoring_by_anyone())]
         </span><span class="kw">pub fn </span>enable_authoring_by_anyone(origin: OriginFor&lt;T&gt;) -&gt; DispatchResult {
             ensure_root(origin)<span class="question-mark">?</span>;
 
@@ -2180,11 +2195,11 @@
                 .expect(<span class="string">&quot;Subspace inherent data not correctly encoded&quot;</span>)
                 .expect(<span class="string">&quot;Subspace inherent data must be provided&quot;</span>);
 
-            <span class="kw">let </span>root_blocks = inherent_data.root_blocks;
-            <span class="kw">if </span>root_blocks.is_empty() {
+            <span class="kw">let </span>segment_headers = inherent_data.segment_headers;
+            <span class="kw">if </span>segment_headers.is_empty() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
-                <span class="prelude-val">Some</span>(Call::store_root_blocks { root_blocks })
+                <span class="prelude-val">Some</span>(Call::store_segment_headers { segment_headers })
             }
         }
 
@@ -2194,24 +2209,24 @@
                 .expect(<span class="string">&quot;Subspace inherent data not correctly encoded&quot;</span>)
                 .expect(<span class="string">&quot;Subspace inherent data must be provided&quot;</span>);
 
-            <span class="prelude-val">Ok</span>(<span class="kw">if </span>inherent_data.root_blocks.is_empty() {
+            <span class="prelude-val">Ok</span>(<span class="kw">if </span>inherent_data.segment_headers.is_empty() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
-                <span class="prelude-val">Some</span>(InherentError::MissingRootBlocksList)
+                <span class="prelude-val">Some</span>(InherentError::MissingSegmentHeadersList)
             })
         }
 
         <span class="kw">fn </span>check_inherent(call: <span class="kw-2">&amp;</span><span class="self">Self</span>::Call, data: <span class="kw-2">&amp;</span>InherentData) -&gt; <span class="prelude-ty">Result</span>&lt;(), <span class="self">Self</span>::Error&gt; {
-            <span class="kw">if let </span>Call::store_root_blocks { root_blocks } = call {
+            <span class="kw">if let </span>Call::store_segment_headers { segment_headers } = call {
                 <span class="kw">let </span>inherent_data = data
                     .get_data::&lt;InherentType&gt;(<span class="kw-2">&amp;</span>INHERENT_IDENTIFIER)
                     .expect(<span class="string">&quot;Subspace inherent data not correctly encoded&quot;</span>)
                     .expect(<span class="string">&quot;Subspace inherent data must be provided&quot;</span>);
 
-                <span class="kw">if </span>root_blocks != <span class="kw-2">&amp;</span>inherent_data.root_blocks {
-                    <span class="kw">return </span><span class="prelude-val">Err</span>(InherentError::IncorrectRootBlocksList {
-                        expected: inherent_data.root_blocks,
-                        actual: root_blocks.clone(),
+                <span class="kw">if </span>segment_headers != <span class="kw-2">&amp;</span>inherent_data.segment_headers {
+                    <span class="kw">return </span><span class="prelude-val">Err</span>(InherentError::IncorrectSegmentHeadersList {
+                        expected: inherent_data.segment_headers,
+                        actual: segment_headers.clone(),
                     });
                 }
             }
@@ -2220,7 +2235,7 @@
         }
 
         <span class="kw">fn </span>is_inherent(call: <span class="kw-2">&amp;</span><span class="self">Self</span>::Call) -&gt; bool {
-            <span class="macro">matches!</span>(call, Call::store_root_blocks { .. })
+            <span class="macro">matches!</span>(call, Call::store_segment_headers { .. })
         }
     }
 
@@ -2232,8 +2247,8 @@
                 Call::report_equivocation { equivocation_proof } =&gt; {
                     <span class="self">Self</span>::validate_equivocation_report(source, equivocation_proof)
                 }
-                Call::store_root_blocks { root_blocks } =&gt; {
-                    <span class="self">Self</span>::validate_root_block(source, root_blocks)
+                Call::store_segment_headers { segment_headers } =&gt; {
+                    <span class="self">Self</span>::validate_segment_header(source, segment_headers)
                 }
                 Call::vote { signed_vote } =&gt; <span class="self">Self</span>::validate_vote(signed_vote),
                 <span class="kw">_ </span>=&gt; InvalidTransaction::Call.into(),
@@ -2245,8 +2260,8 @@
                 Call::report_equivocation { equivocation_proof } =&gt; {
                     <span class="self">Self</span>::pre_dispatch_equivocation_report(equivocation_proof)
                 }
-                Call::store_root_blocks { root_blocks } =&gt; {
-                    <span class="self">Self</span>::pre_dispatch_root_block(root_blocks)
+                Call::store_segment_headers { segment_headers } =&gt; {
+                    <span class="self">Self</span>::pre_dispatch_segment_header(segment_headers)
                 }
                 Call::vote { signed_vote } =&gt; <span class="self">Self</span>::pre_dispatch_vote(signed_vote),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">Err</span>(InvalidTransaction::Call.into()),
@@ -2264,11 +2279,10 @@
     }
 
     <span class="doccomment">/// Total number of pieces in the blockchain
-    </span><span class="kw">pub fn </span>total_pieces() -&gt; NonZeroU64 {
+    </span><span class="kw">pub fn </span>history_size() -&gt; HistorySize {
         <span class="comment">// Chain starts with one segment plotted, even if it is not recorded in the runtime yet
-        </span><span class="kw">let </span>number_of_segments = u64::from(RecordsRoot::&lt;T&gt;::count()).max(<span class="number">1</span>);
-        NonZeroU64::new(number_of_segments * u64::from(PIECES_IN_SEGMENT))
-            .expect(<span class="string">&quot;Neither of multiplied values is zero; qed&quot;</span>)
+        </span><span class="kw">let </span>number_of_segments = u64::from(SegmentCommitment::&lt;T&gt;::count()).max(<span class="number">1</span>);
+        HistorySize::from(NonZeroU64::new(number_of_segments).expect(<span class="string">&quot;Not zero; qed&quot;</span>))
     }
 
     <span class="doccomment">/// Determine whether a randomness update should take place at this block.
@@ -2377,11 +2391,12 @@
             <span class="kw">let </span>key = (
                 farmer_public_key,
                 pre_digest.solution.sector_index,
-                ChunkOffset(pre_digest.solution.chunk_offset),
+                pre_digest.solution.chunk,
+                AuditChunkOffset(pre_digest.solution.audit_chunk_offset),
                 pre_digest.slot,
             );
             <span class="kw">if </span>ParentBlockVoters::&lt;T&gt;::get().contains_key(<span class="kw-2">&amp;</span>key) {
-                <span class="kw">let </span>(public_key, _sector_index, _chunk_offset, slot) = key;
+                <span class="kw">let </span>(public_key, _sector_index, _chunk, _audit_chunk_offset, slot) = key;
 
                 <span class="kw">let </span>offence = SubspaceEquivocationOffence {
                     slot,
@@ -2398,19 +2413,20 @@
                     </span>);
                 }
             } <span class="kw">else </span>{
-                <span class="kw">let </span>(public_key, sector_index, chunk_offset, slot) = key;
+                <span class="kw">let </span>(public_key, sector_index, chunk, audit_chunk_offset, slot) = key;
 
                 CurrentBlockAuthorInfo::&lt;T&gt;::put((
                     public_key,
                     sector_index,
-                    chunk_offset,
+                    chunk,
+                    audit_chunk_offset,
                     slot,
-                    pre_digest.solution.reward_address,
+                    pre_digest.solution.reward_address.clone(),
                 ));
             }
         }
         CurrentBlockVoters::&lt;T&gt;::put(BTreeMap::&lt;
-            (FarmerPublicKey, SectorIndex, ChunkOffset, Slot),
+            (FarmerPublicKey, SectorIndex, Scalar, AuditChunkOffset, Slot),
             (T::AccountId, FarmerSignature),
         &gt;::default());
 
@@ -2438,13 +2454,7 @@
         }
 
         <span class="comment">// Extract PoR randomness from pre-digest.
-        // Tag signature is validated by the client and is always valid here.
-        </span><span class="kw">let </span>por_randomness: Randomness = derive_randomness(
-            <span class="kw-2">&amp;</span>PublicKey::from(<span class="kw-2">&amp;</span>pre_digest.solution.public_key),
-            <span class="kw-2">&amp;</span>pre_digest.solution.chunk.to_bytes(),
-            <span class="kw-2">&amp;</span>pre_digest.solution.chunk_signature,
-        )
-        .expect(<span class="string">&quot;Tag signature is verified by the client and is always valid; qed&quot;</span>);
+        </span><span class="kw">let </span>por_randomness = derive_randomness(<span class="kw-2">&amp;</span>pre_digest.solution, pre_digest.slot.into());
         <span class="comment">// Store PoR randomness for block duration as it might be useful.
         </span>PorRandomness::&lt;T&gt;::put(por_randomness);
 
@@ -2482,10 +2492,16 @@
 
         PorRandomness::&lt;T&gt;::take();
 
-        <span class="kw">if let </span><span class="prelude-val">Some</span>((public_key, sector_index, chunk_offset, slot, _reward_address)) =
+        <span class="kw">if let </span><span class="prelude-val">Some</span>((public_key, sector_index, scalar, audit_chunk_offset, slot, _reward_address)) =
             CurrentBlockAuthorInfo::&lt;T&gt;::take()
         {
-            ParentBlockAuthorInfo::&lt;T&gt;::put((public_key, sector_index, chunk_offset, slot));
+            ParentBlockAuthorInfo::&lt;T&gt;::put((
+                public_key,
+                sector_index,
+                scalar,
+                audit_chunk_offset,
+                slot,
+            ));
         }
 
         ParentVoteVerificationData::&lt;T&gt;::put(current_vote_verification_data::&lt;T&gt;(<span class="bool-val">true</span>));
@@ -2499,13 +2515,6 @@
         <span class="kw">let </span>offender = equivocation_proof.offender.clone();
         <span class="kw">let </span>slot = equivocation_proof.slot;
 
-        <span class="comment">// validate the equivocation proof
-        </span><span class="kw">if </span>!sp_consensus_subspace::is_equivocation_proof_valid::&lt;<span class="kw">_</span>, T::AccountId&gt;(
-            equivocation_proof,
-        ) {
-            <span class="kw">return </span><span class="prelude-val">Err</span>(Error::&lt;T&gt;::InvalidEquivocationProof.into());
-        }
-
         <span class="kw">let </span>offence = SubspaceEquivocationOffence { slot, offender };
 
         T::HandleEquivocation::report_offence(offence)
@@ -2515,15 +2524,18 @@
         </span><span class="prelude-val">Ok</span>(Pays::No.into())
     }
 
-    <span class="kw">fn </span>do_store_root_blocks(root_blocks: Vec&lt;RootBlock&gt;) -&gt; DispatchResult {
-        <span class="kw">for </span>root_block <span class="kw">in </span>root_blocks {
-            RecordsRoot::&lt;T&gt;::insert(root_block.segment_index(), root_block.records_root());
+    <span class="kw">fn </span>do_store_segment_headers(segment_headers: Vec&lt;SegmentHeader&gt;) -&gt; DispatchResult {
+        <span class="kw">for </span>segment_header <span class="kw">in </span>segment_headers {
+            SegmentCommitment::&lt;T&gt;::insert(
+                segment_header.segment_index(),
+                segment_header.segment_commitment(),
+            );
             <span class="comment">// Deposit global randomness data such that light client can validate blocks later.
-            </span>frame_system::Pallet::&lt;T&gt;::deposit_log(DigestItem::records_root(
-                root_block.segment_index(),
-                root_block.records_root(),
+            </span>frame_system::Pallet::&lt;T&gt;::deposit_log(DigestItem::segment_commitment(
+                segment_header.segment_index(),
+                segment_header.segment_commitment(),
             ));
-            <span class="self">Self</span>::deposit_event(Event::RootBlockStored { root_block });
+            <span class="self">Self</span>::deposit_event(Event::SegmentHeaderStored { segment_header });
         }
         <span class="prelude-val">Ok</span>(())
     }
@@ -2625,14 +2637,9 @@
 
     <span class="doccomment">/// Size of the archived history of the blockchain in bytes
     </span><span class="kw">pub fn </span>archived_history_size() -&gt; u64 {
-        <span class="kw">let </span>archived_segments = RecordsRoot::&lt;T&gt;::count();
-        <span class="comment">// `*2` because we need to include both data and parity pieces
-        </span><span class="kw">let </span>archived_segment_size = RECORDED_HISTORY_SEGMENT_SIZE / RECORD_SIZE
-            * u32::try_from(PIECE_SIZE)
-                .expect(<span class="string">&quot;Piece size is definitely small enough to fit into u32; qed&quot;</span>)
-            * <span class="number">2</span>;
+        <span class="kw">let </span>archived_segments = SegmentCommitment::&lt;T&gt;::count();
 
-        u64::from(archived_segments) * u64::from(archived_segment_size)
+        u64::from(archived_segments) * ArchivedHistorySegment::SIZE <span class="kw">as </span>u64
     }
 
     <span class="kw">pub fn </span>chain_constants() -&gt; ChainConstants {
@@ -2674,31 +2681,31 @@
 }
 
 <span class="doccomment">/// Methods for the `ValidateUnsigned` implementation:
-/// It restricts calls to `store_root_block` to local calls (i.e. extrinsics generated on this
+/// It restricts calls to `store_segment_header` to local calls (i.e. extrinsics generated on this
 /// node) or that already in a block. This guarantees that only block authors can include root
 /// blocks.
 </span><span class="kw">impl</span>&lt;T: Config&gt; Pallet&lt;T&gt; {
-    <span class="kw">fn </span>validate_root_block(
+    <span class="kw">fn </span>validate_segment_header(
         source: TransactionSource,
-        root_blocks: <span class="kw-2">&amp;</span>[RootBlock],
+        segment_headers: <span class="kw-2">&amp;</span>[SegmentHeader],
     ) -&gt; TransactionValidity {
-        <span class="comment">// Discard root block not coming from the local node
+        <span class="comment">// Discard segment header not coming from the local node
         </span><span class="kw">if </span>!<span class="macro">matches!</span>(
             source,
             TransactionSource::Local | TransactionSource::InBlock,
         ) {
             <span class="macro">warn!</span>(
                 target: <span class="string">&quot;runtime::subspace&quot;</span>,
-                <span class="string">&quot;Rejecting root block extrinsic because it is not local/in-block.&quot;</span>,
+                <span class="string">&quot;Rejecting segment header extrinsic because it is not local/in-block.&quot;</span>,
             );
 
             <span class="kw">return </span>InvalidTransaction::Call.into();
         }
 
-        check_root_blocks::&lt;T&gt;(root_blocks)<span class="question-mark">?</span>;
+        check_segment_headers::&lt;T&gt;(segment_headers)<span class="question-mark">?</span>;
 
-        ValidTransaction::with_tag_prefix(<span class="string">&quot;SubspaceRootBlock&quot;</span>)
-            <span class="comment">// We assign the maximum priority for any root block.
+        ValidTransaction::with_tag_prefix(<span class="string">&quot;SubspaceSegmentHeader&quot;</span>)
+            <span class="comment">// We assign the maximum priority for any segment header.
             </span>.priority(TransactionPriority::MAX)
             <span class="comment">// Should be included immediately into the current block (this is an inherent
             // extrinsic) with no exceptions.
@@ -2708,8 +2715,10 @@
             .build()
     }
 
-    <span class="kw">fn </span>pre_dispatch_root_block(root_blocks: <span class="kw-2">&amp;</span>[RootBlock]) -&gt; <span class="prelude-ty">Result</span>&lt;(), TransactionValidityError&gt; {
-        check_root_blocks::&lt;T&gt;(root_blocks)
+    <span class="kw">fn </span>pre_dispatch_segment_header(
+        segment_headers: <span class="kw-2">&amp;</span>[SegmentHeader],
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), TransactionValidityError&gt; {
+        check_segment_headers::&lt;T&gt;(segment_headers)
     }
 
     <span class="kw">fn </span>validate_vote(
@@ -2771,7 +2780,6 @@
                 .voting_next
                 .unwrap_or(solution_ranges.voting_current)
         },
-        pieces_in_segment: RECORDED_HISTORY_SEGMENT_SIZE / RECORD_SIZE * <span class="number">2</span>,
         current_slot: Pallet::&lt;T&gt;::current_slot(),
         parent_slot: ParentVoteVerificationData::&lt;T&gt;::get()
             .map(|parent_vote_verification_data| {
@@ -2795,14 +2803,15 @@
     SlotInTheFuture,
     SlotInThePast,
     BadRewardSignature(SignatureError),
-    UnknownRecordsRoot,
-    InvalidSolution(VerificationError),
+    UnknownSegmentCommitment,
+    InvalidSolution(String),
     DuplicateVote,
     Equivocated(SubspaceEquivocationOffence&lt;FarmerPublicKey&gt;),
 }
 
 <span class="kw">impl </span>From&lt;CheckVoteError&gt; <span class="kw">for </span>TransactionValidityError {
-    <span class="kw">fn </span>from(error: CheckVoteError) -&gt; <span class="self">Self </span>{
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>from(error: CheckVoteError) -&gt; <span class="self">Self </span>{
         TransactionValidityError::Invalid(<span class="kw">match </span>error {
             CheckVoteError::BlockListed =&gt; InvalidTransaction::BadSigner,
             CheckVoteError::UnexpectedBeforeHeightTwo =&gt; InvalidTransaction::Call,
@@ -2812,7 +2821,7 @@
             CheckVoteError::SlotInTheFuture =&gt; InvalidTransaction::Future,
             CheckVoteError::SlotInThePast =&gt; InvalidTransaction::Stale,
             CheckVoteError::BadRewardSignature(<span class="kw">_</span>) =&gt; InvalidTransaction::BadProof,
-            CheckVoteError::UnknownRecordsRoot =&gt; InvalidTransaction::Call,
+            CheckVoteError::UnknownSegmentCommitment =&gt; InvalidTransaction::Call,
             CheckVoteError::InvalidSolution(<span class="kw">_</span>) =&gt; InvalidTransaction::Call,
             CheckVoteError::DuplicateVote =&gt; InvalidTransaction::Call,
             CheckVoteError::Equivocated(<span class="kw">_</span>) =&gt; InvalidTransaction::BadSigner,
@@ -2941,36 +2950,38 @@
         parent_vote_verification_data
     };
 
-    <span class="kw">let </span>sector_id = SectorId::new(<span class="kw-2">&amp;</span>(<span class="kw-2">&amp;</span>solution.public_key).into(), solution.sector_index);
+    <span class="kw">let </span>sector_id = SectorId::new(
+        PublicKey::from(<span class="kw-2">&amp;</span>solution.public_key).hash(),
+        solution.sector_index,
+    );
 
-    <span class="kw">let </span>piece_index = sector_id.derive_piece_index(solution.piece_offset, solution.total_pieces);
-    <span class="kw">let </span>pieces_in_segment = vote_verification_data.pieces_in_segment;
-    <span class="kw">let </span>segment_index: SegmentIndex = piece_index / SegmentIndex::from(pieces_in_segment);
+    <span class="kw">let </span>segment_index = sector_id
+        .derive_piece_index(solution.piece_offset, solution.history_size)
+        .segment_index();
 
-    <span class="kw">let </span>records_root = <span class="kw">if let </span><span class="prelude-val">Some</span>(records_root) = Pallet::&lt;T&gt;::records_root(segment_index) {
-        records_root
-    } <span class="kw">else </span>{
-        <span class="macro">debug!</span>(
-            target: <span class="string">&quot;runtime::subspace&quot;</span>,
-            <span class="string">&quot;Vote verification error: no records root for segment index {segment_index}&quot;
-        </span>);
-        <span class="kw">return </span><span class="prelude-val">Err</span>(CheckVoteError::UnknownRecordsRoot);
-    };
+    <span class="kw">let </span>segment_commitment =
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(segment_commitment) = Pallet::&lt;T&gt;::segment_commitment(segment_index) {
+            segment_commitment
+        } <span class="kw">else </span>{
+            <span class="macro">debug!</span>(
+                target: <span class="string">&quot;runtime::subspace&quot;</span>,
+                <span class="string">&quot;Vote verification error: no segment commitment for segment index {segment_index}&quot;
+            </span>);
+            <span class="kw">return </span><span class="prelude-val">Err</span>(CheckVoteError::UnknownSegmentCommitment);
+        };
 
-    <span class="kw">let </span>kzg = Kzg::new(kzg::test_public_parameters());
-
-    <span class="kw">if let </span><span class="prelude-val">Err</span>(error) = verify_solution::&lt;FarmerPublicKey, T::AccountId&gt;(
-        solution,
+    <span class="kw">if let </span><span class="prelude-val">Err</span>(error) = verify_solution(
+        solution.into(),
         slot.into(),
-        VerifySolutionParams {
-            global_randomness: <span class="kw-2">&amp;</span>vote_verification_data.global_randomness,
+        (<span class="kw-2">&amp;</span>VerifySolutionParams {
+            global_randomness: vote_verification_data.global_randomness,
             solution_range: vote_verification_data.solution_range,
             piece_check_params: <span class="prelude-val">Some</span>(PieceCheckParams {
-                records_root: <span class="kw-2">&amp;</span>records_root,
-                pieces_in_segment,
+                max_pieces_in_sector: T::MaxPiecesInSector::get(),
+                segment_commitment,
             }),
-        },
-        <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>kzg),
+        })
+            .into(),
     ) {
         <span class="macro">debug!</span>(
             target: <span class="string">&quot;runtime::subspace&quot;</span>,
@@ -2982,7 +2993,8 @@
     <span class="kw">let </span>key = (
         solution.public_key.clone(),
         solution.sector_index,
-        ChunkOffset(solution.chunk_offset),
+        solution.chunk,
+        AuditChunkOffset(solution.audit_chunk_offset),
         slot,
     );
     <span class="comment">// Check that farmer didn&#39;t use solution from this vote yet in:
@@ -2993,8 +3005,8 @@
     </span><span class="kw">let </span><span class="kw-2">mut </span>is_equivocating = ParentBlockAuthorInfo::&lt;T&gt;::get().as_ref() == <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>key)
         || CurrentBlockAuthorInfo::&lt;T&gt;::get()
             .map(
-                |(public_key, sector_index, chunk_offset, slot, _reward_address)| {
-                    (public_key, sector_index, chunk_offset, slot)
+                |(public_key, sector_index, chunk, audit_chunk_offset, slot, _reward_address)| {
+                    (public_key, sector_index, chunk, audit_chunk_offset, slot)
                 },
             )
             .as_ref()
@@ -3032,7 +3044,7 @@
             }
         });
 
-        <span class="kw">let </span>(public_key, _sector_index, _chunk_offset, _slot) = key;
+        <span class="kw">let </span>(public_key, _sector_index, _chunk, _audit_chunk_offset, _slot) = key;
 
         <span class="kw">return </span><span class="prelude-val">Err</span>(CheckVoteError::Equivocated(SubspaceEquivocationOffence {
             slot,
@@ -3059,41 +3071,45 @@
     <span class="prelude-val">Ok</span>(())
 }
 
-<span class="kw">fn </span>check_root_blocks&lt;T: Config&gt;(root_blocks: <span class="kw-2">&amp;</span>[RootBlock]) -&gt; <span class="prelude-ty">Result</span>&lt;(), TransactionValidityError&gt; {
-    <span class="kw">let </span><span class="kw-2">mut </span>root_blocks_iter = root_blocks.iter();
+<span class="kw">fn </span>check_segment_headers&lt;T: Config&gt;(
+    segment_headers: <span class="kw-2">&amp;</span>[SegmentHeader],
+) -&gt; <span class="prelude-ty">Result</span>&lt;(), TransactionValidityError&gt; {
+    <span class="kw">let </span><span class="kw-2">mut </span>segment_headers_iter = segment_headers.iter();
 
-    <span class="comment">// There should be some root blocks
-    </span><span class="kw">let </span>first_root_block = <span class="kw">match </span>root_blocks_iter.next() {
-        <span class="prelude-val">Some</span>(first_root_block) =&gt; first_root_block,
+    <span class="comment">// There should be some segment headers
+    </span><span class="kw">let </span>first_segment_header = <span class="kw">match </span>segment_headers_iter.next() {
+        <span class="prelude-val">Some</span>(first_segment_header) =&gt; first_segment_header,
         <span class="prelude-val">None </span>=&gt; {
             <span class="kw">return </span><span class="prelude-val">Err</span>(InvalidTransaction::BadMandatory.into());
         }
     };
 
-    <span class="comment">// Segment in root blocks should monotonically increase
-    </span><span class="kw">if </span>first_root_block.segment_index() &gt; <span class="number">0
-        </span>&amp;&amp; !RecordsRoot::&lt;T&gt;::contains_key(first_root_block.segment_index() - <span class="number">1</span>)
+    <span class="comment">// Segment in segment headers should monotonically increase
+    </span><span class="kw">if </span>first_segment_header.segment_index() &gt; SegmentIndex::ZERO
+        &amp;&amp; !SegmentCommitment::&lt;T&gt;::contains_key(
+            first_segment_header.segment_index() - SegmentIndex::ONE,
+        )
     {
         <span class="kw">return </span><span class="prelude-val">Err</span>(InvalidTransaction::BadMandatory.into());
     }
 
-    <span class="comment">// Root blocks should never repeat
-    </span><span class="kw">if </span>RecordsRoot::&lt;T&gt;::contains_key(first_root_block.segment_index()) {
+    <span class="comment">// Segment headers should never repeat
+    </span><span class="kw">if </span>SegmentCommitment::&lt;T&gt;::contains_key(first_segment_header.segment_index()) {
         <span class="kw">return </span><span class="prelude-val">Err</span>(InvalidTransaction::BadMandatory.into());
     }
 
-    <span class="kw">let </span><span class="kw-2">mut </span>last_segment_index = first_root_block.segment_index();
+    <span class="kw">let </span><span class="kw-2">mut </span>last_segment_index = first_segment_header.segment_index();
 
-    <span class="kw">for </span>root_block <span class="kw">in </span>root_blocks_iter {
-        <span class="kw">let </span>segment_index = root_block.segment_index();
+    <span class="kw">for </span>segment_header <span class="kw">in </span>segment_headers_iter {
+        <span class="kw">let </span>segment_index = segment_header.segment_index();
 
-        <span class="comment">// Segment in root blocks should monotonically increase
-        </span><span class="kw">if </span>segment_index != last_segment_index + <span class="number">1 </span>{
+        <span class="comment">// Segment in segment headers should monotonically increase
+        </span><span class="kw">if </span>segment_index != last_segment_index + SegmentIndex::ONE {
             <span class="kw">return </span><span class="prelude-val">Err</span>(InvalidTransaction::BadMandatory.into());
         }
 
-        <span class="comment">// Root blocks should never repeat
-        </span><span class="kw">if </span>RecordsRoot::&lt;T&gt;::contains_key(segment_index) {
+        <span class="comment">// Segment headers should never repeat
+        </span><span class="kw">if </span>SegmentCommitment::&lt;T&gt;::contains_key(segment_index) {
             <span class="kw">return </span><span class="prelude-val">Err</span>(InvalidTransaction::BadMandatory.into());
         }
 
@@ -3125,7 +3141,7 @@
 <span class="kw">impl</span>&lt;T: Config&gt; subspace_runtime_primitives::FindBlockRewardAddress&lt;T::AccountId&gt; <span class="kw">for </span>Pallet&lt;T&gt; {
     <span class="kw">fn </span>find_block_reward_address() -&gt; <span class="prelude-ty">Option</span>&lt;T::AccountId&gt; {
         CurrentBlockAuthorInfo::&lt;T&gt;::get().and_then(
-            |(public_key, _sector_index, _chunk_offset, _slot, reward_address)| {
+            |(public_key, _sector_index, _chunk, _audit_chunk_offset, _slot, reward_address)| {
                 <span class="comment">// Equivocation might have happened in this block, if so - no reward for block
                 // author
                 </span><span class="kw">if </span>!BlockList::&lt;T&gt;::contains_key(public_key) {
@@ -3196,5 +3212,4 @@
         }
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="pallet_subspace" data-themes="" data-resource-suffix="" data-rustdoc-version="1.68.0-nightly (afaf3e07a 2023-01-14)" data-search-js="search-181581080540673f.js" data-settings-js="settings-a2afdefbb7c817f1.js" data-settings-css="settings-84508a86fe805444.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

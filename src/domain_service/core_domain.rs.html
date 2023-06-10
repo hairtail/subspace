@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/service/src/core_domain.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>core_domain.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-52c5db6f6f352e54.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-4743e13df3dfe8c4.css"><link rel="stylesheet" disabled href="../../static.files/dark-0e1b889528bd466b.css"><link rel="stylesheet" disabled href="../../static.files/ayu-65289d5d067c7c66.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-d2686a620d99aad7.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../domain_service/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/service/src/core_domain.rs`."><title>core_domain.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="domain_service" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0-nightly (ce5919fce 2023-05-15)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-6f6ffb5395b17c6e.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../domain_service/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -503,23 +503,226 @@
 <a href="#503" id="503">503</a>
 <a href="#504" id="504">504</a>
 <a href="#505" id="505">505</a>
-</pre><pre class="rust"><code><span class="kw">use crate</span>::{DomainConfiguration, FullBackend, FullClient};
+<a href="#506" id="506">506</a>
+<a href="#507" id="507">507</a>
+<a href="#508" id="508">508</a>
+<a href="#509" id="509">509</a>
+<a href="#510" id="510">510</a>
+<a href="#511" id="511">511</a>
+<a href="#512" id="512">512</a>
+<a href="#513" id="513">513</a>
+<a href="#514" id="514">514</a>
+<a href="#515" id="515">515</a>
+<a href="#516" id="516">516</a>
+<a href="#517" id="517">517</a>
+<a href="#518" id="518">518</a>
+<a href="#519" id="519">519</a>
+<a href="#520" id="520">520</a>
+<a href="#521" id="521">521</a>
+<a href="#522" id="522">522</a>
+<a href="#523" id="523">523</a>
+<a href="#524" id="524">524</a>
+<a href="#525" id="525">525</a>
+<a href="#526" id="526">526</a>
+<a href="#527" id="527">527</a>
+<a href="#528" id="528">528</a>
+<a href="#529" id="529">529</a>
+<a href="#530" id="530">530</a>
+<a href="#531" id="531">531</a>
+<a href="#532" id="532">532</a>
+<a href="#533" id="533">533</a>
+<a href="#534" id="534">534</a>
+<a href="#535" id="535">535</a>
+<a href="#536" id="536">536</a>
+<a href="#537" id="537">537</a>
+<a href="#538" id="538">538</a>
+<a href="#539" id="539">539</a>
+<a href="#540" id="540">540</a>
+<a href="#541" id="541">541</a>
+<a href="#542" id="542">542</a>
+<a href="#543" id="543">543</a>
+<a href="#544" id="544">544</a>
+<a href="#545" id="545">545</a>
+<a href="#546" id="546">546</a>
+<a href="#547" id="547">547</a>
+<a href="#548" id="548">548</a>
+<a href="#549" id="549">549</a>
+<a href="#550" id="550">550</a>
+<a href="#551" id="551">551</a>
+<a href="#552" id="552">552</a>
+<a href="#553" id="553">553</a>
+<a href="#554" id="554">554</a>
+<a href="#555" id="555">555</a>
+<a href="#556" id="556">556</a>
+<a href="#557" id="557">557</a>
+<a href="#558" id="558">558</a>
+<a href="#559" id="559">559</a>
+<a href="#560" id="560">560</a>
+<a href="#561" id="561">561</a>
+<a href="#562" id="562">562</a>
+<a href="#563" id="563">563</a>
+<a href="#564" id="564">564</a>
+<a href="#565" id="565">565</a>
+<a href="#566" id="566">566</a>
+<a href="#567" id="567">567</a>
+<a href="#568" id="568">568</a>
+<a href="#569" id="569">569</a>
+<a href="#570" id="570">570</a>
+<a href="#571" id="571">571</a>
+<a href="#572" id="572">572</a>
+<a href="#573" id="573">573</a>
+<a href="#574" id="574">574</a>
+<a href="#575" id="575">575</a>
+<a href="#576" id="576">576</a>
+<a href="#577" id="577">577</a>
+<a href="#578" id="578">578</a>
+<a href="#579" id="579">579</a>
+<a href="#580" id="580">580</a>
+<a href="#581" id="581">581</a>
+<a href="#582" id="582">582</a>
+<a href="#583" id="583">583</a>
+<a href="#584" id="584">584</a>
+<a href="#585" id="585">585</a>
+<a href="#586" id="586">586</a>
+<a href="#587" id="587">587</a>
+<a href="#588" id="588">588</a>
+<a href="#589" id="589">589</a>
+<a href="#590" id="590">590</a>
+<a href="#591" id="591">591</a>
+<a href="#592" id="592">592</a>
+<a href="#593" id="593">593</a>
+<a href="#594" id="594">594</a>
+<a href="#595" id="595">595</a>
+<a href="#596" id="596">596</a>
+<a href="#597" id="597">597</a>
+<a href="#598" id="598">598</a>
+<a href="#599" id="599">599</a>
+<a href="#600" id="600">600</a>
+<a href="#601" id="601">601</a>
+<a href="#602" id="602">602</a>
+<a href="#603" id="603">603</a>
+<a href="#604" id="604">604</a>
+<a href="#605" id="605">605</a>
+<a href="#606" id="606">606</a>
+<a href="#607" id="607">607</a>
+<a href="#608" id="608">608</a>
+<a href="#609" id="609">609</a>
+<a href="#610" id="610">610</a>
+<a href="#611" id="611">611</a>
+<a href="#612" id="612">612</a>
+<a href="#613" id="613">613</a>
+<a href="#614" id="614">614</a>
+<a href="#615" id="615">615</a>
+<a href="#616" id="616">616</a>
+<a href="#617" id="617">617</a>
+<a href="#618" id="618">618</a>
+<a href="#619" id="619">619</a>
+<a href="#620" id="620">620</a>
+<a href="#621" id="621">621</a>
+<a href="#622" id="622">622</a>
+<a href="#623" id="623">623</a>
+<a href="#624" id="624">624</a>
+<a href="#625" id="625">625</a>
+<a href="#626" id="626">626</a>
+<a href="#627" id="627">627</a>
+<a href="#628" id="628">628</a>
+<a href="#629" id="629">629</a>
+<a href="#630" id="630">630</a>
+<a href="#631" id="631">631</a>
+<a href="#632" id="632">632</a>
+<a href="#633" id="633">633</a>
+<a href="#634" id="634">634</a>
+<a href="#635" id="635">635</a>
+<a href="#636" id="636">636</a>
+<a href="#637" id="637">637</a>
+<a href="#638" id="638">638</a>
+<a href="#639" id="639">639</a>
+<a href="#640" id="640">640</a>
+<a href="#641" id="641">641</a>
+<a href="#642" id="642">642</a>
+<a href="#643" id="643">643</a>
+<a href="#644" id="644">644</a>
+<a href="#645" id="645">645</a>
+<a href="#646" id="646">646</a>
+<a href="#647" id="647">647</a>
+<a href="#648" id="648">648</a>
+<a href="#649" id="649">649</a>
+<a href="#650" id="650">650</a>
+<a href="#651" id="651">651</a>
+<a href="#652" id="652">652</a>
+<a href="#653" id="653">653</a>
+<a href="#654" id="654">654</a>
+<a href="#655" id="655">655</a>
+<a href="#656" id="656">656</a>
+<a href="#657" id="657">657</a>
+<a href="#658" id="658">658</a>
+<a href="#659" id="659">659</a>
+<a href="#660" id="660">660</a>
+<a href="#661" id="661">661</a>
+<a href="#662" id="662">662</a>
+<a href="#663" id="663">663</a>
+<a href="#664" id="664">664</a>
+<a href="#665" id="665">665</a>
+<a href="#666" id="666">666</a>
+<a href="#667" id="667">667</a>
+<a href="#668" id="668">668</a>
+<a href="#669" id="669">669</a>
+<a href="#670" id="670">670</a>
+<a href="#671" id="671">671</a>
+<a href="#672" id="672">672</a>
+<a href="#673" id="673">673</a>
+<a href="#674" id="674">674</a>
+<a href="#675" id="675">675</a>
+<a href="#676" id="676">676</a>
+<a href="#677" id="677">677</a>
+<a href="#678" id="678">678</a>
+<a href="#679" id="679">679</a>
+<a href="#680" id="680">680</a>
+<a href="#681" id="681">681</a>
+<a href="#682" id="682">682</a>
+<a href="#683" id="683">683</a>
+<a href="#684" id="684">684</a>
+<a href="#685" id="685">685</a>
+<a href="#686" id="686">686</a>
+<a href="#687" id="687">687</a>
+<a href="#688" id="688">688</a>
+<a href="#689" id="689">689</a>
+<a href="#690" id="690">690</a>
+<a href="#691" id="691">691</a>
+<a href="#692" id="692">692</a>
+<a href="#693" id="693">693</a>
+<a href="#694" id="694">694</a>
+<a href="#695" id="695">695</a>
+<a href="#696" id="696">696</a>
+<a href="#697" id="697">697</a>
+<a href="#698" id="698">698</a>
+<a href="#699" id="699">699</a>
+<a href="#700" id="700">700</a>
+</pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::core_domain_tx_pre_validator::CoreDomainTxPreValidator;
+<span class="kw">use </span><span class="kw">crate</span>::providers::{BlockImportProvider, RpcProvider};
+<span class="kw">use crate</span>::{DomainConfiguration, FullBackend, FullClient};
 <span class="kw">use </span>cross_domain_message_gossip::{DomainTxPoolSink, Message <span class="kw">as </span>GossipMessage};
-<span class="kw">use </span>domain_client_executor::xdm_verifier::CoreDomainXDMVerifier;
+<span class="kw">use </span>domain_client_consensus_relay_chain::DomainBlockImport;
 <span class="kw">use </span>domain_client_executor::{
-    CoreDomainParentChain, CoreExecutor, CoreGossipMessageValidator, EssentialExecutorParams,
+    CoreDomainParentChain, CoreExecutor, CoreGossipMessageValidator, DomainImportNotifications,
+    EssentialExecutorParams, ExecutorStreams,
 };
 <span class="kw">use </span>domain_client_executor_gossip::ExecutorGossipParams;
 <span class="kw">use </span>domain_client_message_relayer::GossipMessageSink;
-<span class="kw">use </span>domain_runtime_primitives::opaque::Block;
-<span class="kw">use </span>domain_runtime_primitives::{AccountId, Balance, DomainCoreApi, Hash, RelayerId};
+<span class="kw">use </span>domain_runtime_primitives::{Balance, DomainCoreApi, InherentExtrinsicApi};
+<span class="kw">use </span>frame_benchmarking::frame_support::codec::FullCodec;
+<span class="kw">use </span>frame_benchmarking::frame_support::dispatch::TypeInfo;
 <span class="kw">use </span>futures::channel::mpsc;
 <span class="kw">use </span>futures::{Stream, StreamExt};
 <span class="kw">use </span>jsonrpsee::tracing;
 <span class="kw">use </span>pallet_transaction_payment_rpc::TransactionPaymentRuntimeApi;
-<span class="kw">use </span>sc_client_api::{BlockBackend, BlockchainEvents, ProofProvider, StateBackendFor};
+<span class="kw">use </span>sc_client_api::{
+    BlockBackend, BlockImportNotification, BlockchainEvents, ProofProvider, StateBackendFor,
+};
 <span class="kw">use </span>sc_executor::{NativeElseWasmExecutor, NativeExecutionDispatch};
 <span class="kw">use </span>sc_network::NetworkService;
+<span class="kw">use </span>sc_network_sync::SyncingService;
+<span class="kw">use </span>sc_rpc_api::DenyUnsafe;
 <span class="kw">use </span>sc_service::{
     BuildNetworkParams, Configuration <span class="kw">as </span>ServiceConfiguration, NetworkStarter, PartialComponents,
     SpawnTasksParams, TFullBackend, TaskManager,
@@ -527,52 +730,85 @@
 <span class="kw">use </span>sc_telemetry::{Telemetry, TelemetryWorker, TelemetryWorkerHandle};
 <span class="kw">use </span>sc_transaction_pool_api::{InPoolTransaction, TransactionPool};
 <span class="kw">use </span>sc_utils::mpsc::tracing_unbounded;
-<span class="kw">use </span>sp_api::{ApiExt, BlockT, ConstructRuntimeApi, Metadata, NumberFor, ProvideRuntimeApi};
+<span class="kw">use </span>serde::de::DeserializeOwned;
+<span class="kw">use </span>sp_api::{ApiExt, BlockT, ConstructRuntimeApi, Decode, Metadata, NumberFor, ProvideRuntimeApi};
 <span class="kw">use </span>sp_block_builder::BlockBuilder;
 <span class="kw">use </span>sp_blockchain::{HeaderBackend, HeaderMetadata};
 <span class="kw">use </span>sp_consensus::{SelectChain, SyncOracle};
 <span class="kw">use </span>sp_consensus_slots::Slot;
 <span class="kw">use </span>sp_core::traits::SpawnEssentialNamed;
-<span class="kw">use </span>sp_core::Encode;
+<span class="kw">use </span>sp_core::{Encode, H256};
 <span class="kw">use </span>sp_domains::{DomainId, ExecutorApi};
 <span class="kw">use </span>sp_messenger::{MessengerApi, RelayerApi};
 <span class="kw">use </span>sp_offchain::OffchainWorkerApi;
 <span class="kw">use </span>sp_session::SessionKeys;
+<span class="kw">use </span>sp_settlement::SettlementApi;
 <span class="kw">use </span>sp_transaction_pool::runtime_api::TaggedTransactionQueue;
+<span class="kw">use </span>std::fmt::{Debug, Display};
+<span class="kw">use </span>std::marker::PhantomData;
+<span class="kw">use </span>std::str::FromStr;
 <span class="kw">use </span>std::sync::Arc;
-<span class="kw">use </span>subspace_core_primitives::{Blake2b256Hash, BlockNumber};
+<span class="kw">use </span>subspace_core_primitives::Blake2b256Hash;
 <span class="kw">use </span>subspace_runtime_primitives::Index <span class="kw">as </span>Nonce;
+<span class="kw">use </span>subspace_transaction_pool::{FullChainApiWrapper, FullPool};
 <span class="kw">use </span>substrate_frame_rpc_system::AccountNonceApi;
 <span class="kw">use </span>system_runtime_primitives::SystemDomainApi;
 
-<span class="kw">type </span>CoreDomainExecutor&lt;SBlock, PBlock, SClient, PClient, RuntimeApi, ExecutorDispatch&gt; =
-    CoreExecutor&lt;
-        Block,
-        SBlock,
-        PBlock,
-        FullClient&lt;RuntimeApi, ExecutorDispatch&gt;,
-        SClient,
-        PClient,
-        FullPool&lt;RuntimeApi, ExecutorDispatch, CoreDomainXDMVerifier&lt;SClient, PBlock, SBlock&gt;&gt;,
-        FullBackend,
-        NativeElseWasmExecutor&lt;ExecutorDispatch&gt;,
-    &gt;;
+<span class="kw">type </span>BlockImportOf&lt;Block, Client, Provider&gt; = &lt;Provider <span class="kw">as </span>BlockImportProvider&lt;Block, Client&gt;&gt;::BI;
 
-<span class="doccomment">/// Core domain full node along with some other components.
-</span><span class="kw">pub struct </span>NewFullCore&lt;
-    C,
-    CodeExecutor,
+<span class="kw">pub type </span>CoreDomainExecutor&lt;
+    Block,
     SBlock,
     PBlock,
     SClient,
     PClient,
     RuntimeApi,
     ExecutorDispatch,
+    BI,
+&gt; = CoreExecutor&lt;
+    Block,
+    SBlock,
+    PBlock,
+    FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;,
+    SClient,
+    PClient,
+    FullPool&lt;
+        Block,
+        FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;,
+        CoreDomainTxPreValidator&lt;
+            Block,
+            SBlock,
+            PBlock,
+            FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;,
+            SClient,
+        &gt;,
+    &gt;,
+    FullBackend&lt;Block&gt;,
+    NativeElseWasmExecutor&lt;ExecutorDispatch&gt;,
+    DomainBlockImport&lt;BI&gt;,
+&gt;;
+
+<span class="doccomment">/// Core domain full node along with some other components.
+</span><span class="kw">pub struct </span>NewFullCore&lt;
+    C,
+    CodeExecutor,
+    Block,
+    SBlock,
+    PBlock,
+    SClient,
+    PClient,
+    RuntimeApi,
+    ExecutorDispatch,
+    AccountId,
+    BI,
 &gt; <span class="kw">where
     </span>SBlock: BlockT,
     PBlock: BlockT,
+    Block: BlockT,
+    NumberFor&lt;SBlock&gt;: From&lt;NumberFor&lt;Block&gt;&gt;,
+    SBlock::Hash: From&lt;Block::Hash&gt;,
     ExecutorDispatch: NativeExecutionDispatch + <span class="lifetime">&#39;static</span>,
-    RuntimeApi: ConstructRuntimeApi&lt;Block, FullClient&lt;RuntimeApi, ExecutorDispatch&gt;&gt;
+    RuntimeApi: ConstructRuntimeApi&lt;Block, FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;&gt;
         + Send
         + Sync
         + <span class="lifetime">&#39;static</span>,
@@ -581,80 +817,99 @@
         + BlockBuilder&lt;Block&gt;
         + OffchainWorkerApi&lt;Block&gt;
         + SessionKeys&lt;Block&gt;
-        + DomainCoreApi&lt;Block, AccountId&gt;
+        + DomainCoreApi&lt;Block&gt;
         + TaggedTransactionQueue&lt;Block&gt;
         + AccountNonceApi&lt;Block, AccountId, Nonce&gt;
         + TransactionPaymentRuntimeApi&lt;Block, Balance&gt;
-        + RelayerApi&lt;Block, RelayerId, NumberFor&lt;Block&gt;&gt;,
-    &lt;Block <span class="kw">as </span>BlockT&gt;::Extrinsic: Into&lt;SBlock::Extrinsic&gt;,
+        + MessengerApi&lt;Block, NumberFor&lt;Block&gt;&gt;
+        + RelayerApi&lt;Block, AccountId, NumberFor&lt;Block&gt;&gt;,
     SClient: HeaderBackend&lt;SBlock&gt; + ProvideRuntimeApi&lt;SBlock&gt; + <span class="lifetime">&#39;static</span>,
     SClient::Api: MessengerApi&lt;SBlock, NumberFor&lt;SBlock&gt;&gt;
-        + SystemDomainApi&lt;SBlock, NumberFor&lt;PBlock&gt;, PBlock::Hash&gt;,
+        + SystemDomainApi&lt;SBlock, NumberFor&lt;PBlock&gt;, PBlock::Hash, Block::Hash&gt;
+        + SettlementApi&lt;SBlock, Block::Hash&gt;,
+    AccountId: Encode + Decode,
 {
     <span class="doccomment">/// Task manager.
     </span><span class="kw">pub </span>task_manager: TaskManager,
     <span class="doccomment">/// Full client.
     </span><span class="kw">pub </span>client: C,
     <span class="doccomment">/// Backend.
-    </span><span class="kw">pub </span>backend: Arc&lt;FullBackend&gt;,
+    </span><span class="kw">pub </span>backend: Arc&lt;FullBackend&lt;Block&gt;&gt;,
     <span class="doccomment">/// Code executor.
     </span><span class="kw">pub </span>code_executor: Arc&lt;CodeExecutor&gt;,
-    <span class="doccomment">/// Network.
-    </span><span class="kw">pub </span>network: Arc&lt;NetworkService&lt;Block, &lt;Block <span class="kw">as </span>BlockT&gt;::Hash&gt;&gt;,
+    <span class="doccomment">/// Network service.
+    </span><span class="kw">pub </span>network_service: Arc&lt;NetworkService&lt;Block, &lt;Block <span class="kw">as </span>BlockT&gt;::Hash&gt;&gt;,
+    <span class="doccomment">/// Sync service.
+    </span><span class="kw">pub </span>sync_service: Arc&lt;SyncingService&lt;Block&gt;&gt;,
     <span class="doccomment">/// RPCHandlers to make RPC queries.
     </span><span class="kw">pub </span>rpc_handlers: sc_service::RpcHandlers,
     <span class="doccomment">/// Network starter.
     </span><span class="kw">pub </span>network_starter: NetworkStarter,
     <span class="doccomment">/// Executor.
-    </span><span class="kw">pub </span>executor:
-        CoreDomainExecutor&lt;SBlock, PBlock, SClient, PClient, RuntimeApi, ExecutorDispatch&gt;,
+    </span><span class="kw">pub </span>executor: CoreDomainExecutor&lt;
+        Block,
+        SBlock,
+        PBlock,
+        SClient,
+        PClient,
+        RuntimeApi,
+        ExecutorDispatch,
+        BI,
+    &gt;,
     <span class="doccomment">/// Transaction pool sink
     </span><span class="kw">pub </span>tx_pool_sink: DomainTxPoolSink,
+    _data: PhantomData&lt;AccountId&gt;,
 }
-
-<span class="kw">pub type </span>FullPool&lt;RuntimeApi, ExecutorDispatch, Verifier&gt; =
-    subspace_transaction_pool::FullPoolWithChainVerifier&lt;
-        Block,
-        FullClient&lt;RuntimeApi, ExecutorDispatch&gt;,
-        Verifier,
-    &gt;;
 
 <span class="doccomment">/// Constructs a partial core domain node.
 </span><span class="attr">#[allow(clippy::type_complexity)]
-</span><span class="kw">fn </span>new_partial&lt;RuntimeApi, Executor, SDC, SBlock, PBlock&gt;(
+</span><span class="kw">fn </span>new_partial&lt;RuntimeApi, Executor, SDC, Block, SBlock, PBlock, BIMP&gt;(
     config: <span class="kw-2">&amp;</span>ServiceConfiguration,
     system_domain_client: Arc&lt;SDC&gt;,
+    block_import_provider: <span class="kw-2">&amp;</span>BIMP,
 ) -&gt; <span class="prelude-ty">Result</span>&lt;
     PartialComponents&lt;
-        FullClient&lt;RuntimeApi, Executor&gt;,
+        FullClient&lt;Block, RuntimeApi, Executor&gt;,
         TFullBackend&lt;Block&gt;,
         (),
-        sc_consensus::DefaultImportQueue&lt;Block, FullClient&lt;RuntimeApi, Executor&gt;&gt;,
-        subspace_transaction_pool::FullPoolWithChainVerifier&lt;
+        sc_consensus::DefaultImportQueue&lt;Block, FullClient&lt;Block, RuntimeApi, Executor&gt;&gt;,
+        FullPool&lt;
             Block,
-            FullClient&lt;RuntimeApi, Executor&gt;,
-            CoreDomainXDMVerifier&lt;SDC, PBlock, SBlock&gt;,
+            FullClient&lt;Block, RuntimeApi, Executor&gt;,
+            CoreDomainTxPreValidator&lt;
+                Block,
+                SBlock,
+                PBlock,
+                FullClient&lt;Block, RuntimeApi, Executor&gt;,
+                SDC,
+            &gt;,
         &gt;,
         (
             <span class="prelude-ty">Option</span>&lt;Telemetry&gt;,
             <span class="prelude-ty">Option</span>&lt;TelemetryWorkerHandle&gt;,
             NativeElseWasmExecutor&lt;Executor&gt;,
+            Arc&lt;DomainBlockImport&lt;BIMP::BI&gt;&gt;,
         ),
     &gt;,
     sc_service::Error,
 &gt;
 <span class="kw">where
     </span>RuntimeApi:
-        ConstructRuntimeApi&lt;Block, FullClient&lt;RuntimeApi, Executor&gt;&gt; + Send + Sync + <span class="lifetime">&#39;static</span>,
+        ConstructRuntimeApi&lt;Block, FullClient&lt;Block, RuntimeApi, Executor&gt;&gt; + Send + Sync + <span class="lifetime">&#39;static</span>,
     RuntimeApi::RuntimeApi: TaggedTransactionQueue&lt;Block&gt;
-        + ApiExt&lt;Block, StateBackend = StateBackendFor&lt;TFullBackend&lt;Block&gt;, Block&gt;&gt;,
+        + ApiExt&lt;Block, StateBackend = StateBackendFor&lt;TFullBackend&lt;Block&gt;, Block&gt;&gt;
+        + MessengerApi&lt;Block, NumberFor&lt;Block&gt;&gt;,
     Executor: NativeExecutionDispatch + <span class="lifetime">&#39;static</span>,
+    Block: BlockT,
     SBlock: BlockT,
+    NumberFor&lt;SBlock&gt;: From&lt;NumberFor&lt;Block&gt;&gt;,
+    SBlock::Hash: From&lt;Block::Hash&gt;,
     PBlock: BlockT,
-    &lt;Block <span class="kw">as </span>BlockT&gt;::Extrinsic: Into&lt;SBlock::Extrinsic&gt;,
     SDC: HeaderBackend&lt;SBlock&gt; + ProvideRuntimeApi&lt;SBlock&gt; + <span class="lifetime">&#39;static</span>,
     SDC::Api: MessengerApi&lt;SBlock, NumberFor&lt;SBlock&gt;&gt;
-        + SystemDomainApi&lt;SBlock, NumberFor&lt;PBlock&gt;, PBlock::Hash&gt;,
+        + SystemDomainApi&lt;SBlock, NumberFor&lt;PBlock&gt;, PBlock::Hash, Block::Hash&gt;
+        + SettlementApi&lt;SBlock, Block::Hash&gt;,
+    BIMP: BlockImportProvider&lt;Block, FullClient&lt;Block, RuntimeApi, Executor&gt;&gt;,
 {
     <span class="kw">let </span>telemetry = config
         .telemetry_endpoints
@@ -690,17 +945,20 @@
         telemetry
     });
 
-    <span class="kw">let </span>core_domain_xdm_verifier =
-        CoreDomainXDMVerifier::&lt;SDC, PBlock, SBlock&gt;::new(system_domain_client);
-    <span class="kw">let </span>transaction_pool = subspace_transaction_pool::new_full_with_verifier(
+    <span class="kw">let </span>core_domain_tx_pre_validator =
+        CoreDomainTxPreValidator::new(client.clone(), system_domain_client);
+    <span class="kw">let </span>transaction_pool = subspace_transaction_pool::new_full(
         config,
         <span class="kw-2">&amp;</span>task_manager,
         client.clone(),
-        core_domain_xdm_verifier,
+        core_domain_tx_pre_validator,
     );
-
-    <span class="kw">let </span>import_queue = domain_client_consensus_relay_chain::import_queue(
+    <span class="kw">let </span>block_import = Arc::new(DomainBlockImport::new(BlockImportProvider::block_import(
+        block_import_provider,
         client.clone(),
+    )));
+    <span class="kw">let </span>import_queue = domain_client_consensus_relay_chain::import_queue(
+        block_import.clone(),
         <span class="kw-2">&amp;</span>task_manager.spawn_essential_handle(),
         config.prometheus_registry(),
     )<span class="question-mark">?</span>;
@@ -713,27 +971,38 @@
         task_manager,
         transaction_pool,
         select_chain: (),
-        other: (telemetry, telemetry_worker_handle, executor),
+        other: (telemetry, telemetry_worker_handle, executor, block_import),
     };
 
     <span class="prelude-val">Ok</span>(params)
 }
 
-<span class="kw">pub struct </span>CoreDomainParams&lt;SBlock, SClient, PClient, SC, IBNS, NSNS&gt;
-<span class="kw">where
+<span class="kw">pub struct </span>CoreDomainParams&lt;
+    SBlock,
+    PBlock,
+    SClient,
+    PClient,
+    SC,
+    IBNS,
+    CIBNS,
+    NSNS,
+    AccountId,
+    Provider,
+&gt; <span class="kw">where
     </span>SBlock: BlockT,
+    PBlock: BlockT,
 {
     <span class="kw">pub </span>domain_id: DomainId,
-    <span class="kw">pub </span>core_domain_config: DomainConfiguration,
+    <span class="kw">pub </span>core_domain_config: DomainConfiguration&lt;AccountId&gt;,
     <span class="kw">pub </span>system_domain_client: Arc&lt;SClient&gt;,
-    <span class="kw">pub </span>system_domain_network: Arc&lt;NetworkService&lt;SBlock, SBlock::Hash&gt;&gt;,
+    <span class="kw">pub </span>system_domain_sync_service: Arc&lt;SyncingService&lt;SBlock&gt;&gt;,
+    <span class="kw">pub </span>system_domain_block_import_notifications: DomainImportNotifications&lt;SBlock, PBlock&gt;,
     <span class="kw">pub </span>primary_chain_client: Arc&lt;PClient&gt;,
     <span class="kw">pub </span>primary_network_sync_oracle: Arc&lt;<span class="kw">dyn </span>SyncOracle + Send + Sync&gt;,
     <span class="kw">pub </span>select_chain: SC,
-    <span class="kw">pub </span>imported_block_notification_stream: IBNS,
-    <span class="kw">pub </span>new_slot_notification_stream: NSNS,
-    <span class="kw">pub </span>block_import_throttling_buffer_size: u32,
+    <span class="kw">pub </span>executor_streams: ExecutorStreams&lt;PBlock, IBNS, CIBNS, NSNS&gt;,
     <span class="kw">pub </span>gossip_message_sink: GossipMessageSink,
+    <span class="kw">pub </span>provider: Provider,
 }
 
 <span class="doccomment">/// Start a node with the given parachain `Configuration` and relay chain `Configuration`.
@@ -741,40 +1010,66 @@
 /// This is the actual implementation that is abstract over the executor and the runtime api.
 </span><span class="attr">#[allow(clippy::too_many_arguments)]
 </span><span class="kw">pub async fn </span>new_full_core&lt;
+    Block,
     SBlock,
     PBlock,
     SClient,
     PClient,
     SC,
     IBNS,
+    CIBNS,
     NSNS,
     RuntimeApi,
     ExecutorDispatch,
+    AccountId,
+    Provider,
 &gt;(
-    core_domain_params: CoreDomainParams&lt;SBlock, SClient, PClient, SC, IBNS, NSNS&gt;,
+    core_domain_params: CoreDomainParams&lt;
+        SBlock,
+        PBlock,
+        SClient,
+        PClient,
+        SC,
+        IBNS,
+        CIBNS,
+        NSNS,
+        AccountId,
+        Provider,
+    &gt;,
 ) -&gt; sc_service::error::Result&lt;
     NewFullCore&lt;
-        Arc&lt;FullClient&lt;RuntimeApi, ExecutorDispatch&gt;&gt;,
+        Arc&lt;FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;&gt;,
         NativeElseWasmExecutor&lt;ExecutorDispatch&gt;,
+        Block,
         SBlock,
         PBlock,
         SClient,
         PClient,
         RuntimeApi,
         ExecutorDispatch,
+        AccountId,
+        BlockImportOf&lt;Block, FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;, Provider&gt;,
     &gt;,
 &gt;
 <span class="kw">where
-    </span>PBlock: BlockT,
+    </span>Block: BlockT,
+    PBlock: BlockT,
     SBlock: BlockT,
-    SBlock::Hash: Into&lt;Hash&gt; + From&lt;Hash&gt;,
-    NumberFor&lt;SBlock&gt;: Into&lt;BlockNumber&gt;,
-    &lt;Block <span class="kw">as </span>BlockT&gt;::Extrinsic: Into&lt;SBlock::Extrinsic&gt;,
-    SClient: HeaderBackend&lt;SBlock&gt; + ProvideRuntimeApi&lt;SBlock&gt; + ProofProvider&lt;SBlock&gt; + <span class="lifetime">&#39;static</span>,
-    SClient::Api: DomainCoreApi&lt;SBlock, AccountId&gt;
-        + SystemDomainApi&lt;SBlock, NumberFor&lt;PBlock&gt;, PBlock::Hash&gt;
+    Block::Hash: From&lt;H256&gt; + Into&lt;H256&gt; + FullCodec + TypeInfo + Unpin,
+    SBlock::Hash: Into&lt;Block::Hash&gt; + From&lt;Block::Hash&gt;,
+    NumberFor&lt;Block&gt;: From&lt;NumberFor&lt;PBlock&gt;&gt; + Into&lt;NumberFor&lt;PBlock&gt;&gt; + FullCodec + TypeInfo,
+    NumberFor&lt;SBlock&gt;: From&lt;NumberFor&lt;Block&gt;&gt; + Into&lt;NumberFor&lt;Block&gt;&gt;,
+    &lt;Block <span class="kw">as </span>BlockT&gt;::Header: Unpin,
+    SClient: HeaderBackend&lt;SBlock&gt;
+        + BlockBackend&lt;SBlock&gt;
+        + ProvideRuntimeApi&lt;SBlock&gt;
+        + ProofProvider&lt;SBlock&gt;
+        + <span class="lifetime">&#39;static</span>,
+    SClient::Api: DomainCoreApi&lt;SBlock&gt;
+        + SystemDomainApi&lt;SBlock, NumberFor&lt;PBlock&gt;, PBlock::Hash, Block::Hash&gt;
         + MessengerApi&lt;SBlock, NumberFor&lt;SBlock&gt;&gt;
-        + RelayerApi&lt;SBlock, RelayerId, NumberFor&lt;SBlock&gt;&gt;,
+        + RelayerApi&lt;SBlock, domain_runtime_primitives::AccountId, NumberFor&lt;SBlock&gt;&gt;
+        + SettlementApi&lt;SBlock, &lt;Block <span class="kw">as </span>BlockT&gt;::Hash&gt;,
     PClient: HeaderBackend&lt;PBlock&gt;
         + HeaderMetadata&lt;PBlock, Error = sp_blockchain::Error&gt;
         + BlockBackend&lt;PBlock&gt;
@@ -783,11 +1078,12 @@
         + Send
         + Sync
         + <span class="lifetime">&#39;static</span>,
-    PClient::Api: ExecutorApi&lt;PBlock, Hash&gt;,
+    PClient::Api: ExecutorApi&lt;PBlock, Block::Hash&gt;,
     SC: SelectChain&lt;PBlock&gt;,
     IBNS: Stream&lt;Item = (NumberFor&lt;PBlock&gt;, mpsc::Sender&lt;()&gt;)&gt; + Send + <span class="lifetime">&#39;static</span>,
-    NSNS: Stream&lt;Item = (Slot, Blake2b256Hash)&gt; + Send + <span class="lifetime">&#39;static</span>,
-    RuntimeApi: ConstructRuntimeApi&lt;Block, FullClient&lt;RuntimeApi, ExecutorDispatch&gt;&gt;
+    CIBNS: Stream&lt;Item = BlockImportNotification&lt;PBlock&gt;&gt; + Send + <span class="lifetime">&#39;static</span>,
+    NSNS: Stream&lt;Item = (Slot, Blake2b256Hash, <span class="prelude-ty">Option</span>&lt;mpsc::Sender&lt;()&gt;&gt;)&gt; + Send + <span class="lifetime">&#39;static</span>,
+    RuntimeApi: ConstructRuntimeApi&lt;Block, FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;&gt;
         + Send
         + Sync
         + <span class="lifetime">&#39;static</span>,
@@ -796,25 +1092,66 @@
         + BlockBuilder&lt;Block&gt;
         + OffchainWorkerApi&lt;Block&gt;
         + SessionKeys&lt;Block&gt;
-        + DomainCoreApi&lt;Block, AccountId&gt;
+        + DomainCoreApi&lt;Block&gt;
         + TaggedTransactionQueue&lt;Block&gt;
         + AccountNonceApi&lt;Block, AccountId, Nonce&gt;
         + TransactionPaymentRuntimeApi&lt;Block, Balance&gt;
-        + RelayerApi&lt;Block, RelayerId, NumberFor&lt;Block&gt;&gt;,
+        + MessengerApi&lt;Block, NumberFor&lt;Block&gt;&gt;
+        + InherentExtrinsicApi&lt;Block&gt;
+        + RelayerApi&lt;Block, AccountId, NumberFor&lt;Block&gt;&gt;,
     ExecutorDispatch: NativeExecutionDispatch + <span class="lifetime">&#39;static</span>,
+    AccountId: DeserializeOwned
+        + Encode
+        + Decode
+        + Clone
+        + Debug
+        + Display
+        + FromStr
+        + Sync
+        + Send
+        + <span class="lifetime">&#39;static</span>,
+    Provider: RpcProvider&lt;
+            Block,
+            FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;,
+            FullPool&lt;
+                Block,
+                FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;,
+                CoreDomainTxPreValidator&lt;
+                    Block,
+                    SBlock,
+                    PBlock,
+                    FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;,
+                    SClient,
+                &gt;,
+            &gt;,
+            FullChainApiWrapper&lt;
+                Block,
+                FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;,
+                CoreDomainTxPreValidator&lt;
+                    Block,
+                    SBlock,
+                    PBlock,
+                    FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;,
+                    SClient,
+                &gt;,
+            &gt;,
+            TFullBackend&lt;Block&gt;,
+            AccountId,
+        &gt; + BlockImportProvider&lt;Block, FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;&gt;
+        + <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">let </span>CoreDomainParams {
         domain_id,
         <span class="kw-2">mut </span>core_domain_config,
         system_domain_client,
-        system_domain_network,
+        system_domain_sync_service,
+        system_domain_block_import_notifications,
         primary_chain_client,
         primary_network_sync_oracle,
         select_chain,
-        imported_block_notification_stream,
-        new_slot_notification_stream,
-        block_import_throttling_buffer_size,
+        executor_streams,
         gossip_message_sink,
+        provider,
     } = core_domain_params;
 
     <span class="comment">// TODO: Do we even need block announcement on core domain node?
@@ -826,48 +1163,69 @@
         .extra_sets
         .push(domain_client_executor_gossip::executor_gossip_peers_set_config());
 
-    <span class="kw">let </span>params = new_partial::&lt;<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, SBlock, PBlock&gt;(
+    <span class="kw">let </span>params = new_partial::&lt;<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, Block, SBlock, PBlock, Provider&gt;(
         <span class="kw-2">&amp;</span>core_domain_config.service_config,
         system_domain_client.clone(),
+        <span class="kw-2">&amp;</span>provider,
     )<span class="question-mark">?</span>;
 
-    <span class="kw">let </span>(<span class="kw-2">mut </span>telemetry, _telemetry_worker_handle, code_executor) = params.other;
+    <span class="kw">let </span>(<span class="kw-2">mut </span>telemetry, _telemetry_worker_handle, code_executor, block_import) = params.other;
 
     <span class="kw">let </span>client = params.client.clone();
     <span class="kw">let </span>backend = params.backend.clone();
 
     <span class="kw">let </span>transaction_pool = params.transaction_pool.clone();
     <span class="kw">let </span><span class="kw-2">mut </span>task_manager = params.task_manager;
-    <span class="kw">let </span>(network, system_rpc_tx, tx_handler_controller, network_starter) =
+    <span class="kw">let </span>import_queue = params.import_queue;
+
+    <span class="kw">let </span>(network_service, system_rpc_tx, tx_handler_controller, network_starter, sync_service) =
         sc_service::build_network(BuildNetworkParams {
             config: <span class="kw-2">&amp;</span>core_domain_config.service_config,
             client: client.clone(),
             transaction_pool: transaction_pool.clone(),
             spawn_handle: task_manager.spawn_handle(),
-            import_queue: params.import_queue,
+            import_queue,
             <span class="comment">// TODO: we might want to re-enable this some day.
             </span>block_announce_validator_builder: <span class="prelude-val">None</span>,
             warp_sync_params: <span class="prelude-val">None</span>,
+            block_relay: <span class="prelude-val">None</span>,
         })<span class="question-mark">?</span>;
 
+    <span class="kw">let </span>is_authority = core_domain_config.service_config.role.is_authority();
+    core_domain_config.service_config.rpc_id_provider = provider.rpc_id();
+
     <span class="kw">let </span>rpc_builder = {
-        <span class="kw">let </span>client = client.clone();
-        <span class="kw">let </span>transaction_pool = transaction_pool.clone();
-        <span class="kw">let </span>chain_spec = core_domain_config.service_config.chain_spec.cloned_box();
+        <span class="kw">let </span>deps = <span class="kw">crate</span>::rpc::FullDeps {
+            client: client.clone(),
+            pool: transaction_pool.clone(),
+            graph: transaction_pool.pool().clone(),
+            chain_spec: core_domain_config.service_config.chain_spec.cloned_box(),
+            deny_unsafe: DenyUnsafe::Yes,
+            network: network_service.clone(),
+            sync: sync_service.clone(),
+            is_authority,
+            prometheus_registry: core_domain_config
+                .service_config
+                .prometheus_registry()
+                .cloned(),
+            database_source: core_domain_config.service_config.database.clone(),
+            task_spawner: task_manager.spawn_handle(),
+            backend: backend.clone(),
+        };
 
-        Box::new(<span class="kw">move </span>|deny_unsafe, <span class="kw">_</span>| {
-            <span class="kw">let </span>deps = <span class="kw">crate</span>::rpc::FullDeps {
-                client: client.clone(),
-                pool: transaction_pool.clone(),
-                chain_spec: chain_spec.cloned_box(),
-                deny_unsafe,
-            };
-
-            <span class="kw">crate</span>::rpc::create_full(deps).map_err(Into::into)
+        <span class="kw">let </span>spawn_essential = task_manager.spawn_essential_handle();
+        <span class="kw">let </span>rpc_deps = provider.deps(deps)<span class="question-mark">?</span>;
+        Box::new(<span class="kw">move </span>|<span class="kw">_</span>, subscription_task_executor| {
+            <span class="kw">let </span>spawn_essential = spawn_essential.clone();
+            provider
+                .rpc_builder(
+                    rpc_deps.clone(),
+                    subscription_task_executor,
+                    spawn_essential,
+                )
+                .map_err(Into::into)
         })
     };
-
-    <span class="kw">let </span>is_authority = core_domain_config.service_config.role.is_authority();
 
     <span class="kw">let </span>rpc_handlers = sc_service::spawn_tasks(SpawnTasksParams {
         rpc_builder,
@@ -875,11 +1233,12 @@
         transaction_pool: transaction_pool.clone(),
         task_manager: <span class="kw-2">&amp;mut </span>task_manager,
         config: core_domain_config.service_config,
-        keystore: params.keystore_container.sync_keystore(),
+        keystore: params.keystore_container.keystore(),
         backend: backend.clone(),
-        network: network.clone(),
+        network: network_service.clone(),
         system_rpc_tx,
         tx_handler_controller,
+        sync_service: sync_service.clone(),
         telemetry: telemetry.as_mut(),
     })<span class="question-mark">?</span>;
 
@@ -888,12 +1247,31 @@
     <span class="kw">let </span>spawn_essential = task_manager.spawn_essential_handle();
     <span class="kw">let </span>(bundle_sender, bundle_receiver) = tracing_unbounded(<span class="string">&quot;core_domain_bundle_stream&quot;</span>, <span class="number">100</span>);
 
+    <span class="kw">let </span>domain_confirmation_depth = system_domain_client
+        .runtime_api()
+        .receipts_pruning_depth(system_domain_client.info().best_hash)
+        .map_err(|err| sc_service::error::Error::Application(Box::new(err)))<span class="question-mark">?
+        </span>.into();
+
     <span class="kw">let </span>executor = CoreExecutor::new(
         domain_id,
         system_domain_client.clone(),
-        <span class="kw-2">&amp;</span>spawn_essential,
+        system_domain_block_import_notifications,
+        Box::new(task_manager.spawn_essential_handle()),
         <span class="kw-2">&amp;</span>select_chain,
-        EssentialExecutorParams {
+        EssentialExecutorParams::&lt;
+            Block,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            DomainBlockImport&lt;Provider::BI&gt;,
+        &gt; {
             primary_chain_client: primary_chain_client.clone(),
             primary_network_sync_oracle,
             client: client.clone(),
@@ -901,21 +1279,21 @@
             backend: backend.clone(),
             code_executor: code_executor.clone(),
             is_authority,
-            keystore: params.keystore_container.sync_keystore(),
+            keystore: params.keystore_container.keystore(),
             spawner: Box::new(task_manager.spawn_handle()),
             bundle_sender: Arc::new(bundle_sender),
-            block_import_throttling_buffer_size,
-            imported_block_notification_stream,
-            new_slot_notification_stream,
+            executor_streams,
+            domain_confirmation_depth,
+            block_import,
         },
     )
     .<span class="kw">await</span><span class="question-mark">?</span>;
 
     <span class="kw">let </span>gossip_message_validator =
-        CoreGossipMessageValidator::&lt;<span class="kw">_</span>, SBlock, PBlock, <span class="kw">_</span>, SClient, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>&gt;::new(
-            CoreDomainParentChain::&lt;<span class="kw">_</span>, SBlock, PBlock&gt;::new(
-                system_domain_client.clone(),
+        CoreGossipMessageValidator::&lt;<span class="kw">_</span>, SBlock, PBlock, <span class="kw">_</span>, SClient, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>&gt;::new(
+            CoreDomainParentChain::&lt;<span class="kw">_</span>, SBlock, PBlock, <span class="kw">_</span>&gt;::new(
                 domain_id,
+                system_domain_client.clone(),
             ),
             client.clone(),
             Box::new(task_manager.spawn_handle()),
@@ -925,7 +1303,8 @@
 
     <span class="kw">let </span>executor_gossip =
         domain_client_executor_gossip::start_gossip_worker(ExecutorGossipParams {
-            network: network.clone(),
+            network: network_service.clone(),
+            sync: sync_service.clone(),
             executor: gossip_message_validator,
             bundle_receiver,
         });
@@ -936,12 +1315,21 @@
             <span class="string">&quot;Starting core domain relayer with relayer_id[{:?}]&quot;</span>,
             relayer_id
         );
-        <span class="kw">let </span>relayer_worker = domain_client_message_relayer::worker::relay_core_domain_messages(
+        <span class="kw">let </span>relayer_worker = domain_client_message_relayer::worker::relay_core_domain_messages::&lt;
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            PBlock,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+        &gt;(
             relayer_id,
             client.clone(),
             system_domain_client,
-            system_domain_network,
-            network.clone(),
+            system_domain_sync_service,
+            sync_service.clone(),
             gossip_message_sink.clone(),
         );
 
@@ -999,14 +1387,15 @@
         client,
         backend,
         code_executor,
-        network,
+        network_service,
+        sync_service,
         rpc_handlers,
         network_starter,
         executor,
         tx_pool_sink: msg_sender,
+        _data: Default::default(),
     };
 
     <span class="prelude-val">Ok</span>(new_full)
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="domain_service" data-themes="" data-resource-suffix="" data-rustdoc-version="1.68.0-nightly (afaf3e07a 2023-01-14)" data-search-js="search-181581080540673f.js" data-settings-js="settings-a2afdefbb7c817f1.js" data-settings-css="settings-84508a86fe805444.css" ></div></body></html>
+</code></pre></div></section></main></body></html>
