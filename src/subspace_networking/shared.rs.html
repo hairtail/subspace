@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-networking/src/shared.rs`."><title>shared.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_networking" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0-nightly (ce5919fce 2023-05-15)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-6f6ffb5395b17c6e.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../subspace_networking/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-networking/src/shared.rs`."><title>shared.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-deb46770fd761b69.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_networking" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (42b1224e9 2023-10-15)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-5f34af1a0ee6bacd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -125,22 +125,83 @@
 <a href="#125" id="125">125</a>
 <a href="#126" id="126">126</a>
 <a href="#127" id="127">127</a>
+<a href="#128" id="128">128</a>
+<a href="#129" id="129">129</a>
+<a href="#130" id="130">130</a>
+<a href="#131" id="131">131</a>
+<a href="#132" id="132">132</a>
+<a href="#133" id="133">133</a>
+<a href="#134" id="134">134</a>
+<a href="#135" id="135">135</a>
+<a href="#136" id="136">136</a>
+<a href="#137" id="137">137</a>
+<a href="#138" id="138">138</a>
+<a href="#139" id="139">139</a>
+<a href="#140" id="140">140</a>
+<a href="#141" id="141">141</a>
+<a href="#142" id="142">142</a>
+<a href="#143" id="143">143</a>
+<a href="#144" id="144">144</a>
+<a href="#145" id="145">145</a>
+<a href="#146" id="146">146</a>
+<a href="#147" id="147">147</a>
+<a href="#148" id="148">148</a>
+<a href="#149" id="149">149</a>
+<a href="#150" id="150">150</a>
+<a href="#151" id="151">151</a>
+<a href="#152" id="152">152</a>
+<a href="#153" id="153">153</a>
+<a href="#154" id="154">154</a>
+<a href="#155" id="155">155</a>
+<a href="#156" id="156">156</a>
+<a href="#157" id="157">157</a>
+<a href="#158" id="158">158</a>
+<a href="#159" id="159">159</a>
+<a href="#160" id="160">160</a>
 </pre></div><pre class="rust"><code><span class="doccomment">//! Data structures shared between node and node runner, facilitating exchange and creation of
 //! queries, subscriptions, various events and shared information.
 
-</span><span class="kw">use </span><span class="kw">crate</span>::request_responses::RequestFailure;
-<span class="kw">use </span><span class="kw">crate</span>::utils::{ResizableSemaphore, ResizableSemaphorePermit};
+</span><span class="kw">use </span><span class="kw">crate</span>::protocols::peer_info::PeerInfo;
+<span class="kw">use </span><span class="kw">crate</span>::protocols::request_response::request_response_factory::RequestFailure;
+<span class="kw">use </span><span class="kw">crate</span>::utils::multihash::Multihash;
+<span class="kw">use </span><span class="kw">crate</span>::utils::rate_limiter::{RateLimiter, RateLimiterPermit};
+<span class="kw">use </span><span class="kw">crate</span>::utils::Handler;
 <span class="kw">use </span>bytes::Bytes;
-<span class="kw">use </span>event_listener_primitives::Bag;
 <span class="kw">use </span>futures::channel::{mpsc, oneshot};
-<span class="kw">use </span>libp2p::core::multihash::Multihash;
 <span class="kw">use </span>libp2p::gossipsub::{PublishError, Sha256Topic, SubscriptionError};
-<span class="kw">use </span>libp2p::kad::record::Key;
 <span class="kw">use </span>libp2p::kad::PeerRecord;
 <span class="kw">use </span>libp2p::{Multiaddr, PeerId};
 <span class="kw">use </span>parking_lot::Mutex;
 <span class="kw">use </span>std::sync::atomic::AtomicUsize;
 <span class="kw">use </span>std::sync::Arc;
+
+<span class="doccomment">/// Represents Kademlia events (RoutablePeer, PendingRoutablePeer, UnroutablePeer).
+</span><span class="attr">#[derive(Clone, Debug)]
+</span><span class="kw">pub enum </span>PeerDiscovered {
+    <span class="doccomment">/// Kademlia&#39;s unroutable peer event.
+    </span>UnroutablePeer {
+        <span class="doccomment">/// Peer ID
+        </span>peer_id: PeerId,
+    },
+
+    <span class="doccomment">/// Kademlia&#39;s routable or pending routable peer event.
+    </span>RoutablePeer {
+        <span class="doccomment">/// Peer ID
+        </span>peer_id: PeerId,
+        <span class="doccomment">/// Peer address
+        </span>address: Multiaddr,
+    },
+}
+
+<span class="kw">impl </span>PeerDiscovered {
+    <span class="doccomment">/// Extracts peer ID from event.
+    </span><span class="kw">pub fn </span>peer_id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; PeerId {
+        <span class="kw">match </span><span class="self">self </span>{
+            PeerDiscovered::UnroutablePeer { peer_id } =&gt; <span class="kw-2">*</span>peer_id,
+            PeerDiscovered::RoutablePeer { peer_id, .. } =&gt; <span class="kw-2">*</span>peer_id,
+        }
+    }
+}
 
 <span class="attr">#[derive(Debug)]
 </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct </span>CreatedSubscription {
@@ -155,13 +216,13 @@
     GetValue {
         key: Multihash,
         result_sender: mpsc::UnboundedSender&lt;PeerRecord&gt;,
-        permit: ResizableSemaphorePermit,
+        permit: RateLimiterPermit,
     },
     PutValue {
         key: Multihash,
         value: Vec&lt;u8&gt;,
         result_sender: mpsc::UnboundedSender&lt;()&gt;,
-        permit: ResizableSemaphorePermit,
+        permit: RateLimiterPermit,
     },
     Subscribe {
         topic: Sha256Topic,
@@ -179,7 +240,7 @@
     GetClosestPeers {
         key: Multihash,
         result_sender: mpsc::UnboundedSender&lt;PeerId&gt;,
-        permit: ResizableSemaphorePermit,
+        permit: RateLimiterPermit,
     },
     GenericRequest {
         peer_id: PeerId,
@@ -187,21 +248,10 @@
         request: Vec&lt;u8&gt;,
         result_sender: oneshot::Sender&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;u8&gt;, RequestFailure&gt;&gt;,
     },
-    CheckConnectedPeers {
-        result_sender: oneshot::Sender&lt;bool&gt;,
-    },
-    StartLocalAnnouncing {
-        key: Key,
-        result_sender: oneshot::Sender&lt;bool&gt;,
-    },
-    StopLocalAnnouncing {
-        key: Multihash,
-        result_sender: oneshot::Sender&lt;()&gt;,
-    },
     GetProviders {
         key: Multihash,
         result_sender: mpsc::UnboundedSender&lt;PeerId&gt;,
-        permit: ResizableSemaphorePermit,
+        permit: <span class="prelude-ty">Option</span>&lt;RateLimiterPermit&gt;,
     },
     BanPeer {
         peer_id: PeerId,
@@ -209,14 +259,33 @@
     Dial {
         address: Multiaddr,
     },
+    ConnectedPeers {
+        result_sender: oneshot::Sender&lt;Vec&lt;PeerId&gt;&gt;,
+    },
+    Bootstrap {
+        result_sender: mpsc::UnboundedSender&lt;()&gt;,
+    },
 }
 
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">type </span>HandlerFn&lt;A&gt; = Arc&lt;<span class="kw">dyn </span>Fn(<span class="kw-2">&amp;</span>A) + Send + Sync + <span class="lifetime">&#39;static</span>&gt;;
-<span class="kw">type </span>Handler&lt;A&gt; = Bag&lt;HandlerFn&lt;A&gt;, A&gt;;
+<span class="doccomment">/// [`PeerInfo`] update and related data container.
+</span><span class="attr">#[derive(Debug)]
+</span><span class="kw">pub struct </span>NewPeerInfo {
+    <span class="doccomment">/// Peer ID for this [`PeerInfo`] update.
+    </span><span class="kw">pub </span>peer_id: PeerId,
+    <span class="doccomment">/// [`PeerInfo`] update.
+    </span><span class="kw">pub </span>peer_info: PeerInfo,
+    <span class="doccomment">/// Currently connected peers.
+    </span><span class="kw">pub </span>connected_peers: Vec&lt;PeerId&gt;,
+}
 
 <span class="attr">#[derive(Default, Debug)]
 </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct </span>Handlers {
     <span class="kw">pub</span>(<span class="kw">crate</span>) new_listener: Handler&lt;Multiaddr&gt;,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) num_established_peer_connections_change: Handler&lt;usize&gt;,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) new_peer_info: Handler&lt;NewPeerInfo&gt;,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) disconnected_peer: Handler&lt;PeerId&gt;,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) connected_peer: Handler&lt;PeerId&gt;,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) peer_discovered: Handler&lt;PeerDiscovered&gt;,
 }
 
 <span class="attr">#[derive(Debug)]
@@ -226,29 +295,26 @@
     <span class="doccomment">/// Addresses on which node is listening for incoming requests.
     </span><span class="kw">pub</span>(<span class="kw">crate</span>) listeners: Mutex&lt;Vec&lt;Multiaddr&gt;&gt;,
     <span class="kw">pub</span>(<span class="kw">crate</span>) external_addresses: Mutex&lt;Vec&lt;Multiaddr&gt;&gt;,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) connected_peers_count: Arc&lt;AtomicUsize&gt;,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) num_established_peer_connections: Arc&lt;AtomicUsize&gt;,
     <span class="doccomment">/// Sender end of the channel for sending commands to the swarm.
     </span><span class="kw">pub</span>(<span class="kw">crate</span>) command_sender: mpsc::Sender&lt;Command&gt;,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) kademlia_tasks_semaphore: ResizableSemaphore,
-    <span class="kw">pub</span>(<span class="kw">crate</span>) regular_tasks_semaphore: ResizableSemaphore,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) rate_limiter: RateLimiter,
 }
 
 <span class="kw">impl </span>Shared {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>new(
         id: PeerId,
         command_sender: mpsc::Sender&lt;Command&gt;,
-        kademlia_tasks_semaphore: ResizableSemaphore,
-        regular_tasks_semaphore: ResizableSemaphore,
+        rate_limiter: RateLimiter,
     ) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             handlers: Handlers::default(),
             id,
             listeners: Mutex::default(),
             external_addresses: Mutex::default(),
-            connected_peers_count: Arc::new(AtomicUsize::new(<span class="number">0</span>)),
+            num_established_peer_connections: Arc::new(AtomicUsize::new(<span class="number">0</span>)),
             command_sender,
-            kademlia_tasks_semaphore,
-            regular_tasks_semaphore,
+            rate_limiter,
         }
     }
 }

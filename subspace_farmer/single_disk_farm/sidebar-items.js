@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["BackgroundTaskError","PlottingError","SingleDiskFarmError","SingleDiskFarmId","SingleDiskFarmInfo","SingleDiskFarmScrubError","SingleDiskFarmSummary"],"mod":["farming","piece_cache","piece_reader"],"struct":["SectorPlottingDetails","SingleDiskFarm","SingleDiskFarmOptions"]};

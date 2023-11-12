@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `test/subspace-test-service/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_test_service" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0-nightly (ce5919fce 2023-05-15)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-6f6ffb5395b17c6e.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../subspace_test_service/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `test/subspace-test-service/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-deb46770fd761b69.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_test_service" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (42b1224e9 2023-10-15)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-5f34af1a0ee6bacd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -932,6 +932,25 @@
 <a href="#932" id="932">932</a>
 <a href="#933" id="933">933</a>
 <a href="#934" id="934">934</a>
+<a href="#935" id="935">935</a>
+<a href="#936" id="936">936</a>
+<a href="#937" id="937">937</a>
+<a href="#938" id="938">938</a>
+<a href="#939" id="939">939</a>
+<a href="#940" id="940">940</a>
+<a href="#941" id="941">941</a>
+<a href="#942" id="942">942</a>
+<a href="#943" id="943">943</a>
+<a href="#944" id="944">944</a>
+<a href="#945" id="945">945</a>
+<a href="#946" id="946">946</a>
+<a href="#947" id="947">947</a>
+<a href="#948" id="948">948</a>
+<a href="#949" id="949">949</a>
+<a href="#950" id="950">950</a>
+<a href="#951" id="951">951</a>
+<a href="#952" id="952">952</a>
+<a href="#953" id="953">953</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -954,18 +973,20 @@
 
 </span><span class="kw">use </span>codec::{Decode, Encode};
 <span class="kw">use </span>cross_domain_message_gossip::GossipWorkerBuilder;
+<span class="kw">use </span>domain_runtime_primitives::opaque::{Block <span class="kw">as </span>DomainBlock, Header <span class="kw">as </span>DomainHeader};
 <span class="kw">use </span>futures::channel::mpsc;
-<span class="kw">use </span>futures::{select, FutureExt, SinkExt, StreamExt};
+<span class="kw">use </span>futures::{select, FutureExt, StreamExt};
 <span class="kw">use </span>jsonrpsee::RpcModule;
 <span class="kw">use </span>parking_lot::Mutex;
 <span class="kw">use </span>sc_block_builder::BlockBuilderProvider;
-<span class="kw">use </span>sc_client_api::execution_extensions::ExecutionStrategies;
-<span class="kw">use </span>sc_client_api::{backend, BlockchainEvents};
+<span class="kw">use </span>sc_client_api::execution_extensions::ExtensionsFactory;
+<span class="kw">use </span>sc_client_api::{BlockBackend, ExecutorProvider};
 <span class="kw">use </span>sc_consensus::block_import::{
     BlockCheckParams, BlockImportParams, ForkChoiceStrategy, ImportResult,
 };
-<span class="kw">use </span>sc_consensus::{BasicQueue, BlockImport, StateAction, Verifier <span class="kw">as </span>VerifierT};
-<span class="kw">use </span>sc_consensus_fraud_proof::FraudProofBlockImport;
+<span class="kw">use </span>sc_consensus::{
+    BasicQueue, BlockImport, SharedBlockImport, StateAction, Verifier <span class="kw">as </span>VerifierT,
+};
 <span class="kw">use </span>sc_executor::NativeElseWasmExecutor;
 <span class="kw">use </span>sc_network::config::{NetworkConfiguration, TransportConfig};
 <span class="kw">use </span>sc_network::multiaddr;
@@ -974,22 +995,23 @@
     WasmtimeInstantiationStrategy,
 };
 <span class="kw">use </span>sc_service::{
-    BasePath, BlocksPruning, Configuration, InPoolTransaction, NetworkStarter, Role,
-    SpawnTasksParams, TaskManager, TransactionPool,
+    BasePath, BlocksPruning, Configuration, NetworkStarter, Role, SpawnTasksParams, TaskManager,
 };
 <span class="kw">use </span>sc_transaction_pool::error::Error <span class="kw">as </span>PoolError;
-<span class="kw">use </span>sc_transaction_pool_api::TransactionSource;
+<span class="kw">use </span>sc_transaction_pool_api::{InPoolTransaction, TransactionPool, TransactionSource};
 <span class="kw">use </span>sc_utils::mpsc::{tracing_unbounded, TracingUnboundedReceiver, TracingUnboundedSender};
-<span class="kw">use </span>sp_api::{ApiExt, HashT, HeaderT, ProvideRuntimeApi, TransactionFor};
+<span class="kw">use </span>sp_api::{ApiExt, HashT, HeaderT, ProvideRuntimeApi};
 <span class="kw">use </span>sp_application_crypto::UncheckedFrom;
 <span class="kw">use </span>sp_blockchain::HeaderBackend;
 <span class="kw">use </span>sp_consensus::{BlockOrigin, Error <span class="kw">as </span>ConsensusError};
 <span class="kw">use </span>sp_consensus_slots::Slot;
-<span class="kw">use </span>sp_consensus_subspace::digests::{CompatibleDigestItem, PreDigest};
+<span class="kw">use </span>sp_consensus_subspace::digests::{CompatibleDigestItem, PreDigest, PreDigestPotInfo};
 <span class="kw">use </span>sp_consensus_subspace::FarmerPublicKey;
-<span class="kw">use </span>sp_core::traits::SpawnEssentialNamed;
+<span class="kw">use </span>sp_core::traits::{CodeExecutor, SpawnEssentialNamed};
 <span class="kw">use </span>sp_core::H256;
-<span class="kw">use </span>sp_domains::OpaqueBundle;
+<span class="kw">use </span>sp_domains::{BundleProducerElectionApi, DomainsApi, OpaqueBundle};
+<span class="kw">use </span>sp_domains_fraud_proof::{FraudProofExtension, FraudProofHostFunctionsImpl};
+<span class="kw">use </span>sp_externalities::Extensions;
 <span class="kw">use </span>sp_inherents::{InherentData, InherentDataProvider};
 <span class="kw">use </span>sp_keyring::Sr25519Keyring;
 <span class="kw">use </span>sp_runtime::generic::{BlockId, Digest};
@@ -998,21 +1020,16 @@
 <span class="kw">use </span>sp_timestamp::Timestamp;
 <span class="kw">use </span>std::error::Error;
 <span class="kw">use </span>std::marker::PhantomData;
+<span class="kw">use </span>std::sync::atomic::AtomicU32;
 <span class="kw">use </span>std::sync::Arc;
 <span class="kw">use </span>std::time;
-<span class="kw">use </span>subspace_core_primitives::{Blake2b256Hash, Solution};
-<span class="kw">use </span>subspace_fraud_proof::domain_extrinsics_builder::SystemDomainExtrinsicsBuilder;
-<span class="kw">use </span>subspace_fraud_proof::invalid_state_transition_proof::InvalidStateTransitionProofVerifier;
-<span class="kw">use </span>subspace_fraud_proof::invalid_transaction_proof::InvalidTransactionProofVerifier;
-<span class="kw">use </span>subspace_fraud_proof::verifier_api::VerifierClient;
+<span class="kw">use </span>subspace_core_primitives::{Randomness, Solution};
 <span class="kw">use </span>subspace_runtime_primitives::opaque::Block;
-<span class="kw">use </span>subspace_runtime_primitives::{AccountId, Hash};
-<span class="kw">use </span>subspace_service::tx_pre_validator::PrimaryChainTxPreValidator;
+<span class="kw">use </span>subspace_runtime_primitives::{AccountId, Balance, Hash};
+<span class="kw">use </span>subspace_service::transaction_pool::FullPool;
 <span class="kw">use </span>subspace_service::FullSelectChain;
-<span class="kw">use </span>subspace_test_client::{chain_spec, Backend, Client, FraudProofVerifier, TestExecutorDispatch};
+<span class="kw">use </span>subspace_test_client::{chain_spec, Backend, Client, TestExecutorDispatch};
 <span class="kw">use </span>subspace_test_runtime::{RuntimeApi, RuntimeCall, UncheckedExtrinsic, SLOT_DURATION};
-<span class="kw">use </span>subspace_transaction_pool::bundle_validator::BundleValidator;
-<span class="kw">use </span>subspace_transaction_pool::FullPool;
 
 <span class="doccomment">/// Create a Subspace `Configuration`.
 ///
@@ -1075,25 +1092,15 @@
             instantiation_strategy: WasmtimeInstantiationStrategy::PoolingCopyOnWrite,
         },
         wasm_runtime_overrides: Default::default(),
-        <span class="comment">// NOTE: we enforce the use of the native runtime to make the errors more debuggable
-        </span>execution_strategies: ExecutionStrategies {
-            syncing: sc_client_api::ExecutionStrategy::NativeWhenPossible,
-            importing: sc_client_api::ExecutionStrategy::NativeWhenPossible,
-            block_construction: sc_client_api::ExecutionStrategy::NativeWhenPossible,
-            offchain_worker: sc_client_api::ExecutionStrategy::NativeWhenPossible,
-            other: sc_client_api::ExecutionStrategy::NativeWhenPossible,
-        },
-        rpc_http: <span class="prelude-val">None</span>,
-        rpc_ws: <span class="prelude-val">None</span>,
-        rpc_ipc: <span class="prelude-val">None</span>,
-        rpc_max_payload: <span class="prelude-val">None</span>,
-        rpc_max_request_size: <span class="prelude-val">None</span>,
-        rpc_max_response_size: <span class="prelude-val">None</span>,
+        rpc_addr: <span class="prelude-val">None</span>,
+        rpc_max_request_size: <span class="number">0</span>,
+        rpc_max_response_size: <span class="number">0</span>,
         rpc_id_provider: <span class="prelude-val">None</span>,
-        rpc_ws_max_connections: <span class="prelude-val">None</span>,
+        rpc_max_subs_per_conn: <span class="number">0</span>,
+        rpc_port: <span class="number">0</span>,
+        rpc_max_connections: <span class="number">0</span>,
         rpc_cors: <span class="prelude-val">None</span>,
         rpc_methods: Default::default(),
-        ws_max_out_buffer_capacity: <span class="prelude-val">None</span>,
         prometheus_config: <span class="prelude-val">None</span>,
         telemetry_endpoints: <span class="prelude-val">None</span>,
         default_heap_pages: <span class="prelude-val">None</span>,
@@ -1105,20 +1112,59 @@
         tracing_receiver: Default::default(),
         max_runtime_instances: <span class="number">8</span>,
         announce_block: <span class="bool-val">true</span>,
-        base_path: <span class="prelude-val">Some</span>(base_path),
+        data_path: base_path.path().into(),
+        base_path,
         informant_output_format: Default::default(),
         runtime_cache_size: <span class="number">2</span>,
-        rpc_max_subs_per_conn: <span class="prelude-val">None</span>,
     }
 }
 
-<span class="kw">type </span>StorageChanges = sp_api::StorageChanges&lt;backend::StateBackendFor&lt;Backend, Block&gt;, Block&gt;;
+<span class="kw">type </span>StorageChanges = sp_api::StorageChanges&lt;Block&gt;;
 
-<span class="kw">type </span>TxPreValidator =
-    PrimaryChainTxPreValidator&lt;Block, Client, FraudProofVerifier, BundleValidator&lt;Block, Client&gt;&gt;;
+<span class="kw">struct </span>MockExtensionsFactory&lt;Client, DomainBlock, Executor&gt; {
+    consensus_client: Arc&lt;Client&gt;,
+    executor: Arc&lt;Executor&gt;,
+    _phantom: PhantomData&lt;DomainBlock&gt;,
+}
 
-<span class="doccomment">/// A mock Subspace primary node instance used for testing.
-</span><span class="kw">pub struct </span>MockPrimaryNode {
+<span class="kw">impl</span>&lt;Client, DomainBlock, Executor&gt; MockExtensionsFactory&lt;Client, DomainBlock, Executor&gt; {
+    <span class="kw">fn </span>new(consensus_client: Arc&lt;Client&gt;, executor: Arc&lt;Executor&gt;) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            consensus_client,
+            executor,
+            _phantom: Default::default(),
+        }
+    }
+}
+
+<span class="kw">impl</span>&lt;Block, Client, DomainBlock, Executor&gt; ExtensionsFactory&lt;Block&gt;
+    <span class="kw">for </span>MockExtensionsFactory&lt;Client, DomainBlock, Executor&gt;
+<span class="kw">where
+    </span>Block: BlockT,
+    Block::Hash: From&lt;H256&gt;,
+    DomainBlock: BlockT,
+    DomainBlock::Hash: Into&lt;H256&gt; + From&lt;H256&gt;,
+    Client: BlockBackend&lt;Block&gt; + HeaderBackend&lt;Block&gt; + ProvideRuntimeApi&lt;Block&gt; + <span class="lifetime">&#39;static</span>,
+    Client::Api: DomainsApi&lt;Block, DomainBlock::Header&gt; + BundleProducerElectionApi&lt;Block, Balance&gt;,
+    Executor: CodeExecutor + sc_executor::RuntimeVersionOf,
+{
+    <span class="kw">fn </span>extensions_for(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        _block_hash: Block::Hash,
+        _block_number: NumberFor&lt;Block&gt;,
+    ) -&gt; Extensions {
+        <span class="kw">let </span><span class="kw-2">mut </span>exts = Extensions::new();
+        exts.register(FraudProofExtension::new(Arc::new(
+            FraudProofHostFunctionsImpl::&lt;<span class="kw">_</span>, <span class="kw">_</span>, DomainBlock, Executor&gt;::new(
+                <span class="self">self</span>.consensus_client.clone(),
+                <span class="self">self</span>.executor.clone(),
+            ),
+        )));
+        exts
+    }
+}
+<span class="doccomment">/// A mock Subspace consensus node instance used for testing.
+</span><span class="kw">pub struct </span>MockConsensusNode {
     <span class="doccomment">/// `TaskManager`&#39;s instance.
     </span><span class="kw">pub </span>task_manager: TaskManager,
     <span class="doccomment">/// Client&#39;s instance.
@@ -1128,7 +1174,7 @@
     <span class="doccomment">/// Code executor.
     </span><span class="kw">pub </span>executor: NativeElseWasmExecutor&lt;TestExecutorDispatch&gt;,
     <span class="doccomment">/// Transaction pool.
-    </span><span class="kw">pub </span>transaction_pool: Arc&lt;FullPool&lt;Block, Client, TxPreValidator&gt;&gt;,
+    </span><span class="kw">pub </span>transaction_pool: Arc&lt;FullPool&lt;Client, Block, DomainHeader&gt;&gt;,
     <span class="doccomment">/// The SelectChain Strategy
     </span><span class="kw">pub </span>select_chain: FullSelectChain,
     <span class="doccomment">/// Network service.
@@ -1143,28 +1189,26 @@
     </span>next_slot: u64,
     <span class="doccomment">/// The slot notification subscribers
     </span><span class="attr">#[allow(clippy::type_complexity)]
-    </span>new_slot_notification_subscribers:
-        Vec&lt;TracingUnboundedSender&lt;(Slot, Blake2b256Hash, <span class="prelude-ty">Option</span>&lt;mpsc::Sender&lt;()&gt;&gt;)&gt;&gt;,
+    </span>new_slot_notification_subscribers: Vec&lt;TracingUnboundedSender&lt;(Slot, Randomness)&gt;&gt;,
+    <span class="doccomment">/// The acknowledgement sender subscribers
+    </span><span class="attr">#[allow(clippy::type_complexity)]
+    </span>acknowledgement_sender_subscribers: Vec&lt;TracingUnboundedSender&lt;mpsc::Sender&lt;()&gt;&gt;&gt;,
     <span class="doccomment">/// Block import pipeline
     </span><span class="attr">#[allow(clippy::type_complexity)]
-    </span>block_import: MockBlockImport&lt;
-        FraudProofBlockImport&lt;Block, Client, Arc&lt;Client&gt;, FraudProofVerifier, H256&gt;,
-        Client,
-        Block,
-    &gt;,
+    </span>block_import: MockBlockImport&lt;Client, Block&gt;,
     xdm_gossip_worker_builder: <span class="prelude-ty">Option</span>&lt;GossipWorkerBuilder&gt;,
     <span class="doccomment">/// Mock subspace solution used to mock the subspace `PreDigest`
     </span>mock_solution: Solution&lt;FarmerPublicKey, AccountId&gt;,
     log_prefix: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str,
 }
 
-<span class="kw">impl </span>MockPrimaryNode {
-    <span class="doccomment">/// Run a mock primary node
-    </span><span class="kw">pub fn </span>run_mock_primary_node(
+<span class="kw">impl </span>MockConsensusNode {
+    <span class="doccomment">/// Run a mock consensus node
+    </span><span class="kw">pub fn </span>run(
         tokio_handle: tokio::runtime::Handle,
         key: Sr25519Keyring,
         base_path: BasePath,
-    ) -&gt; MockPrimaryNode {
+    ) -&gt; MockConsensusNode {
         <span class="kw">let </span>log_prefix = key.into();
 
         <span class="kw">let </span><span class="kw-2">mut </span>config = node_config(tokio_handle, key, <span class="macro">vec!</span>[], <span class="bool-val">false</span>, <span class="bool-val">false</span>, <span class="bool-val">false</span>, base_path);
@@ -1173,75 +1217,46 @@
         // by `TemporarilyBanned`
         </span>config.transaction_pool.ban_time = time::Duration::from_millis(<span class="number">0</span>);
 
-        config.network.node_name = <span class="macro">format!</span>(<span class="string">&quot;{} (MockPrimaryChain)&quot;</span>, config.network.node_name);
+        config.network.node_name = <span class="macro">format!</span>(<span class="string">&quot;{} (Consensus)&quot;</span>, config.network.node_name);
         <span class="kw">let </span>span = <span class="macro">sc_tracing::tracing::info_span!</span>(
             sc_tracing::logging::PREFIX_LOG_SPAN,
             name = config.network.node_name.as_str()
         );
         <span class="kw">let </span>_enter = span.enter();
 
-        <span class="kw">let </span>executor = NativeElseWasmExecutor::&lt;TestExecutorDispatch&gt;::new(
-            config.wasm_method,
-            config.default_heap_pages,
-            config.max_runtime_instances,
-            config.runtime_cache_size,
-        );
+        <span class="kw">let </span>executor = sc_service::new_native_or_wasm_executor(<span class="kw-2">&amp;</span>config);
 
         <span class="kw">let </span>(client, backend, keystore_container, <span class="kw-2">mut </span>task_manager) =
             sc_service::new_full_parts::&lt;Block, RuntimeApi, <span class="kw">_</span>&gt;(<span class="kw-2">&amp;</span>config, <span class="prelude-val">None</span>, executor.clone())
                 .expect(<span class="string">&quot;Fail to new full parts&quot;</span>);
 
         <span class="kw">let </span>client = Arc::new(client);
+        client
+            .execution_extensions()
+            .set_extensions_factory(MockExtensionsFactory::&lt;<span class="kw">_</span>, DomainBlock, <span class="kw">_</span>&gt;::new(
+                client.clone(),
+                Arc::new(executor.clone()),
+            ));
 
         <span class="kw">let </span>select_chain = sc_consensus::LongestChain::new(backend.clone());
 
-        <span class="kw">let </span><span class="kw-2">mut </span>bundle_validator = BundleValidator::new(client.clone());
-
-        <span class="kw">let </span>domain_extrinsics_builder =
-            SystemDomainExtrinsicsBuilder::new(client.clone(), Arc::new(executor.clone()));
-
-        <span class="kw">let </span>invalid_transaction_proof_verifier = InvalidTransactionProofVerifier::new(
-            client.clone(),
-            Arc::new(executor.clone()),
-            VerifierClient::new(client.clone()),
-            domain_extrinsics_builder.clone(),
-        );
-
-        <span class="kw">let </span>invalid_state_transition_proof_verifier = InvalidStateTransitionProofVerifier::new(
-            client.clone(),
-            executor.clone(),
-            task_manager.spawn_handle(),
-            VerifierClient::new(client.clone()),
-            domain_extrinsics_builder,
-        );
-
-        <span class="kw">let </span>proof_verifier = subspace_fraud_proof::ProofVerifier::new(
-            Arc::new(invalid_transaction_proof_verifier),
-            Arc::new(invalid_state_transition_proof_verifier),
-        );
-
-        <span class="kw">let </span>tx_pre_validator = PrimaryChainTxPreValidator::new(
-            client.clone(),
-            Box::new(task_manager.spawn_handle()),
-            proof_verifier.clone(),
-            bundle_validator.clone(),
-        );
-
-        <span class="kw">let </span>transaction_pool = subspace_transaction_pool::new_full(
+        <span class="kw">let </span>sync_target_block_number = Arc::new(AtomicU32::new(<span class="number">0</span>));
+        <span class="kw">let </span>transaction_pool = subspace_service::transaction_pool::new_full(
             <span class="kw-2">&amp;</span>config,
             <span class="kw-2">&amp;</span>task_manager,
             client.clone(),
-            tx_pre_validator,
-        );
+            sync_target_block_number.clone(),
+        )
+        .expect(<span class="string">&quot;failed to create transaction pool&quot;</span>);
 
-        <span class="kw">let </span>fraud_proof_block_import =
-            sc_consensus_fraud_proof::block_import(client.clone(), client.clone(), proof_verifier);
+        <span class="kw">let </span>block_import = MockBlockImport::&lt;<span class="kw">_</span>, <span class="kw">_</span>&gt;::new(client.clone());
 
-        <span class="kw">let </span><span class="kw-2">mut </span>block_import = MockBlockImport::&lt;<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>&gt;::new(fraud_proof_block_import);
+        <span class="kw">let </span>net_config = sc_network::config::FullNetworkConfiguration::new(<span class="kw-2">&amp;</span>config.network);
 
         <span class="kw">let </span>(network_service, system_rpc_tx, tx_handler_controller, network_starter, sync_service) =
             sc_service::build_network(sc_service::BuildNetworkParams {
                 config: <span class="kw-2">&amp;</span>config,
+                net_config,
                 client: client.clone(),
                 transaction_pool: transaction_pool.clone(),
                 spawn_handle: task_manager.spawn_handle(),
@@ -1271,46 +1286,12 @@
         })
         .expect(<span class="string">&quot;Should be able to spawn tasks&quot;</span>);
 
-        <span class="comment">// The `maintain-bundles-stored-in-last-k` worker here is different from the one in the production code
-        // that it subscribes the `block_importing_notification_stream`, which is intended to ensure the bundle
-        // validator&#39;s `recent_stored_bundles` info must be updated when a new primary block is produced, this
-        // will help the test to be more deterministic.
-        </span><span class="kw">let </span><span class="kw-2">mut </span>imported_blocks_stream = client.import_notification_stream();
-        <span class="kw">let </span><span class="kw-2">mut </span>block_importing_stream = block_import.block_importing_notification_stream();
-        task_manager.spawn_handle().spawn(
-            <span class="string">&quot;maintain-bundles-stored-in-last-k&quot;</span>,
-            <span class="prelude-val">None</span>,
-            Box::pin(<span class="kw">async move </span>{
-                <span class="kw">loop </span>{
-                    <span class="macro">tokio::select! </span>{
-                        biased;
-                        maybe_block_imported = imported_blocks_stream.next() =&gt; {
-                            <span class="kw">match </span>maybe_block_imported {
-                                <span class="prelude-val">Some</span>(block) =&gt; <span class="kw">if </span>block.is_new_best {
-                                    bundle_validator.update_recent_stored_bundles(block.hash);
-                                }
-                                <span class="prelude-val">None </span>=&gt; <span class="kw">break</span>,
-                            }
-                        },
-                        maybe_block_importing = block_importing_stream.next() =&gt; {
-                            <span class="kw">match </span>maybe_block_importing {
-                                <span class="prelude-val">Some</span>((<span class="kw">_</span>, <span class="kw-2">mut </span>acknowledgement_sender)) =&gt; {
-                                    <span class="kw">let _ </span>= acknowledgement_sender.send(()).<span class="kw">await</span>;
-                                }
-                                <span class="prelude-val">None </span>=&gt; <span class="kw">break</span>,
-                            }
-                        }
-                    }
-                }
-            }),
-        );
-
         <span class="kw">let </span>mock_solution = Solution::genesis_solution(
             FarmerPublicKey::unchecked_from(key.public().<span class="number">0</span>),
             key.to_account_id(),
         );
 
-        MockPrimaryNode {
+        MockConsensusNode {
             task_manager,
             client,
             backend,
@@ -1323,6 +1304,7 @@
             network_starter: <span class="prelude-val">Some</span>(network_starter),
             next_slot: <span class="number">1</span>,
             new_slot_notification_subscribers: Vec::new(),
+            acknowledgement_sender_subscribers: Vec::new(),
             block_import,
             xdm_gossip_worker_builder: <span class="prelude-val">Some</span>(GossipWorkerBuilder::new()),
             mock_solution,
@@ -1330,11 +1312,11 @@
         }
     }
 
-    <span class="doccomment">/// Start the mock primary node network
+    <span class="doccomment">/// Start the mock consensus node network
     </span><span class="kw">pub fn </span>start_network(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         <span class="self">self</span>.network_starter
             .take()
-            .expect(<span class="string">&quot;mock primary node network have not started yet&quot;</span>)
+            .expect(<span class="string">&quot;mock consensus node network have not started yet&quot;</span>)
             .start_network();
     }
 
@@ -1367,6 +1349,11 @@
         <span class="self">self</span>.next_slot
     }
 
+    <span class="doccomment">/// Set the next slot number
+    </span><span class="kw">pub fn </span>set_next_slot(<span class="kw-2">&amp;mut </span><span class="self">self</span>, next_slot: u64) {
+        <span class="self">self</span>.next_slot = next_slot;
+    }
+
     <span class="doccomment">/// Produce a slot only, without waiting for the potential slot handlers.
     </span><span class="kw">pub fn </span>produce_slot(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; Slot {
         <span class="kw">let </span>slot = Slot::from(<span class="self">self</span>.next_slot);
@@ -1378,41 +1365,22 @@
     </span><span class="kw">pub async fn </span>notify_new_slot_and_wait_for_bundle(
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
         slot: Slot,
-    ) -&gt; <span class="prelude-ty">Option</span>&lt;OpaqueBundle&lt;NumberFor&lt;Block&gt;, Hash, H256&gt;&gt; {
-        <span class="kw">let </span>(slot_acknowledgement_sender, <span class="kw-2">mut </span>slot_acknowledgement_receiver) = mpsc::channel(<span class="number">0</span>);
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;OpaqueBundle&lt;NumberFor&lt;Block&gt;, Hash, DomainHeader, Balance&gt;&gt; {
+        <span class="kw">let </span>value = (slot, Randomness::from(Hash::random().to_fixed_bytes()));
+        <span class="self">self</span>.new_slot_notification_subscribers
+            .retain(|subscriber| subscriber.unbounded_send(value).is_ok());
 
-        <span class="comment">// Must drop `slot_acknowledgement_sender` after the notification otherwise the receiver
-        // will block forever as there is still a sender not closed.
-        </span>{
-            <span class="kw">let </span>value = (
-                slot,
-                Hash::random().into(),
-                <span class="prelude-val">Some</span>(slot_acknowledgement_sender),
-            );
-            <span class="self">self</span>.new_slot_notification_subscribers
-                .retain(|subscriber| subscriber.unbounded_send(value.clone()).is_ok());
-        }
-
-        <span class="comment">// Wait for all the acknowledgements to progress and proactively drop closed subscribers.
-        </span><span class="kw">loop </span>{
-            <span class="macro">select! </span>{
-                res = slot_acknowledgement_receiver.next() =&gt; <span class="kw">if </span>res.is_none() {
-                    <span class="kw">break</span>;
-                },
-                <span class="comment">// TODO: Workaround for https://github.com/smol-rs/async-channel/issues/23, remove once fix is released
-                </span><span class="kw">_ </span>= futures_timer::Delay::new(time::Duration::from_millis(<span class="number">500</span>)).fuse() =&gt; {
-                    <span class="self">self</span>.new_slot_notification_subscribers.retain(|subscriber| !subscriber.is_closed());
-                }
-            }
-        }
-
+        <span class="self">self</span>.confirm_acknowledgement().<span class="kw">await</span>;
         <span class="self">self</span>.get_bundle_from_tx_pool(slot.into())
     }
 
     <span class="doccomment">/// Produce a new slot and wait for a bundle produced at this slot.
     </span><span class="kw">pub async fn </span>produce_slot_and_wait_for_bundle_submission(
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-    ) -&gt; (Slot, <span class="prelude-ty">Option</span>&lt;OpaqueBundle&lt;NumberFor&lt;Block&gt;, Hash, H256&gt;&gt;) {
+    ) -&gt; (
+        Slot,
+        <span class="prelude-ty">Option</span>&lt;OpaqueBundle&lt;NumberFor&lt;Block&gt;, Hash, DomainHeader, Balance&gt;&gt;,
+    ) {
         <span class="kw">let </span>slot = <span class="self">self</span>.produce_slot();
 
         <span class="kw">let </span>bundle = <span class="self">self</span>.notify_new_slot_and_wait_for_bundle(slot).<span class="kw">await</span>;
@@ -1421,12 +1389,67 @@
     }
 
     <span class="doccomment">/// Subscribe the new slot notification
-    </span><span class="kw">pub fn </span>new_slot_notification_stream(
-        <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-    ) -&gt; TracingUnboundedReceiver&lt;(Slot, Blake2b256Hash, <span class="prelude-ty">Option</span>&lt;mpsc::Sender&lt;()&gt;&gt;)&gt; {
+    </span><span class="kw">pub fn </span>new_slot_notification_stream(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; TracingUnboundedReceiver&lt;(Slot, Randomness)&gt; {
         <span class="kw">let </span>(tx, rx) = tracing_unbounded(<span class="string">&quot;subspace_new_slot_notification_stream&quot;</span>, <span class="number">100</span>);
         <span class="self">self</span>.new_slot_notification_subscribers.push(tx);
         rx
+    }
+
+    <span class="doccomment">/// Subscribe the acknowledgement sender stream
+    </span><span class="kw">pub fn </span>new_acknowledgement_sender_stream(
+        <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+    ) -&gt; TracingUnboundedReceiver&lt;mpsc::Sender&lt;()&gt;&gt; {
+        <span class="kw">let </span>(tx, rx) = tracing_unbounded(<span class="string">&quot;subspace_acknowledgement_sender_stream&quot;</span>, <span class="number">100</span>);
+        <span class="self">self</span>.acknowledgement_sender_subscribers.push(tx);
+        rx
+    }
+
+    <span class="doccomment">/// Wait for all the acknowledgements before return
+    ///
+    /// It is used to wait for the acknowledgement of the domain worker to ensure it have
+    /// finish all the previous tasks before return
+    </span><span class="kw">pub async fn </span>confirm_acknowledgement(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
+        <span class="kw">let </span>(acknowledgement_sender, <span class="kw-2">mut </span>acknowledgement_receiver) = mpsc::channel(<span class="number">0</span>);
+
+        <span class="comment">// Must drop `acknowledgement_sender` after the notification otherwise the receiver
+        // will block forever as there is still a sender not closed.
+        </span>{
+            <span class="self">self</span>.acknowledgement_sender_subscribers
+                .retain(|subscriber| {
+                    subscriber
+                        .unbounded_send(acknowledgement_sender.clone())
+                        .is_ok()
+                });
+            drop(acknowledgement_sender);
+        }
+
+        <span class="comment">// Wait for all the acknowledgements to progress and proactively drop closed subscribers.
+        </span><span class="kw">while </span>acknowledgement_receiver.next().<span class="kw">await</span>.is_some() {
+            <span class="comment">// Wait for all the acknowledgements to finish.
+        </span>}
+    }
+
+    <span class="doccomment">/// Wait for the operator finish processing the consensus block before return
+    </span><span class="kw">pub async fn </span>confirm_block_import_processed(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
+        <span class="comment">// Send one more notification to ensure the previous consensus block import notificaion
+        // have received by the operator
+        </span><span class="kw">let </span>(acknowledgement_sender, <span class="kw-2">mut </span>acknowledgement_receiver) = mpsc::channel(<span class="number">0</span>);
+        {
+            <span class="comment">// Must drop `block_import_acknowledgement_sender` after the notification otherwise
+            // the receiver will block forever as there is still a sender not closed.
+            // NOTE: it is okay to use the default block number since it is ignored in the consumer side.
+            </span><span class="kw">let </span>value = (NumberFor::&lt;Block&gt;::default(), acknowledgement_sender);
+            <span class="self">self</span>.block_import
+                .block_importing_notification_subscribers
+                .lock()
+                .retain(|subscriber| subscriber.unbounded_send(value.clone()).is_ok());
+        }
+        <span class="kw">while </span>acknowledgement_receiver.next().<span class="kw">await</span>.is_some() {
+            <span class="comment">// Wait for all the acknowledgements to finish.
+        </span>}
+
+        <span class="comment">// Ensure the operator finish processing the consensus block
+        </span><span class="self">self</span>.confirm_acknowledgement().<span class="kw">await</span>;
     }
 
     <span class="doccomment">/// Subscribe the block importing notification
@@ -1440,14 +1463,14 @@
     </span><span class="kw">pub fn </span>get_bundle_from_tx_pool(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         slot: u64,
-    ) -&gt; <span class="prelude-ty">Option</span>&lt;OpaqueBundle&lt;NumberFor&lt;Block&gt;, Hash, H256&gt;&gt; {
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;OpaqueBundle&lt;NumberFor&lt;Block&gt;, Hash, DomainHeader, Balance&gt;&gt; {
         <span class="kw">for </span>ready_tx <span class="kw">in </span><span class="self">self</span>.transaction_pool.ready() {
             <span class="kw">let </span>ext = UncheckedExtrinsic::decode(<span class="kw-2">&amp;mut </span>ready_tx.data.encode().as_slice())
                 .expect(<span class="string">&quot;should be able to decode&quot;</span>);
             <span class="kw">if let </span>RuntimeCall::Domains(pallet_domains::Call::submit_bundle { opaque_bundle }) =
                 ext.function
             {
-                <span class="kw">if </span>opaque_bundle.header.slot_number == slot {
+                <span class="kw">if </span>opaque_bundle.sealed_header.slot_number() == slot {
                     <span class="kw">return </span><span class="prelude-val">Some</span>(opaque_bundle);
                 }
             }
@@ -1466,12 +1489,32 @@
             .<span class="kw">await
     </span>}
 
+    <span class="doccomment">/// Remove all tx from the tx pool
+    </span><span class="kw">pub async fn </span>clear_tx_pool(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;(), Box&lt;<span class="kw">dyn </span>Error&gt;&gt; {
+        <span class="kw">let </span>txs: Vec&lt;<span class="kw">_</span>&gt; = <span class="self">self
+            </span>.transaction_pool
+            .ready()
+            .map(|t| <span class="self">self</span>.transaction_pool.hash_of(<span class="kw-2">&amp;</span>t.data))
+            .collect();
+        <span class="self">self</span>.prune_txs_from_pool(txs.as_slice()).<span class="kw">await
+    </span>}
+
     <span class="doccomment">/// Remove a ready transaction from transaction pool.
-    </span><span class="kw">pub fn </span>prune_tx_from_pool(<span class="kw-2">&amp;</span><span class="self">self</span>, tx: <span class="kw-2">&amp;</span>OpaqueExtrinsic) -&gt; <span class="prelude-ty">Result</span>&lt;(), Box&lt;<span class="kw">dyn </span>Error&gt;&gt; {
-        <span class="self">self</span>.transaction_pool.pool().prune_known(
-            <span class="kw-2">&amp;</span>BlockId::Hash(<span class="self">self</span>.client.info().best_hash),
-            <span class="kw-2">&amp;</span>[<span class="self">self</span>.transaction_pool.hash_of(tx)],
-        )<span class="question-mark">?</span>;
+    </span><span class="kw">pub async fn </span>prune_tx_from_pool(<span class="kw-2">&amp;</span><span class="self">self</span>, tx: <span class="kw-2">&amp;</span>OpaqueExtrinsic) -&gt; <span class="prelude-ty">Result</span>&lt;(), Box&lt;<span class="kw">dyn </span>Error&gt;&gt; {
+        <span class="self">self</span>.prune_txs_from_pool(<span class="kw-2">&amp;</span>[<span class="self">self</span>.transaction_pool.hash_of(tx)])
+            .<span class="kw">await
+    </span>}
+
+    <span class="kw">async fn </span>prune_txs_from_pool(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        tx_hashes: <span class="kw-2">&amp;</span>[&lt;Block <span class="kw">as </span>BlockT&gt;::Hash],
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), Box&lt;<span class="kw">dyn </span>Error&gt;&gt; {
+        <span class="self">self</span>.transaction_pool
+            .pool()
+            .prune_known(<span class="kw-2">&amp;</span>BlockId::Hash(<span class="self">self</span>.client.info().best_hash), tx_hashes)<span class="question-mark">?</span>;
+        <span class="comment">// `ban_time` have set to 0, explicitly wait 1ms here to ensure `clear_stale` will remove
+        // all the bans as the ban time must be passed.
+        </span>tokio::time::sleep(time::Duration::from_millis(<span class="number">1</span>)).<span class="kw">await</span>;
         <span class="self">self</span>.transaction_pool
             .pool()
             .validated_pool()
@@ -1480,7 +1523,7 @@
     }
 }
 
-<span class="kw">impl </span>MockPrimaryNode {
+<span class="kw">impl </span>MockConsensusNode {
     <span class="kw">async fn </span>collect_txn_from_pool(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         parent_number: NumberFor&lt;Block&gt;,
@@ -1525,9 +1568,13 @@
     }
 
     <span class="kw">fn </span>mock_subspace_digest(<span class="kw-2">&amp;</span><span class="self">self</span>, slot: Slot) -&gt; Digest {
-        <span class="kw">let </span>pre_digest: PreDigest&lt;FarmerPublicKey, AccountId&gt; = PreDigest {
+        <span class="kw">let </span>pre_digest: PreDigest&lt;FarmerPublicKey, AccountId&gt; = PreDigest::V0 {
             slot,
             solution: <span class="self">self</span>.mock_solution.clone(),
+            pot_info: PreDigestPotInfo::V0 {
+                proof_of_time: Default::default(),
+                future_proof_of_time: Default::default(),
+            },
         };
         <span class="kw">let </span><span class="kw-2">mut </span>digest = Digest::default();
         digest.push(DigestItem::subspace_pre_digest(<span class="kw-2">&amp;</span>pre_digest));
@@ -1542,6 +1589,7 @@
         extrinsics: Vec&lt;&lt;Block <span class="kw">as </span>BlockT&gt;::Extrinsic&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(Block, StorageChanges), Box&lt;<span class="kw">dyn </span>Error&gt;&gt; {
         <span class="kw">let </span>digest = <span class="self">self</span>.mock_subspace_digest(slot);
+
         <span class="kw">let </span>inherent_data = <span class="self">Self</span>::mock_inherent_data(slot).<span class="kw">await</span><span class="question-mark">?</span>;
 
         <span class="kw">let </span><span class="kw-2">mut </span>block_builder = <span class="self">self</span>.client.new_block_at(parent_hash, digest, <span class="bool-val">false</span>)<span class="question-mark">?</span>;
@@ -1608,13 +1656,27 @@
             <span class="prelude-val">Some</span>(extrinsics) =&gt; extrinsics,
             <span class="prelude-val">None </span>=&gt; <span class="self">self</span>.collect_txn_from_pool(parent_number).<span class="kw">await</span>,
         };
+        <span class="kw">let </span>tx_hashes: Vec&lt;<span class="kw">_</span>&gt; = extrinsics
+            .iter()
+            .map(|t| <span class="self">self</span>.transaction_pool.hash_of(t))
+            .collect();
 
         <span class="kw">let </span>(block, storage_changes) = <span class="self">self</span>.build_block(slot, parent_hash, extrinsics).<span class="kw">await</span><span class="question-mark">?</span>;
 
         log_new_block(<span class="kw-2">&amp;</span>block, block_timer.elapsed().as_millis());
 
-        <span class="self">self</span>.import_block(block, <span class="prelude-val">Some</span>(storage_changes)).<span class="kw">await
-    </span>}
+        <span class="kw">let </span>res = <span class="kw">match </span><span class="self">self</span>.import_block(block, <span class="prelude-val">Some</span>(storage_changes)).<span class="kw">await </span>{
+            <span class="prelude-val">Ok</span>(hash) =&gt; {
+                <span class="comment">// Remove the tx of the imported block from the tx pool incase re-include them
+                // in the future block by accident.
+                </span><span class="self">self</span>.prune_txs_from_pool(tx_hashes.as_slice()).<span class="kw">await</span><span class="question-mark">?</span>;
+                <span class="prelude-val">Ok</span>(hash)
+            }
+            err =&gt; err,
+        };
+        <span class="self">self</span>.confirm_block_import_processed().<span class="kw">await</span>;
+        res
+    }
 
     <span class="doccomment">/// Produce a new block on top of the current best block, with the extrinsics collected from
     /// the transaction pool.
@@ -1667,14 +1729,13 @@
 <span class="kw">fn </span>mock_import_queue&lt;Block: BlockT, I&gt;(
     block_import: I,
     spawner: <span class="kw-2">&amp;</span><span class="kw">impl </span>SpawnEssentialNamed,
-) -&gt; BasicQueue&lt;Block, I::Transaction&gt;
+) -&gt; BasicQueue&lt;Block&gt;
 <span class="kw">where
     </span>I: BlockImport&lt;Block, Error = ConsensusError&gt; + Send + Sync + <span class="lifetime">&#39;static</span>,
-    I::Transaction: Send,
 {
     BasicQueue::new(
         MockVerifier::default(),
-        Box::new(block_import),
+        SharedBlockImport::new(block_import),
         <span class="prelude-val">None</span>,
         spawner,
         <span class="prelude-val">None</span>,
@@ -1699,9 +1760,9 @@
     </span>Block: BlockT,
 {
     <span class="kw">async fn </span>verify(
-        <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-        block_params: BlockImportParams&lt;Block, ()&gt;,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;BlockImportParams&lt;Block, ()&gt;, String&gt; {
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        block_params: BlockImportParams&lt;Block&gt;,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;BlockImportParams&lt;Block&gt;, String&gt; {
         <span class="prelude-val">Ok</span>(block_params)
     }
 }
@@ -1709,19 +1770,17 @@
 <span class="comment">// `MockBlockImport` is mostly port from `sc-consensus-subspace::SubspaceBlockImport` with all
 // the consensus related logic removed.
 </span><span class="attr">#[allow(clippy::type_complexity)]
-</span><span class="kw">struct </span>MockBlockImport&lt;Inner, Client, Block: BlockT&gt; {
-    inner: Inner,
+</span><span class="kw">struct </span>MockBlockImport&lt;Client, Block: BlockT&gt; {
+    inner: Arc&lt;Client&gt;,
     block_importing_notification_subscribers:
         Arc&lt;Mutex&lt;Vec&lt;TracingUnboundedSender&lt;(NumberFor&lt;Block&gt;, mpsc::Sender&lt;()&gt;)&gt;&gt;&gt;&gt;,
-    _phantom_data: PhantomData&lt;Client&gt;,
 }
 
-<span class="kw">impl</span>&lt;Inner, Client, Block: BlockT&gt; MockBlockImport&lt;Inner, Client, Block&gt; {
-    <span class="kw">fn </span>new(inner: Inner) -&gt; <span class="self">Self </span>{
+<span class="kw">impl</span>&lt;Client, Block: BlockT&gt; MockBlockImport&lt;Client, Block&gt; {
+    <span class="kw">fn </span>new(inner: Arc&lt;Client&gt;) -&gt; <span class="self">Self </span>{
         MockBlockImport {
             inner,
             block_importing_notification_subscribers: Arc::new(Mutex::new(Vec::new())),
-            _phantom_data: Default::default(),
         }
     }
 
@@ -1737,40 +1796,34 @@
     }
 }
 
-<span class="kw">impl</span>&lt;Inner: Clone, Client, Block: BlockT&gt; MockBlockImport&lt;Inner, Client, Block&gt; {
+<span class="kw">impl</span>&lt;Client, Block: BlockT&gt; MockBlockImport&lt;Client, Block&gt; {
     <span class="kw">fn </span>clone(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
         MockBlockImport {
             inner: <span class="self">self</span>.inner.clone(),
             block_importing_notification_subscribers: <span class="self">self
                 </span>.block_importing_notification_subscribers
                 .clone(),
-            _phantom_data: Default::default(),
         }
     }
 }
 
 <span class="attr">#[async_trait::async_trait]
-</span><span class="kw">impl</span>&lt;Inner, Client, Block&gt; BlockImport&lt;Block&gt; <span class="kw">for </span>MockBlockImport&lt;Inner, Client, Block&gt;
+</span><span class="kw">impl</span>&lt;Client, Block&gt; BlockImport&lt;Block&gt; <span class="kw">for </span>MockBlockImport&lt;Client, Block&gt;
 <span class="kw">where
     </span>Block: BlockT,
-    Inner: BlockImport&lt;Block, Transaction = TransactionFor&lt;Client, Block&gt;, Error = ConsensusError&gt;
-        + Send
-        + Sync,
-    Inner::Error: Into&lt;ConsensusError&gt;,
+    <span class="kw">for</span>&lt;<span class="lifetime">&#39;r</span>&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;r </span>Client: BlockImport&lt;Block, Error = ConsensusError&gt; + Send + Sync,
     Client: ProvideRuntimeApi&lt;Block&gt; + HeaderBackend&lt;Block&gt; + Send + Sync + <span class="lifetime">&#39;static</span>,
     Client::Api: ApiExt&lt;Block&gt;,
 {
     <span class="kw">type </span>Error = ConsensusError;
-    <span class="kw">type </span>Transaction = TransactionFor&lt;Client, Block&gt;;
 
     <span class="kw">async fn </span>import_block(
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-        <span class="kw-2">mut </span>block: BlockImportParams&lt;Block, <span class="self">Self</span>::Transaction&gt;,
+        <span class="kw-2">mut </span>block: BlockImportParams&lt;Block&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;ImportResult, <span class="self">Self</span>::Error&gt; {
         <span class="kw">let </span>block_number = <span class="kw-2">*</span>block.header.number();
         block.fork_choice = <span class="prelude-val">Some</span>(ForkChoiceStrategy::LongestChain);
 
-        <span class="kw">let </span>import_result = <span class="self">self</span>.inner.import_block(block).<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let </span>(acknowledgement_sender, <span class="kw-2">mut </span>acknowledgement_receiver) = mpsc::channel(<span class="number">0</span>);
 
         <span class="comment">// Must drop `block_import_acknowledgement_sender` after the notification otherwise the receiver
@@ -1779,39 +1832,18 @@
             <span class="kw">let </span>value = (block_number, acknowledgement_sender);
             <span class="self">self</span>.block_importing_notification_subscribers
                 .lock()
-                .retain(|subscriber| {
-                    <span class="comment">// It is necessary to notify the subscriber twice for each importing block in the test to ensure
-                    // the imported block must be fully processed by the executor when all acknowledgements responded.
-                    // This is because the `futures::channel::mpsc::channel` used in the executor have 1 slot even the
-                    // `primary_block_import_throttling_buffer_size` is set to 0 in the test, notify one more time can
-                    // ensure the previously sent `block_imported` notification must be fully processed by the executor
-                    // when the second acknowledgements responded.
-                    // Please see https://github.com/subspace/subspace/pull/1363#discussion_r1162571291 for more details.
-                    </span>subscriber
-                        .unbounded_send(value.clone())
-                        .and_then(|<span class="kw">_</span>| subscriber.unbounded_send(value.clone()))
-                        .is_ok()
-                });
+                .retain(|subscriber| subscriber.unbounded_send(value.clone()).is_ok());
         }
 
-        <span class="comment">// Wait for all the acknowledgements to progress and proactively drop closed subscribers.
-        </span><span class="kw">loop </span>{
-            <span class="macro">select! </span>{
-                res = acknowledgement_receiver.next() =&gt; <span class="kw">if </span>res.is_none() {
-                    <span class="kw">break</span>;
-                },
-                <span class="comment">// TODO: Workaround for https://github.com/smol-rs/async-channel/issues/23, remove once fix is released
-                </span><span class="kw">_ </span>= futures_timer::Delay::new(time::Duration::from_millis(<span class="number">500</span>)).fuse() =&gt; {
-                    <span class="self">self</span>.block_importing_notification_subscribers.lock().retain(|subscriber| !subscriber.is_closed());
-                }
-            }
-        }
+        <span class="kw">while </span>acknowledgement_receiver.next().<span class="kw">await</span>.is_some() {
+            <span class="comment">// Wait for all the acknowledgements to finish.
+        </span>}
 
-        <span class="prelude-val">Ok</span>(import_result)
-    }
+        <span class="self">self</span>.inner.import_block(block).<span class="kw">await
+    </span>}
 
     <span class="kw">async fn </span>check_block(
-        <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
         block: BlockCheckParams&lt;Block&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;ImportResult, <span class="self">Self</span>::Error&gt; {
         <span class="self">self</span>.inner.check_block(block).<span class="kw">await</span>.map_err(Into::into)
@@ -1821,16 +1853,19 @@
 <span class="doccomment">/// Produce the given number of blocks for both the primary node and the domain nodes
 </span><span class="attr">#[macro_export]
 </span><span class="macro">macro_rules! </span>produce_blocks {
-    (<span class="macro-nonterminal">$primary_node</span>:ident, $(<span class="macro-nonterminal">$domain_node</span>:ident),+, <span class="macro-nonterminal">$count</span>: literal) =&gt; {
-        <span class="kw">async </span>{
-            <span class="kw">let </span>domain_fut = {
-                <span class="kw">let </span><span class="kw-2">mut </span>futs: Vec&lt;std::pin::Pin&lt;Box&lt;<span class="kw">dyn </span>futures::Future&lt;Output = ()&gt;&gt;&gt;&gt; = Vec::new();
-                $( futs.push( Box::pin( <span class="macro-nonterminal">$domain_node</span>.wait_for_blocks(<span class="macro-nonterminal">$count</span>) ) ); )+
-                futures::future::join_all(futs)
-            };
-            <span class="macro-nonterminal">$primary_node</span>.produce_blocks(<span class="macro-nonterminal">$count</span>).<span class="kw">await</span><span class="question-mark">?</span>;
-            domain_fut.<span class="kw">await</span>;
-            <span class="prelude-val">Ok</span>::&lt;(), Box&lt;<span class="kw">dyn </span>std::error::Error&gt;&gt;(())
+    (<span class="macro-nonterminal">$primary_node</span>:ident, <span class="macro-nonterminal">$operator_node</span>:ident, <span class="macro-nonterminal">$count</span>: literal $(, <span class="macro-nonterminal">$domain_node</span>:ident)<span class="kw-2">*</span>) =&gt; {
+        {
+            <span class="kw">async </span>{
+                <span class="kw">let </span>domain_fut = {
+                    <span class="kw">let </span><span class="kw-2">mut </span>futs: Vec&lt;std::pin::Pin&lt;Box&lt;<span class="kw">dyn </span>futures::Future&lt;Output = ()&gt;&gt;&gt;&gt; = Vec::new();
+                    futs.push(Box::pin(<span class="macro-nonterminal">$operator_node</span>.wait_for_blocks(<span class="macro-nonterminal">$count</span>)));
+                    $( futs.push( Box::pin( <span class="macro-nonterminal">$domain_node</span>.wait_for_blocks(<span class="macro-nonterminal">$count</span>) ) ); )*
+                    futures::future::join_all(futs)
+                };
+                <span class="macro-nonterminal">$primary_node</span>.produce_blocks(<span class="macro-nonterminal">$count</span>).<span class="kw">await</span><span class="question-mark">?</span>;
+                domain_fut.<span class="kw">await</span>;
+                <span class="prelude-val">Ok</span>::&lt;(), Box&lt;<span class="kw">dyn </span>std::error::Error&gt;&gt;(())
+            }
         }
     };
 }
@@ -1839,16 +1874,19 @@
 /// use the `produce_block_with_xxx` function (i.e. `produce_block_with_slot`) to produce block
 </span><span class="attr">#[macro_export]
 </span><span class="macro">macro_rules! </span>produce_block_with {
-    (<span class="macro-nonterminal">$primary_node_produce_block</span>:expr, $(<span class="macro-nonterminal">$domain_node</span>:ident),+) =&gt; {
-        <span class="kw">async </span>{
-            <span class="kw">let </span>domain_fut = {
-                <span class="kw">let </span><span class="kw-2">mut </span>futs: Vec&lt;std::pin::Pin&lt;Box&lt;<span class="kw">dyn </span>futures::Future&lt;Output = ()&gt;&gt;&gt;&gt; = Vec::new();
-                $( futs.push( Box::pin( <span class="macro-nonterminal">$domain_node</span>.wait_for_blocks(<span class="number">1</span>) ) ); )+
-                futures::future::join_all(futs)
-            };
-            <span class="macro-nonterminal">$primary_node_produce_block</span>.<span class="kw">await</span><span class="question-mark">?</span>;
-            domain_fut.<span class="kw">await</span>;
-            <span class="prelude-val">Ok</span>::&lt;(), Box&lt;<span class="kw">dyn </span>std::error::Error&gt;&gt;(())
+    (<span class="macro-nonterminal">$primary_node_produce_block</span>:expr, <span class="macro-nonterminal">$operator_node</span>:ident $(, <span class="macro-nonterminal">$domain_node</span>:ident)<span class="kw-2">*</span>) =&gt; {
+        {
+            <span class="kw">async </span>{
+                <span class="kw">let </span>domain_fut = {
+                    <span class="kw">let </span><span class="kw-2">mut </span>futs: Vec&lt;std::pin::Pin&lt;Box&lt;<span class="kw">dyn </span>futures::Future&lt;Output = ()&gt;&gt;&gt;&gt; = Vec::new();
+                    futs.push(Box::pin(<span class="macro-nonterminal">$operator_node</span>.wait_for_blocks(<span class="number">1</span>)));
+                    $( futs.push( Box::pin( <span class="macro-nonterminal">$domain_node</span>.wait_for_blocks(<span class="number">1</span>) ) ); )*
+                    futures::future::join_all(futs)
+                };
+                <span class="macro-nonterminal">$primary_node_produce_block</span>.<span class="kw">await</span><span class="question-mark">?</span>;
+                domain_fut.<span class="kw">await</span>;
+                <span class="prelude-val">Ok</span>::&lt;(), Box&lt;<span class="kw">dyn </span>std::error::Error&gt;&gt;(())
+            }
         }
     };
 }
@@ -1856,10 +1894,10 @@
 <span class="doccomment">/// Keep producing block with a fixed interval until the given condition become `true`
 </span><span class="attr">#[macro_export]
 </span><span class="macro">macro_rules! </span>produce_blocks_until {
-    (<span class="macro-nonterminal">$primary_node</span>:ident, $(<span class="macro-nonterminal">$domain_node</span>:ident),+, <span class="macro-nonterminal">$condition</span>: block) =&gt; {
+    (<span class="macro-nonterminal">$primary_node</span>:ident, <span class="macro-nonterminal">$operator_node</span>:ident, <span class="macro-nonterminal">$condition</span>: block $(, <span class="macro-nonterminal">$domain_node</span>:ident)<span class="kw-2">*</span>) =&gt; {
         <span class="kw">async </span>{
             <span class="kw">while </span>!<span class="macro-nonterminal">$condition </span>{
-                <span class="macro">produce_blocks!</span>(<span class="macro-nonterminal">$primary_node</span>, $(<span class="macro-nonterminal">$domain_node</span>),+, <span class="number">1</span>).<span class="kw">await</span><span class="question-mark">?</span>;
+                <span class="macro">produce_blocks!</span>(<span class="macro-nonterminal">$primary_node</span>, <span class="macro-nonterminal">$operator_node</span>, <span class="number">1 </span>$(, <span class="macro-nonterminal">$domain_node</span>),<span class="kw-2">*</span>).<span class="kw">await</span><span class="question-mark">?</span>;
                 tokio::time::sleep(std::time::Duration::from_millis(<span class="number">10</span>)).<span class="kw">await</span>;
             }
             <span class="prelude-val">Ok</span>::&lt;(), Box&lt;<span class="kw">dyn </span>std::error::Error&gt;&gt;(())

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `test/subspace-test-client/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_test_client" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0-nightly (ce5919fce 2023-05-15)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-6f6ffb5395b17c6e.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../subspace_test_client/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `test/subspace-test-client/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-deb46770fd761b69.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_test_client" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (42b1224e9 2023-10-15)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-5f34af1a0ee6bacd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -254,6 +254,22 @@
 <a href="#254" id="254">254</a>
 <a href="#255" id="255">255</a>
 <a href="#256" id="256">256</a>
+<a href="#257" id="257">257</a>
+<a href="#258" id="258">258</a>
+<a href="#259" id="259">259</a>
+<a href="#260" id="260">260</a>
+<a href="#261" id="261">261</a>
+<a href="#262" id="262">262</a>
+<a href="#263" id="263">263</a>
+<a href="#264" id="264">264</a>
+<a href="#265" id="265">265</a>
+<a href="#266" id="266">266</a>
+<a href="#267" id="267">267</a>
+<a href="#268" id="268">268</a>
+<a href="#269" id="269">269</a>
+<a href="#270" id="270">270</a>
+<a href="#271" id="271">271</a>
+<a href="#272" id="272">272</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -275,31 +291,33 @@
 </span><span class="attr">#![warn(missing_docs, unused_crate_dependencies)]
 
 </span><span class="kw">pub mod </span>chain_spec;
+<span class="kw">pub mod </span>domain_chain_spec;
 
 <span class="kw">use </span>futures::executor::block_on;
 <span class="kw">use </span>futures::StreamExt;
 <span class="kw">use </span>sc_client_api::{BlockBackend, HeaderBackend};
+<span class="kw">use </span>sc_consensus_subspace::archiver::encode_block;
 <span class="kw">use </span>sc_consensus_subspace::notification::SubspaceNotificationStream;
 <span class="kw">use </span>sc_consensus_subspace::{NewSlotNotification, RewardSigningNotification};
 <span class="kw">use </span>sp_api::ProvideRuntimeApi;
 <span class="kw">use </span>sp_consensus_subspace::{FarmerPublicKey, FarmerSignature, SubspaceApi};
 <span class="kw">use </span>sp_core::{Decode, Encode};
-<span class="kw">use </span>std::num::NonZeroUsize;
+<span class="kw">use </span>std::num::{NonZeroU64, NonZeroUsize};
 <span class="kw">use </span>std::sync::Arc;
 <span class="kw">use </span>subspace_core_primitives::crypto::kzg::{embedded_kzg_settings, Kzg};
 <span class="kw">use </span>subspace_core_primitives::objects::BlockObjectMapping;
-<span class="kw">use </span>subspace_core_primitives::{HistorySize, PublicKey, Record, SegmentIndex, Solution};
+<span class="kw">use </span>subspace_core_primitives::{
+    HistorySize, PosSeed, PublicKey, Record, SegmentIndex, Solution, REWARD_SIGNING_CONTEXT,
+};
 <span class="kw">use </span>subspace_erasure_coding::ErasureCoding;
-<span class="kw">use </span>subspace_farmer_components::auditing::audit_sector;
-<span class="kw">use </span>subspace_farmer_components::plotting::{plot_sector, PieceGetterRetryPolicy, PlottedSector};
-<span class="kw">use </span>subspace_farmer_components::sector::{sector_size, SectorMetadata};
+<span class="kw">use </span>subspace_farmer_components::auditing::audit_sector_sync;
+<span class="kw">use </span>subspace_farmer_components::plotting::{
+    plot_sector, PieceGetterRetryPolicy, PlotSectorOptions, PlottedSector,
+};
 <span class="kw">use </span>subspace_farmer_components::FarmerProtocolInfo;
-<span class="kw">use </span>subspace_proof_of_space::Table;
+<span class="kw">use </span>subspace_proof_of_space::{Table, TableGenerator};
 <span class="kw">use </span>subspace_runtime_primitives::opaque::Block;
-<span class="kw">use </span>subspace_service::tx_pre_validator::PrimaryChainTxPreValidator;
 <span class="kw">use </span>subspace_service::{FullClient, NewFull};
-<span class="kw">use </span>subspace_solving::REWARD_SIGNING_CONTEXT;
-<span class="kw">use </span>subspace_transaction_pool::bundle_validator::BundleValidator;
 <span class="kw">use </span>zeroize::Zeroizing;
 
 <span class="comment">// Smaller value for testing purposes
@@ -309,8 +327,10 @@
 </span><span class="kw">pub struct </span>TestExecutorDispatch;
 
 <span class="kw">impl </span>sc_executor::NativeExecutionDispatch <span class="kw">for </span>TestExecutorDispatch {
-    <span class="doccomment">/// Otherwise we only use the default Substrate host functions.
-    </span><span class="kw">type </span>ExtendHostFunctions = sp_consensus_subspace::consensus::HostFunctions;
+    <span class="kw">type </span>ExtendHostFunctions = (
+        sp_consensus_subspace::consensus::HostFunctions,
+        sp_domains_fraud_proof::HostFunctions,
+    );
 
     <span class="kw">fn </span>dispatch(method: <span class="kw-2">&amp;</span>str, data: <span class="kw-2">&amp;</span>[u8]) -&gt; <span class="prelude-ty">Option</span>&lt;Vec&lt;u8&gt;&gt; {
         subspace_test_runtime::api::dispatch(method, data)
@@ -327,15 +347,8 @@
 <span class="doccomment">/// The backend type being used by the test service.
 </span><span class="kw">pub type </span>Backend = sc_service::TFullBackend&lt;Block&gt;;
 
-<span class="doccomment">/// The fraud proof verifier being used the test service.
-</span><span class="kw">pub type </span>FraudProofVerifier =
-    subspace_service::FraudProofVerifier&lt;subspace_test_runtime::RuntimeApi, TestExecutorDispatch&gt;;
-
-<span class="kw">type </span>TxPreValidator =
-    PrimaryChainTxPreValidator&lt;Block, Client, FraudProofVerifier, BundleValidator&lt;Block, Client&gt;&gt;;
-
 <span class="doccomment">/// Run a farmer.
-</span><span class="kw">pub fn </span>start_farmer&lt;PosTable&gt;(new_full: <span class="kw-2">&amp;</span>NewFull&lt;Client, TxPreValidator&gt;)
+</span><span class="kw">pub fn </span>start_farmer&lt;PosTable&gt;(new_full: <span class="kw-2">&amp;</span>NewFull&lt;Client&gt;)
 <span class="kw">where
     </span>PosTable: Table,
 {
@@ -400,51 +413,60 @@
 
     <span class="kw">let </span>kzg = Kzg::new(embedded_kzg_settings());
     <span class="kw">let </span>erasure_coding = ErasureCoding::new(
-        NonZeroUsize::new(Record::NUM_S_BUCKETS.next_power_of_two().ilog2() <span class="kw">as </span>usize).unwrap(),
+        NonZeroUsize::new(Record::NUM_S_BUCKETS.next_power_of_two().ilog2() <span class="kw">as </span>usize)
+            .expect(<span class="string">&quot;Not zero; qed&quot;</span>),
     )
     .unwrap();
+
+    <span class="kw">let </span>table_generator = PosTable::generator();
 
     std::thread::spawn({
         <span class="kw">let </span>keypair = keypair.clone();
         <span class="kw">let </span>erasure_coding = erasure_coding.clone();
 
         <span class="kw">move </span>|| {
-            <span class="kw">let </span>(sector, sector_metadata) = block_on(plot_one_segment::&lt;PosTable, <span class="kw">_</span>&gt;(
-                client.as_ref(),
-                <span class="kw-2">&amp;</span>keypair,
-                MAX_PIECES_IN_SECTOR,
-                <span class="kw-2">&amp;</span>erasure_coding,
-            ));
+            <span class="kw">let </span>(sector, sector_metadata, table_generator) =
+                block_on(plot_one_segment::&lt;PosTable, <span class="kw">_</span>&gt;(
+                    client.as_ref(),
+                    <span class="kw-2">&amp;</span>keypair,
+                    MAX_PIECES_IN_SECTOR,
+                    <span class="kw-2">&amp;</span>erasure_coding,
+                    table_generator,
+                ));
             plotting_result_sender
-                .send((sector, sector_metadata))
+                .send((sector, sector_metadata, table_generator))
                 .unwrap();
         }
     });
 
-    <span class="kw">let </span>(sector, plotted_sector) = plotting_result_receiver.<span class="kw">await</span>.unwrap();
-    <span class="kw">let </span>sector_index = <span class="number">0</span>;
+    <span class="kw">let </span>(sector, plotted_sector, <span class="kw-2">mut </span>table_generator) = plotting_result_receiver.<span class="kw">await</span>.unwrap();
     <span class="kw">let </span>public_key = PublicKey::from(keypair.public.to_bytes());
 
     <span class="kw">let </span><span class="kw-2">mut </span>new_slot_notification_stream = new_slot_notification_stream.subscribe();
 
     <span class="kw">while let </span><span class="prelude-val">Some</span>(NewSlotNotification {
         new_slot_info,
-        solution_sender,
+        <span class="kw-2">mut </span>solution_sender,
     }) = new_slot_notification_stream.next().<span class="kw">await
     </span>{
         <span class="kw">if </span>u64::from(new_slot_info.slot) % <span class="number">2 </span>== <span class="number">0 </span>{
-            <span class="kw">let </span>solution_candidates = audit_sector(
+            <span class="kw">let </span>global_challenge = new_slot_info
+                .global_randomness
+                .derive_global_challenge(new_slot_info.slot.into());
+            <span class="kw">let </span>audit_result = audit_sector_sync(
                 <span class="kw-2">&amp;</span>public_key,
-                sector_index,
-                <span class="kw-2">&amp;</span>new_slot_info.global_challenge,
+                <span class="kw-2">&amp;</span>global_challenge,
                 new_slot_info.solution_range,
                 <span class="kw-2">&amp;</span>sector,
                 <span class="kw-2">&amp;</span>plotted_sector.sector_metadata,
-            )
-            .expect(<span class="string">&quot;With max solution range there must be a sector eligible; qed&quot;</span>);
+            );
 
-            <span class="kw">let </span>solution = solution_candidates
-                .into_iter::&lt;<span class="kw">_</span>, PosTable&gt;(<span class="kw-2">&amp;</span>public_key, <span class="kw-2">&amp;</span>kzg, <span class="kw-2">&amp;</span>erasure_coding)
+            <span class="kw">let </span>solution = audit_result
+                .unwrap()
+                .solution_candidates
+                .into_solutions(<span class="kw-2">&amp;</span>public_key, <span class="kw-2">&amp;</span>kzg, <span class="kw-2">&amp;</span>erasure_coding, |seed: <span class="kw-2">&amp;</span>PosSeed| {
+                    table_generator.generate_parallel(seed)
+                })
                 .unwrap()
                 .next()
                 .expect(<span class="string">&quot;With max solution range there must be a solution; qed&quot;</span>)
@@ -454,7 +476,7 @@
                 <span class="kw-2">&amp;mut </span>solution.encode().as_slice(),
             )
             .unwrap();
-            <span class="kw">let _ </span>= solution_sender.unbounded_send(solution);
+            <span class="kw">let _ </span>= solution_sender.try_send(solution);
         }
     }
 }
@@ -464,7 +486,8 @@
     keypair: <span class="kw-2">&amp;</span>schnorrkel::Keypair,
     pieces_in_sector: u16,
     erasure_coding: <span class="kw-2">&amp;</span>ErasureCoding,
-) -&gt; (Vec&lt;u8&gt;, PlottedSector)
+    <span class="kw-2">mut </span>table_generator: PosTable::Generator,
+) -&gt; (Vec&lt;u8&gt;, PlottedSector, PosTable::Generator)
 <span class="kw">where
     </span>PosTable: Table,
     Client: BlockBackend&lt;Block&gt; + HeaderBackend&lt;Block&gt;,
@@ -475,39 +498,48 @@
 
     <span class="kw">let </span>genesis_block = client.block(client.info().genesis_hash).unwrap().unwrap();
     <span class="kw">let </span>archived_segment = archiver
-        .add_block(genesis_block.encode(), BlockObjectMapping::default())
+        .add_block(
+            encode_block(genesis_block),
+            BlockObjectMapping::default(),
+            <span class="bool-val">true</span>,
+        )
         .into_iter()
         .next()
         .expect(<span class="string">&quot;First block is always producing one segment; qed&quot;</span>);
     <span class="kw">let </span>history_size = HistorySize::from(SegmentIndex::ZERO);
-    <span class="kw">let </span><span class="kw-2">mut </span>sector = <span class="macro">vec!</span>[<span class="number">0u8</span>; sector_size(pieces_in_sector)];
-    <span class="kw">let </span><span class="kw-2">mut </span>sector_metadata = <span class="macro">vec!</span>[<span class="number">0u8</span>; SectorMetadata::encoded_size()];
-    <span class="kw">let </span>sector_offset = <span class="number">0</span>;
+    <span class="kw">let </span><span class="kw-2">mut </span>sector = Vec::new();
+    <span class="kw">let </span><span class="kw-2">mut </span>sector_metadata = Vec::new();
     <span class="kw">let </span>sector_index = <span class="number">0</span>;
     <span class="kw">let </span>public_key = PublicKey::from(keypair.public.to_bytes());
     <span class="kw">let </span>farmer_protocol_info = FarmerProtocolInfo {
         history_size,
         max_pieces_in_sector: pieces_in_sector,
-        sector_expiration: SegmentIndex::from(<span class="number">100</span>),
+        recent_segments: HistorySize::from(NonZeroU64::new(<span class="number">5</span>).unwrap()),
+        recent_history_fraction: (
+            HistorySize::from(NonZeroU64::new(<span class="number">1</span>).unwrap()),
+            HistorySize::from(NonZeroU64::new(<span class="number">10</span>).unwrap()),
+        ),
+        min_sector_lifetime: HistorySize::from(NonZeroU64::new(<span class="number">4</span>).unwrap()),
     };
 
-    <span class="kw">let </span>plotted_sector = plot_sector::&lt;<span class="kw">_</span>, PosTable&gt;(
-        <span class="kw-2">&amp;</span>public_key,
-        sector_offset,
+    <span class="kw">let </span>plotted_sector = plot_sector::&lt;PosTable, <span class="kw">_</span>&gt;(PlotSectorOptions {
+        public_key: <span class="kw-2">&amp;</span>public_key,
         sector_index,
-        <span class="kw-2">&amp;</span>archived_segment.pieces,
-        PieceGetterRetryPolicy::default(),
-        <span class="kw-2">&amp;</span>farmer_protocol_info,
-        <span class="kw-2">&amp;</span>kzg,
+        piece_getter: <span class="kw-2">&amp;</span>archived_segment.pieces,
+        piece_getter_retry_policy: PieceGetterRetryPolicy::default(),
+        farmer_protocol_info,
+        kzg: <span class="kw-2">&amp;</span>kzg,
         erasure_coding,
         pieces_in_sector,
-        <span class="kw-2">&amp;mut </span>sector,
-        <span class="kw-2">&amp;mut </span>sector_metadata,
-        Default::default(),
-    )
+        sector_output: <span class="kw-2">&amp;mut </span>sector,
+        sector_metadata_output: <span class="kw-2">&amp;mut </span>sector_metadata,
+        downloading_semaphore: <span class="prelude-val">None</span>,
+        encoding_semaphore: <span class="prelude-val">None</span>,
+        table_generator: <span class="kw-2">&amp;mut </span>table_generator,
+    })
     .<span class="kw">await
     </span>.expect(<span class="string">&quot;Plotting one sector in memory must not fail&quot;</span>);
 
-    (sector, plotted_sector)
+    (sector, plotted_sector, table_generator)
 }
 </code></pre></div></section></main></body></html>
